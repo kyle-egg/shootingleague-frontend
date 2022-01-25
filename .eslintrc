@@ -15,14 +15,6 @@
     "plugin:react/recommended",
     "plugin:react-hooks/recommended"
   ],
-  "parser": "babel-eslint",
-  "parserOptions": {
-    "sourceType": "module",
-    "ecmaVersion": 7,
-    "ecmaFeatures": {
-      "jsx": true
-    }
-  },
   "rules": {
     "brace-style": "error",
     "camelcase": [
