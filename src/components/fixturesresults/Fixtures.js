@@ -16,7 +16,7 @@ function Fixtures() {
 
   console.log(fixtures)
 
-  //* SORT FIXTURE BY DATE THEN LEAGUE
+  //* SORT FIXTURE BY DATE THEN BY MATCH I.D
   if (fixtures) {
   fixtures.sort(function(a, b) {
     const dateA = new Date(a.date), dateB = new Date(b.date)

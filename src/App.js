@@ -4,10 +4,9 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home from './components/common/Home.js'
 import NavBar from './components/common/NavBar.js'
 import About from './components/common/About.js'
-import News from './components/common/News.js'
 import Fixtures from './components/fixturesresults/Fixtures.js'
 import Results from './components/fixturesresults/Results.js'
-import Policies from './components/common/Policies.js'
+import CodeOfConduct from './components/common/CodeOfConduct.js'
 import TeamProfile from './components/teams/TeamProfile.js'
 import Teams from './components/teams/Teams.js'
 import Archive from './components/common/Archive.js'
@@ -23,10 +22,9 @@ function App() {
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
-          <Route path="/news" element={<News />} />
           <Route path="/fixtures" element={<Fixtures />} />
           <Route path="/results"  element={<Results />} />
-          <Route path="/policies"  element={<Policies />} />
+          <Route path="/CodeOfConduct"  element={<CodeOfConduct />} />
           <Route path="/teams/:teamId" element={<TeamProfile />} />
           <Route path="/teams" element={<Teams/>} />
           <Route path="/archive" element={<Archive />} />
