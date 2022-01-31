@@ -1,18 +1,21 @@
+import Pdf from '../../assets/documents/JSSA-Code-Of-Conduct.pdf'
+
 
 function CodeOfConduct() {
 
   return (
-    <div class="uk-section">
-    <div class="uk-container">
-      <article class="uk-article">
-        <h1 class="uk-article-title">
-        <a href="/assets/documents/JSSA-Code-Of-Conduct.pdf" download>Jersey Small-Bore Shooting Association (JSSA) <br></br> 
+    <div className="uk-section">
+    <div className="uk-container">
+      <article className="uk-article">
+        <h1 className="uk-article-title">
+        <a href= {Pdf}>Jersey Small-Bore Shooting Association (JSSA) <br></br> 
           Code of Conduct and Complaints policy</a>
+          <span class="uk-margin-small-right" uk-icon="file-pdf"></span>
         </h1>
         <h3>Codes of Conduct - Coaches</h3>
         <p>Essentially, they set out rules which we follow to ensure the safety and security of everyone involved with the Association. The essence of good ethical conduct and practice is summarised below.</p>
         <h5><strong>All volunteers will:</strong></h5>
-        <ul class="uk-list uk-list-bullet">
+        <ul className="uk-list uk-list-bullet">
           <li>The JSSA regard the safeguarding of all juniors and any adults at risk as an absolute priority.</li>
           <li>Consider the well-being and safety of participants before the development of performance</li>
           <li>Develop an appropriate working relationship with participants, based on mutual trust and respect</li>
@@ -29,7 +32,7 @@ function CodeOfConduct() {
         </ul>
         <h3>Codes of Conduct - Shooters</h3>
         <h5><strong>As a responsible shooter you will:</strong></h5>
-        <ul class="uk-list uk-list-bullet">
+        <ul className="uk-list uk-list-bullet">
           <li>Respect the rights, dignity and worth of every shooter, coach, technical official and others involved in shooting and treat everyone equally.</li>
           <li>Uphold the same values of sportsmanship and courtesy while on the range as you would in your outside life when off the range.</li>
           <li>Cooperate fully with others involved in the sport such as coaches, technical officials, team managers, doctors, physiotherapists, sport scientists and representatives of the governing body in your own best interests and that of other shooters.</li>
@@ -39,7 +42,7 @@ function CodeOfConduct() {
           <li>Show appropriate courtesy towards coaches and officials involved in your personal development as a shooter and in running the club.</li>
         </ul>
         <h5><strong>As a responsible shooter, when participating in or attending any shooting activities, including training/coaching sessions and competition events you will:</strong></h5>
-        <ul class="uk-list uk-list-bullet">
+        <ul className="uk-list uk-list-bullet">
           <li>Act with dignity and display courtesy and good manners towards others.</li>
           <li>Avoid swearing and abusive language and irresponsible behaviour including behaviour that is dangerous to yourself or others, acts of violence, bullying, harassment and physical and sexual abuse.</li>
           <li>Challenge inappropriate behaviour and language by others and report the inappropriate behaviour to club officials.</li>
@@ -49,7 +52,7 @@ function CodeOfConduct() {
           <li>Do not carry any items that could be dangerous to yourself or others excluding shooting equipment used during your shooting activity.</li>
         </ul>
         <h5><strong>In addition, shooters, especially young athletes and vulnerable adults, should follow these guidelines on safe participation in athletics:</strong></h5>
-        <ul class="uk-list uk-list-bullet">
+        <ul className="uk-list uk-list-bullet">
           <li>Notify a responsible adult if you must go somewhere (why, where and when you will return).</li>
           <li>Do not respond if someone seeks private information unrelated to shooting such as personal information, home life information.</li>
           <li>Strictly maintain appropriate boundaries between friendship with a coach or technical official.</li>
@@ -64,7 +67,7 @@ function CodeOfConduct() {
         </p>
         <h3>Code of Conduct for Children and Young People</h3>
         <h5><strong>The Essentials</strong></h5>
-        <ul class="uk-list uk-list-bullet">
+        <ul className="uk-list uk-list-bullet">
           <li>Keep yourself safe by listening to your coach or trainer, behaving responsibly and speak out when something isn't right.</li>
           <li>When you are with us, stay in the places where you're supposed to, don't wander off or leave without telling a member of the club.</li>
           <li>Take care of our equipment and premises as if they were your own.</li>
@@ -73,7 +76,7 @@ function CodeOfConduct() {
           <li>Do Not smoke or consume alcohol on our premises or during practices, competitions, or when representing us.</li>
         </ul>
         <h5><strong>Behavior</strong></h5>
-        <ul class="uk-list uk-list-bullet">
+        <ul className="uk-list uk-list-bullet">
           <li>Respect and celebrate difference in your club or activity and do not discriminate against anyone else on the grounds of gender, race or sexual orientation or ability.</li>
           <li>Report any incidents of bullying, including homophobia and transphobia to a member of the club, even if you're just a witness.</li>
           <li>Treat young people with respect and appreciate that everyone has different levels of skill and talent.</li>
@@ -86,7 +89,7 @@ function CodeOfConduct() {
           <li>Get involved in club or activity decisions, it's your sport too.</li>
         </ul>
         <h5><strong>As a young Person taking part in shooting, we understand you have a right to:</strong></h5>
-        <ul class="uk-list uk-list-bullet">
+        <ul className="uk-list uk-list-bullet">
           <li>Enjoy the time you spend with us and know that you are safe.</li>
           <li>Be told who you can talk to if something is not right.</li>
           <li>Be listened to.</li>
@@ -105,31 +108,31 @@ function CodeOfConduct() {
         <p>If the complaint relates to technical matters, it will be addressed by the JSSA Appeals Committee under its existing rules for the conduct of competitions.</p>
         <p>All other complaints will follow the procedure set out below:</p>
         <h5><strong>Stage 1 - An Informal Complaint</strong></h5>
-        <ul class="uk-list uk-list-bullet">
+        <ul className="uk-list uk-list-bullet">
           <li>Contact the club first to discuss your concerns with a relevant committee member or club coach. Most problems can be dealt with successfully and promptly at this stage.</li>
           <li>The matter will be reported to the club secretary who will record the nature of the complaint.</li> 
         </ul>
         <h5><strong>Stage 2 - Local Club Escalation</strong></h5>
-        <ul class="uk-list uk-list-bullet">
+        <ul className="uk-list uk-list-bullet">
           <li>To pursue a complaint at this stage you should take your complaint to the President of the club. If the President is unable to deal with the complaint straightaway, he/she will tell you what action will be taken.</li>
           <li>The President will tell you when and who within the club will report back to you.</li>
           <li>If your complaint is about a club member you can complain directly, in writing, to the secretary of the club of which you are a member.</li>
           <li>If the complaint is not resolved by the President within this stage, the complaint will be escalated to stage 3.</li>
         </ul>
         <h5><strong>Stage 3 - A written formal complaint </strong></h5>
-        <ul class="uk-list uk-list-bullet">
+        <ul className="uk-list uk-list-bullet">
           <li>You should complain formally in writing to the club secretary, who will confirm within five working days that he/she has received your written complaint.</li>
           <li>The club secretary will arrange for the Club committee to conduct an investigation in an appropriate manner and issue a report to all relevant parties.</li>
         </ul>
         <p>The report will include:</p>
-        <ul class="uk-list uk-list-decimal">
+        <ul className="uk-list uk-list-decimal indent">
           <li>Details of the incident</li> 
           <li>The date and time the incident occurred</li>
           <li>Names of any witnesses or people present at the time of the incident</li>
           <li>Statements from any witnesses</li>
         </ul>
         <h5><strong>Stage 4 - A formal JSSA investigation</strong></h5>
-        <ul class="uk-list uk-list-bullet">
+        <ul className="uk-list uk-list-bullet">
           <li>The JSSA will convene a committee of five members of the Executive, excluding any member of the Executive who is conflicted, or a member of the club who is involved in the complaint.</li>
           <li>One of the Executive will be appointed to chair the enquiry.</li>
           <li>The complainant and the respondent will have the right to give evidence in writing and both parties shall have sight of all the relevant documents.</li>
@@ -144,7 +147,7 @@ function CodeOfConduct() {
         <p>The Code of Conduct is only as effective as the disciplinary process that supports it. Where a member is found to be in breach of the Code of Conduct, the following sanctions may be applied.</p>
         <p>Most code of conduct issues will be reviewed and resolved at the local club level by the appropriate club officials.</p>
         <h5><strong>Sanctions that may be considered at the local club level include:</strong></h5>
-        <ul class="uk-list uk-list-bullet">
+        <ul className="uk-list uk-list-bullet">
             <li>Verbal warning</li>
             <li>Written warning</li>
             <li>Exclusion from specified number of training sessions, exclusion from club trips and/or competitions.</li>

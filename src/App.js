@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 import Home from './components/common/Home.js'
 import NavBar from './components/common/NavBar.js'
-import About from './components/common/About.js'
+import CouncilMembers from './components/common/CouncilMembers.js'
 import Fixtures from './components/fixturesresults/Fixtures.js'
 import Results from './components/fixturesresults/Results.js'
 import CodeOfConduct from './components/common/CodeOfConduct.js'
@@ -21,7 +21,7 @@ function App() {
         <NavBar />
         <Routes>
           <Route exact path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
+          <Route path="/councilmembers" element={<CouncilMembers />} />
           <Route path="/fixtures" element={<Fixtures />} />
           <Route path="/results"  element={<Results />} />
           <Route path="/CodeOfConduct"  element={<CodeOfConduct />} />
