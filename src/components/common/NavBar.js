@@ -1,18 +1,22 @@
 import React from 'react'
 import { useLocation } from 'react-router-dom'
 import Pdf from '../../assets/documents/JSSAConstitution.pdf'
+import Image from '../../assets/images/JSSA-Logo-edit.png'
 
 function NavBar() {
   useLocation()
 
   return (
-<nav className="uk-navbar-container uk-margin" uk-navbar="mode: click">
+<nav className="uk-navbar-container uk-margin" id='navbar' uk-navbar="mode: click">
     <div className="uk-navbar-left">
-
         <ul className="uk-navbar-nav">
-            <li><a href="/">Home</a></li>
+            <li>
+              <a className="uk-navbar-item uk-logo" href="/">
+                <img className="logo" src= {Image}></img>
+              </a>
+            </li>
             <li><a>About</a>
-                <div class="uk-navbar-dropdown">
+                <div class="uk-navbar-dropdown" id='navbar'>
                     <ul class="uk-nav uk-navbar-dropdown-nav">
                         <li><a href= {Pdf}>JSSA Constitution</a></li>
                         <li><a href="/councilmembers">Council Members</a></li>
@@ -22,7 +26,7 @@ function NavBar() {
             <li><a href="/fixtures">Fixtures</a></li>
             <li><a href="/results">Results</a></li>
             <li><a>Policies</a>
-                <div class="uk-navbar-dropdown">
+                <div class="uk-navbar-dropdown" id='navbar'>
                     <ul class="uk-nav uk-navbar-dropdown-nav" uk-accordion>
                         <li><a href="/codeofconduct">Code Of Conduct</a></li>
                         <li class="uk-nav-divider"></li>

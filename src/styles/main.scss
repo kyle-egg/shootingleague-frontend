@@ -1,6 +1,7 @@
 // 1. Your custom variables and variable overwrites.
 $global-link-color: #2f07f8;
 
+
 // 2. Import default variables and available mixins.
 @import "uikit/src/scss/variables-theme.scss";
 @import "uikit/src/scss/mixins-theme.scss";
@@ -17,4 +18,29 @@ $global-link-color: #2f07f8;
 
 .indent {
   text-indent: -5em;
+}
+
+.uk-card{
+  text-align: center;
+}
+
+.center{
+  text-align: center;
+}
+
+.logo {
+  height: 85px;
+  width: auto;
+}
+
+#navbar {
+  color: #030f26;
+  background-color: #030f26;
+}
+
+#home {
+  background-image: url(../assets/images/shooting-target.jpg);
+  background-size: cover;
+  min-height: 650px;
+  margin-top: -20px;
 }
