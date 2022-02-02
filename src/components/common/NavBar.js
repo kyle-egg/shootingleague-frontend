@@ -15,11 +15,11 @@ function NavBar() {
                 <img className="logo" src= {Image}></img>
               </a>
             </li>
-            <li><a>About</a>
+            <li><a className="navtext">About</a>
                 <div class="uk-navbar-dropdown" id='navbar'>
                     <ul class="uk-nav uk-navbar-dropdown-nav">
+                        <li><a href="/councilmembers">Overview</a></li>
                         <li><a href= {Pdf}>JSSA Constitution</a></li>
-                        <li><a href="/councilmembers">Council Members</a></li>
                     </ul>
                 </div>
             </li>

@@ -1,5 +1,5 @@
 // 1. Your custom variables and variable overwrites.
-$global-link-color: #2f07f8;
+$global-link-color: #A60321;
 
 
 // 2. Import default variables and available mixins.
@@ -38,9 +38,67 @@ $global-link-color: #2f07f8;
   background-color: #030f26;
 }
 
+#navtext {
+  color: #A60321;
+}
+
 #home {
   background-image: url(../assets/images/shooting-target.jpg);
   background-size: cover;
-  min-height: 650px;
+  min-height: 600px;
   margin-top: -20px;
+}
+
+.homemiddle {
+  background: rgb(170,177,191);
+  background: -moz-linear-gradient(0deg, rgba(170,177,191,1) 32%, rgba(255,255,255,0) 80%);
+  background: -webkit-linear-gradient(0deg, rgba(170,177,191,1) 32%, rgba(255,255,255,0) 80%);
+  background: linear-gradient(0deg, rgba(170,177,191,1) 32%, rgba(255,255,255,0) 80%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#aab1bf",endColorstr="#ffffff",GradientType=1); 
+  height: 500px;
+  margin-top: -400px;
+}
+
+.hometext {
+  text-align: center;
+  background: rgb(170,177,191);
+  padding: 0px 50px 50px 50px;
+}
+
+.logohome {
+  align-items: center;
+  height: 200px;
+  margin-top: -200px;
+}
+
+.member {
+  background-image: url(../assets/images/members.png);
+  background-size: cover;
+  width: 150px;
+  height: 150px;
+  color: #ff002f;
+  margin: 10px;
+  padding: 0px;
+}
+
+.membertitle {
+  margin-top: 100px;
+}
+
+.footer {
+  background-color: #030f26;
+  height: 150px;
+  padding: 20px;
+}
+
+.footerlogo {
+  height: 150px;
+}
+
+.footertext {
+  color: #A60321;
+}
+
+a:hover {
+  color: #A60321;
 }

@@ -11,6 +11,7 @@ import TeamProfile from './components/teams/TeamProfile.js'
 import Teams from './components/teams/Teams.js'
 import Archive from './components/common/Archive.js'
 import ContactUs from './components/common/Contact.js'
+import Footer from './components/common/Footer.js'
 
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
           <Route path="/archive" element={<Archive />} />
           <Route path="/contact" element={<ContactUs />} />
         </Routes>
+        <Footer />
       </BrowserRouter>
     </>
   )
