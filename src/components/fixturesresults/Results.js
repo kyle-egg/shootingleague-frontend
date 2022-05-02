@@ -41,9 +41,10 @@ function Results() {
       <div class="uk-container"></div>
       <h3>Results</h3>
     </div>
+    <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vR8CHpmypq_pEujTIftL9dbgjxwIftLYj8wMTyvFjP45nBrma-bR8WnW549jZkgkyi_-JULO3AXGBXv/pubhtml?gid=984608996&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
         <table className="uk-table uk-table-hover uk-table-divider">
           <thead>
-            <tr className='tablewidth'>
+            <tr className='tablewidth'>ß
               <th>Date</th>
               <th>Time</th>
               <th></th>

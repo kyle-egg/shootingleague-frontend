@@ -15,36 +15,35 @@ function NavBar() {
                 <img className="logo" src= {Image}></img>
               </a>
             </li>
-            <li><a className="navtext">About</a>
+            <li><a className="navtext" id="navabout">About</a>
                 <div class="uk-navbar-dropdown" id='navbar'>
                     <ul class="uk-nav uk-navbar-dropdown-nav">
-                        <li><a href="/councilmembers">Overview</a></li>
-                        <li><a href= {Pdf}>JSSA Constitution</a></li>
+                        <li className="navtext"><a id="navtext" href="/councilmembers">Overview</a></li>
+                        <li className="navtext"><a id="navtext" href= {Pdf}>JSSA Constitution</a></li>
                     </ul>
                 </div>
             </li>
-            <li><a href="/fixtures">Fixtures</a></li>
-            <li><a href="/results">Results</a></li>
-            <li><a>Policies</a>
+            <li className="navtext"><a id="navtext" href="/fixtures">Fixtures</a></li>
+            <li className="navtext"><a id="navtext" href="/results">Results</a></li>
+            <li className="navtext"><a id="navpolicies">Policies</a>
                 <div class="uk-navbar-dropdown" id='navbar'>
                     <ul class="uk-nav uk-navbar-dropdown-nav" uk-accordion>
-                        <li><a href="/codeofconduct">Code Of Conduct</a></li>
-                        <li class="uk-nav-divider"></li>
-                        <li><a href="https://thecpsu.org.uk/" target="_blank">Child Protection In Sport</a></li>
-                        <li><a href="https://www.sportresolutions.com/" target="_blank">Sport Resolutions</a></li>
+                        <li><a id="navpolicies" href="/codeofconduct">Code Of Conduct</a></li>
+                        <li><a id="navpolicies" href="https://thecpsu.org.uk/" target="_blank">Child Protection In Sport</a></li>
+                        <li><a id="navpolicies" href="https://www.sportresolutions.com/" target="_blank">Sport Resolutions</a></li>
                         <li class="uk-nav-header">Doping</li>
-                        <li><a href="https://www.ukad.org.uk/" target="_blank">UK Anti-Doping</a></li>
-                        <li><a href="https://www.ukad.org.uk/protect-your-sport" target="_blank">Report Doping In Sport</a></li>
-                        <li><a href="https://www.nsra.co.uk/index.php/home/downloads/category/3-codes-and-guidance?download=1020:whistle-blowing-policy" target="_blank"></a></li>
+                        <li><a id="navpolicies" href="https://www.ukad.org.uk/" target="_blank">UK Anti-Doping</a></li>
+                        <li><a id="navpolicies" href="https://www.ukad.org.uk/protect-your-sport" target="_blank">Report Doping In Sport</a></li>
+                        <li><a id="navpolicies" href="https://www.nsra.co.uk/index.php/home/downloads/category/3-codes-and-guidance?download=1020:whistle-blowing-policy" target="_blank"></a></li>
                         <li class="uk-nav-header">Safeguarding</li>
-                        <li><a href="https://www.anncrafttrust.org/safeguarding-adults-sport-activity/" target="_blank">Ann Craft Trust</a></li>
-                        <li><a href="https://safeguarding.je/" target="_blank">Jersey Safeguarding Partnership Board</a></li>
+                        <li><a id="navpolicies" href="https://www.anncrafttrust.org/safeguarding-adults-sport-activity/" target="_blank">Ann Craft Trust</a></li>
+                        <li><a id="navpolicies" href="https://safeguarding.je/" target="_blank">Jersey Safeguarding Partnership Board</a></li>
                     </ul>
                 </div>
             </li>
-            <li><a href="/teams">Clubs</a></li>
-            <li><a href="/archive">Archive</a></li>
-            <li><a href="/contact">Contact Us</a></li>
+            <li className="navtext"><a id="navtext" href="/teams">Clubs</a></li>
+            <li className="navtext"><a id="navtext" href="/archive">Archive</a></li>
+            <li className="navtext"><a id="navtext" href="/contact">Contact Us</a></li>
         </ul>
 
     </div>
