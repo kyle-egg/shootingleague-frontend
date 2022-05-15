@@ -2,7 +2,7 @@
 function Teams() {
 
   return (
-<div class="uk-section">
+<div class="uk-section teamsbackground">
     <div class="uk-container"></div>
     <div id="clubsgrid" class="uk-grid-small uk-child-width-1-4@s uk-flex-center uk-text-center" uk-grid="parallax: 150">
     <div>

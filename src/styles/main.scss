@@ -176,6 +176,28 @@ $global-link-color: #A60321;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000",endColorstr="#000000",GradientType=1); 
 }
 
+#fixtureshero {
+  background-image: url(../assets/images/shooting-target.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 550px;
+  margin-top: -20px;
+}
+
+.fixturescontainer {
+  background-color: rgb(225, 225, 225);
+  height: 1000px;
+}
+
+.fixturesgrid {
+  height: 900px;
+  width: 550px;
+  border: 1px solid black;
+}
+
+
 .footer {
   background-color: #030f26;
   height: 150px;
@@ -195,6 +217,13 @@ a:hover {
   color: #A60321;
 }
 
+// TEAMS
+
+.teamsbackground {
+  background-color: rgb(225, 225, 225);
+  margin-top: -20px;
+}
+
 // CLUBS
 
 #clubsgrid {
@@ -208,6 +237,7 @@ a:hover {
 
 .clubinfo {
   margin: 0px;
+  font-weight: 100;
 }
 
 .clubblurb {
@@ -222,6 +252,23 @@ a:hover {
   height: 200px;
   width: 200px;
   box-shadow: none;
+  background-color: rgb(225, 225, 225);
+  
+}
+
+.clubcontainer {
+  background-color: rgb(225, 225, 225);
+  border: #000;
+  border-style: solid;
+}
+
+.clubbackground {
+  background-image: url(../assets/images/wood-background.jpg);
+  margin-top: -20px;
+}
+
+.uk-card-title {
+  font-weight: 100;
 }
 
 #western {

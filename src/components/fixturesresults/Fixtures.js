@@ -1,82 +1,28 @@
-import React from 'react'
-import { getAllFixtures } from '../../lib/api'
+
 
 function Fixtures() {
-  const [fixtures, setFixtures] = React.useState(null)
 
-  React.useEffect(() => {
-    const getData = async () => {
-      const res = await getAllFixtures()
-      setFixtures(res.data)
-
-    }
-    getData()
-    
-  }, [ ])
-
-  console.log(fixtures)
-
-  //* SORT FIXTURE BY DATE THEN BY MATCH I.D
-  if (fixtures) {
-  fixtures.sort(function(a, b) {
-    const dateA = new Date(a.date), dateB = new Date(b.date)
-    return dateA - dateB || a.id - b.id
-})
-}
-
-    //* IS FIXTURE?
-    const fixtureFilter = () => {
-      if (fixtures) {
-        return fixtures.filter(fixture => {
-          return !fixture.played
-        })
-      }
-    }
+    var elem = document.getElementById('footer');
+    console.log(elem)
+  
 
   return (
-    <><div class="uk-section">
-      <div class="uk-container"></div>
-      <h3>Fixtures</h3>
-    </div><table class="uk-table uk-table-hover uk-table-divider">
-        <thead>
-          <tr>
-            <th>Date</th>
-            <th>Time</th>
-            <th></th>
-            <th>Competition</th>
-            <th></th>
-            <th>Home</th>
-            <th></th>
-            <th>Away</th>
-          </tr>
-        </thead>
-        {fixtures && fixtureFilter().map(fixture => {
-        return <><div key={fixture.id}/>
-        <tbody>
-            <tr>
-              <td>{fixture.date}</td>
-              <td>{fixture.time}</td>
-              {fixture.league.map(league => {
-                return <><div key={league.id}/>
-              <td>{league.name}</td>
-              </>
-              })}
-              {fixture.teamHome.map(teamHome => {
-                return <><div key={teamHome.id}/>
-              <td>{teamHome.name}</td>
-              </>
-              })}
-              {fixture.teamAway.map(teamAway => {
-                return <><div key={teamAway.id}/>
-              <td>{teamAway.name}</td>
-              </>
-              })}
-            </tr>
-          </tbody>
-          </>
-        })}
-      </table>
-      </>
+    <section>
+    <div id="fixtureshero" className="uk-background-cover uk-height-large uk-panel uk-flex uk-flex-center uk-flex-middle">      
+    </div>
+    <div id="homeabout" className="uk-child-width-1-1@s" uk-grid>
+      <div className="fixturescontainer">
+        <div id="elevate" className="uk-background-cover uk-height-medium uk-panel uk-flex uk-flex-column uk-flex-center uk-flex-middle uk-text-center">
+          <h3 id="abouttitle"className="uk-text-lead">FIXTURES</h3>
+          <br></br>
+          <div>
+          <iframe
+className="fixturesgrid" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vR8CHpmypq_pEujTIftL9dbgjxwIftLYj8wMTyvFjP45nBrma-bR8WnW549jZkgkyi_-JULO3AXGBXv/pubhtml?gid=1819380640&amp;single=true&amp;widget=false&amp;headers=false&amp;scrolling=no" width="760" height="500" frameborder="0" marginheight="0" marginwidth="0"></iframe>
+          </div>
+        </div>
+      </div>     
+    </div>
+  </section>
   )
 }
 export default Fixtures

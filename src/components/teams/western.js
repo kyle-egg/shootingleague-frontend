@@ -3,9 +3,9 @@ import WesternImage from '../../assets/images/Western_MRC_Logo-removebg-preview.
 function Western() {
 
   return (
-<div class="uk-section">
+<div class="uk-section clubbackground">
     <div class="uk-container">
-      <div id="club" class="uk-card uk-card-default">
+      <div id="club" class="uk-card uk-card-default clubcontainer">
         <div id="clubcrest" class="uk-card-media-top">
           <img src={WesternImage} uk-cover/>
         </div>
