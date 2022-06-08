@@ -1,5 +1,5 @@
 // 1. Your custom variables and variable overwrites.
-$global-link-color: #A60321;
+$global-link-color: #cd6148;
 
 
 // 2. Import default variables and available mixins.
@@ -26,7 +26,7 @@ $global-link-color: #A60321;
 
 .center{
   text-align: center;
-  color: #ff002f;
+  color: $global-link-color;
 }
 
 .logo {
@@ -39,32 +39,34 @@ $global-link-color: #A60321;
   background-color: #030f26;
 }
 
-.uk-nav-header {
+#uk-nav-header {
   font-weight: 500;
-  color: #A60321;
+  color: $global-link-color;
+  text-decoration: underline;
+  padding: 10px 0px;
 }
 
 .navtext {
-  color: #A60321;
+  color: $global-link-color;
   font-stretch: semi-expanded;
   font-weight: 100;
 }
 
 #navtext {
-  color: #A60321;
+  color: $global-link-color;
     font-stretch: semi-expanded;
   font-weight: 100;
 }
 
 #navabout {
-  color: #A60321;
+  color: $global-link-color;
     font-stretch: semi-expanded;
   font-weight: 100;
 }
 
 #navpolicies {
-  color: #A60321;
-    font-stretch: semi-expanded;
+  color: $global-link-color;
+  font-stretch: semi-expanded;
   font-weight: 100;
 }
 
@@ -161,7 +163,7 @@ $global-link-color: #A60321;
   background-size: cover;
   width: 175px;
   height: 175px;
-  color: #ff002f;
+  color: $global-link-color;
   font-weight: 100;
   margin: 10px;
   padding: 0px;
@@ -197,6 +199,20 @@ $global-link-color: #A60321;
   border: 1px solid black;
 }
 
+#resultsshero {
+  background-image: url(../assets/images/ResultsShooter.png);
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 550px;
+  margin-top: -20px;
+}
+
+#codeconduct {
+  background-color: rgb(225, 225, 225);
+  margin-top: -20px;
+}
 
 .footer {
   background-color: #030f26;
@@ -209,12 +225,12 @@ $global-link-color: #A60321;
 }
 
 .footertext {
-  color: #A60321;
+  color: $global-link-color;
   font-weight: 100;
 }
 
 a:hover {
-  color: #A60321;
+  color: $global-link-color;
 }
 
 // TEAMS
@@ -238,10 +254,17 @@ a:hover {
 .clubinfo {
   margin: 0px;
   font-weight: 100;
+  color: $global-link-color;
+}
+
+.clubofficers {
+  font-weight: 100;
 }
 
 .clubblurb {
   padding: 25px 50px;
+  color: #000;
+  font-weight: 100;
 }
 
 #clubcrest {
@@ -254,6 +277,14 @@ a:hover {
   box-shadow: none;
   background-color: rgb(225, 225, 225);
   
+}
+
+#clubtitle {
+  padding: 30px 0px 0px 0px ;
+}
+
+.clubinfocard {
+  padding: 10px 20px;
 }
 
 .clubcontainer {
@@ -271,14 +302,43 @@ a:hover {
   font-weight: 100;
 }
 
+#teamtitle {
+  font-stretch: semi-expanded;
+  font-weight: 100;
+  margin-top: 175px;
+}
+
 #western {
   background-image: url(../assets/images/Western_MRC_Logo-removebg-preview.png);
   background-repeat: no-repeat;
   background-size: contain;
   text-align: center;
+  margin: 30px;
 }
 
+#leoville {
+  background-image: url(../assets/images/Leoville.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  text-align: center;
+  margin: 30px;
+}
 
+#stlawrence {
+  background-image: url(../assets/images/StLawrence.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  text-align: center;
+  margin: 30px;
+}
+
+#logoplaceholder {
+  background-image: url(../assets/images/logoplaceholder.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  text-align: center;
+  margin: 30px;
+}
 
 // *{
 // 	-webkit-box-sizing: border-box;

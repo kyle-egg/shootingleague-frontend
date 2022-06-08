@@ -4,7 +4,7 @@ import Pdf from '../../assets/documents/JSSA-Code-Of-Conduct.pdf'
 function CodeOfConduct() {
 
   return (
-    <div className="uk-section">
+    <div className="uk-section" id="codeconduct">
     <div className="uk-container">
       <article className="uk-article">
         <h1 className="uk-article-title">

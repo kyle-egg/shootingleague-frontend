@@ -2,9 +2,7 @@
 
 function Fixtures() {
 
-    var elem = document.getElementById('footer');
-    console.log(elem)
-  
+
 
   return (
     <section>

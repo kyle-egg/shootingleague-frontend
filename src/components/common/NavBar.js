@@ -31,11 +31,11 @@ function NavBar() {
                         <li><a id="navpolicies" href="/codeofconduct">Code Of Conduct</a></li>
                         <li><a id="navpolicies" href="https://thecpsu.org.uk/" target="_blank">Child Protection In Sport</a></li>
                         <li><a id="navpolicies" href="https://www.sportresolutions.com/" target="_blank">Sport Resolutions</a></li>
-                        <li class="uk-nav-header">Doping</li>
+                        <li id="uk-nav-header">Doping</li>
                         <li><a id="navpolicies" href="https://www.ukad.org.uk/" target="_blank">UK Anti-Doping</a></li>
                         <li><a id="navpolicies" href="https://www.ukad.org.uk/protect-your-sport" target="_blank">Report Doping In Sport</a></li>
                         <li><a id="navpolicies" href="https://www.nsra.co.uk/index.php/home/downloads/category/3-codes-and-guidance?download=1020:whistle-blowing-policy" target="_blank"></a></li>
-                        <li class="uk-nav-header">Safeguarding</li>
+                        <li id="uk-nav-header">Safeguarding</li>
                         <li><a id="navpolicies" href="https://www.anncrafttrust.org/safeguarding-adults-sport-activity/" target="_blank">Ann Craft Trust</a></li>
                         <li><a id="navpolicies" href="https://safeguarding.je/" target="_blank">Jersey Safeguarding Partnership Board</a></li>
                     </ul>
