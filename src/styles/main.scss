@@ -188,15 +188,21 @@ $global-link-color: #cd6148;
   margin-top: -20px;
 }
 
+#fixturetitle {
+  font-weight: 100;
+  font-stretch: expanded;
+  margin-top: 750px;
+}
+
 .fixturescontainer {
   background-color: rgb(225, 225, 225);
   height: 1000px;
 }
 
 .fixturesgrid {
-  height: 900px;
-  width: 550px;
-  border: 1px solid black;
+  height: 669px;
+  width: 606px;
+  background-color: rgb(225, 225, 225);
 }
 
 #resultsshero {
