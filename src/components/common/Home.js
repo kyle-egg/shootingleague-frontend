@@ -18,20 +18,6 @@ function Home() {
       </div>     
     </div>
   </section>
-    // <>
-    // <div class="uk-background-cover" id="home">
-    //   <div>
-    //   </div>
-    // </div>
-    // <div className="homemiddle">
-    // </div>
-    // <div className="hometext">
-    //   <img className="logohome" src= {Image}></img>
-    //   <h2 className="hometext">Welcome To The JSSA</h2>
-    //   <p>The Jersey Small-bore Shooting Association (JSSA) seeks to foster and encourage the sport of target shooting in Jersey.</p>
-    //   <p>The JSSA is the governing body for small-bore and air rifle shooting clubs in Jersey. It sets the rules under which competitions are held.</p>
-    // </div>
-    //   </>
   )
 }
 export default Home 

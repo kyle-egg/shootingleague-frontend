@@ -1,17 +1,17 @@
-import WesternImage from '../../assets/images/Western_MRC_Logo-removebg-preview.png'
+import GuernseyImage from '../../assets/images/logoplaceholder.png'
 
-function Western() {
+function Guernsey() {
 
   return (
 <div class="uk-section clubbackground">
     <div class="uk-container">
       <div id="club" class="uk-card uk-card-default clubcontainer">
         <div id="clubcrest" class="uk-card-media-top">
-          <img src={WesternImage} uk-cover/>
+          <img src={GuernseyImage} uk-cover/>
         </div>
         <div>
           <div class="uk-card-body">
-            <h3 class="uk-card-title">Western M.R.C</h3>
+            <h3 class="uk-card-title">Guernsey</h3>
             <h6 className="clubinfo"><a href="www.westernmrc.org.je">westernmrc.org.je</a></h6>
             <h6 className="clubinfo"><a href="mailto:westernmrc@gmail.com">westernmrc@gmail.com</a></h6>
             <h6 className="clubinfo"><a href="https://goo.gl/maps/avfNWuVuE35VYBbH6">La Rue de la Fosse, St Peter, Jersey, JE3 7AH</a></h6>
@@ -23,7 +23,6 @@ function Western() {
             <br></br>
             <a href="https://www.facebook.com/westernmrc/" uk-icon="facebook"></a>
             <a href="https://www.instagram.com/westernmrc/" uk-icon="instagram"></a>
-            
             <p className="clubblurb">The club was founded in 1907, during the time between the Boer War and the First World War, when the Government of the day actively promoted the formation of shooting clubs.   The club moved to its present site in 1968. Since then, the facilities have been improved and updated on a regular basis. The last major programme was a complete refurbishment of the clubhouse in 2015 which included the installation of electronic targets.</p>
             <h4 id="clubtitle" className="clubofficers">Club Officers</h4>
             <div class="uk-flex uk-flex-center uk-flex-wrap" uk-grid uk-scrollspy="cls: uk-animation-fade; target: .member; delay: 200; repeat: true">
@@ -206,7 +205,7 @@ function Western() {
                 </p>
               </div>
             </div>
-            <h4 id="clubtitle" className="clubofficers">Club Instructor/Coach</h4>
+            <h4 id="clubtitle" className="clubofficers">Safeguarding Officer(s)</h4>
             <div class="uk-flex uk-flex-center uk-flex-wrap" uk-grid uk-scrollspy="cls: uk-animation-fade; target: .member; delay: 200; repeat: true">
               <div className="clubinfocard uk-card uk-card uk-card-body uk-flex-bottom">
                 <p className="clubofficers">
@@ -226,4 +225,4 @@ function Western() {
   </div>
   )
 }
-export default Western
+export default Guernsey

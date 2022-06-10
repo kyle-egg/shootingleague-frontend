@@ -1,107 +1,92 @@
-import WesternImage from '../../assets/images/Western_MRC_Logo-removebg-preview.png'
+import LeovilleImage from '../../assets/images/Leoville.png'
 
-function Western() {
+function Leoville() {
 
   return (
 <div class="uk-section clubbackground">
     <div class="uk-container">
       <div id="club" class="uk-card uk-card-default clubcontainer">
         <div id="clubcrest" class="uk-card-media-top">
-          <img src={WesternImage} uk-cover/>
+          <img src={LeovilleImage} uk-cover/>
         </div>
         <div>
           <div class="uk-card-body">
-            <h3 class="uk-card-title">Western M.R.C</h3>
-            <h6 className="clubinfo"><a href="www.westernmrc.org.je">westernmrc.org.je</a></h6>
-            <h6 className="clubinfo"><a href="mailto:westernmrc@gmail.com">westernmrc@gmail.com</a></h6>
-            <h6 className="clubinfo"><a href="https://goo.gl/maps/avfNWuVuE35VYBbH6">La Rue de la Fosse, St Peter, Jersey, JE3 7AH</a></h6>
-            <h6 className="clubinfo"><a href="tel:www.westernmrc.org.je">01534 483293</a></h6>
+            <h3 class="uk-card-title">Leoville Sports & Miniature Rifle Club</h3>
+            <h6 className="clubinfo"><a href="mailto:leovillesportsmrc@outlook.com">leovillesportsmrc@outlook.com</a></h6>
+            <h6 className="clubinfo"><a href="https://goo.gl/maps/ChFUbmFuGrafaZMLA">La Cache de l’Eglise, St Ouen, Jersey, JE3 2LA</a></h6>
+            <h6 className="clubinfo"><a href="tel:www.01534482381">01534 482381</a></h6>
             <br></br>
-            <h6 className="clubinfo"><strong>Operating Times:</strong> April to September</h6>
-            <h6 className="clubinfo"><strong>Club & Practice Night(s):</strong> From 7:00pm Tuesday</h6>
-            <h6 className="clubinfo"><strong>Team Shooting Night:</strong> From 7:00pm Thursday (or Friday)</h6>
+            <h6 className="clubinfo"><strong>Operating Times:</strong> All Year Round (Except Public Holidays)</h6>
+            <h6 className="clubinfo"><strong>Club & Practice Night(s):</strong> From 7:30pm Tuesday</h6>
+            <h6 className="clubinfo"><strong>Team Shooting Night:</strong> From 7:30pm Thursday (or Friday)</h6>
             <br></br>
-            <a href="https://www.facebook.com/westernmrc/" uk-icon="facebook"></a>
-            <a href="https://www.instagram.com/westernmrc/" uk-icon="instagram"></a>
+            <a href="https://www.facebook.com/leovillesportsmrc/" uk-icon="facebook"></a>
             
-            <p className="clubblurb">The club was founded in 1907, during the time between the Boer War and the First World War, when the Government of the day actively promoted the formation of shooting clubs.   The club moved to its present site in 1968. Since then, the facilities have been improved and updated on a regular basis. The last major programme was a complete refurbishment of the clubhouse in 2015 which included the installation of electronic targets.</p>
             <h4 id="clubtitle" className="clubofficers">Club Officers</h4>
             <div class="uk-flex uk-flex-center uk-flex-wrap" uk-grid uk-scrollspy="cls: uk-animation-fade; target: .member; delay: 200; repeat: true">
               <div className="clubinfocard uk-card uk-card uk-card-body uk-flex-bottom">
                 <p className="clubofficers">
-                  Sarah Campion<br></br>
+                Allan Quenault<br></br>
                   President
                 </p>
               </div>
               <div class="clubinfocard uk-card uk-card uk-card-body">
                 <p className="clubofficers">
-                Paul Pinel<br></br>
+                Gary Jegou<br></br>
                 Vice President
                 </p>
               </div>
               <div class="clubinfocard uk-card uk-card uk-card-body">
                 <p className="clubofficers">
-                Andy Hood<br></br>
+                David Hatter<br></br>
                 Vice President
                 </p>
               </div>
               <div class="clubinfocard uk-card uk-card uk-card-body">
                 <p className="clubofficers">
-                R.Marshall<br></br>
-                Treasurer
+                Richard Pirouet<br></br>
+                Vice President
                 </p>
               </div>
               <div class="clubinfocard uk-card uk-card uk-card-body">
                 <p className="clubofficers">
-                K. Armstrong<br></br>
+                Hilton Carre<br></br>
+                Vice President
+                </p>
+              </div>
+              <div class="clubinfocard uk-card uk-card uk-card-body">
+                <p className="clubofficers">
+                Lionel Le Gallais<br></br>
+                Vice President
+                </p>
+              </div>
+              <div class="uk-flex uk-flex-center uk-flex-wrap" uk-grid uk-scrollspy="cls: uk-animation-fade; target: .member; delay: 200; repeat: true">
+              <div class="clubinfocard uk-card uk-card uk-card-body">
+                <p className="clubofficers">
+                Ashley Quenault<br></br>
                 Club Secretary
                 </p>
               </div>
+              <div class="clubinfocard uk-card uk-card uk-card-body">
+                <p className="clubofficers">
+                Hilton Carre<br></br>
+                Treasurer
+                </p>
+              </div>
             </div>
-            <h4 id="clubtitle" className="clubofficers">Executive Committee</h4>
+            </div>
+            <h4 id="clubtitle" className="clubofficers">Committee Members</h4>
             <div class="clubinfocard uk-flex uk-flex-center uk-flex-wrap" uk-grid uk-scrollspy="cls: uk-animation-fade; target: .member; delay: 200; repeat: true">
               <div className="clubinfocard uk-card uk-card uk-card-body uk-flex-bottom">
                 <p className="clubofficers">
-                  Jack Pallot<br></br>
-                  Competition Secretary
+                  Bill De La Haye<br></br>
+                  Assistant Treasurer
                 </p>
               </div>
               <div class="clubinfocard uk-card uk-card uk-card-body">
                 <p className="clubofficers">
-                Tony Rees-Williams<br></br>
-                Statistics Officer
-                </p>
-              </div>
-              <div class="clubinfocard uk-card uk-card uk-card-body">
-                <p className="clubofficers">
-                Carol Le Moignan<br></br>
-                Office
-                </p>
-              </div>
-            </div>
-            <div class="uk-flex uk-flex-center uk-flex-wrap" uk-grid uk-scrollspy="cls: uk-animation-fade; target: .member; delay: 200; repeat: true">
-              <div class="clubinfocard uk-card uk-card uk-card-body">
-                <p className="clubofficers">
-                Richard Le Boutillier<br></br>
-                Member
-                </p>
-              </div>
-              <div class="clubinfocard uk-card uk-card uk-card-body">
-                <p className="clubofficers">
-                Barry Le Cheminant<br></br>
-                Member
-                </p>
-              </div>
-              <div class="clubinfocard uk-card uk-card uk-card-body">
-                <p className="clubofficers">
-                John Le Ruez<br></br>
-                Member
-                </p>
-              </div>
-              <div class="clubinfocard uk-card uk-card uk-card-body">
-                <p className="clubofficers">
-                Goetz Eggelhoefer<br></br>
-                Member
+                Graham Buckland<br></br>
+                Assistant Secretary
                 </p>
               </div>
             </div>
@@ -109,12 +94,7 @@ function Western() {
             <div class="uk-flex uk-flex-center uk-flex-wrap" uk-grid uk-scrollspy="cls: uk-animation-fade; target: .member; delay: 200; repeat: true">
               <div className="clubinfocard uk-card uk-card uk-card-body uk-flex-bottom">
                 <p className="clubofficers">
-                  Sarah Campion
-                </p>
-              </div>
-              <div class="clubinfocard uk-card uk-card uk-card-body">
-                <p className="clubofficers">
-                Paul Pinel
+                  Margaret Ramage
                 </p>
               </div>
             </div>
@@ -122,7 +102,7 @@ function Western() {
             <div class="uk-flex uk-flex-center uk-flex-wrap" uk-grid uk-scrollspy="cls: uk-animation-fade; target: .member; delay: 200; repeat: true">
               <div className="clubinfocard uk-card uk-card uk-card-body uk-flex-bottom">
                 <p className="clubofficers">
-                  Barry Fossey
+                  Bill De La Haye
                 </p>
               </div>
             </div>
@@ -130,12 +110,7 @@ function Western() {
             <div class="uk-flex uk-flex-center uk-flex-wrap" uk-grid uk-scrollspy="cls: uk-animation-fade; target: .member; delay: 200; repeat: true">
               <div className="clubinfocard uk-card uk-card uk-card-body uk-flex-bottom">
                 <p className="clubofficers">
-                  Sarah Campion
-                </p>
-              </div>
-              <div class="clubinfocard uk-card uk-card uk-card-body">
-                <p className="clubofficers">
-                Goetz Eggelhoefer
+                  Cameron Pirouet
                 </p>
               </div>
             </div>
@@ -143,66 +118,44 @@ function Western() {
             <div class="clubinfocard uk-flex uk-flex-center uk-flex-wrap" uk-grid uk-scrollspy="cls: uk-animation-fade; target: .member; delay: 200; repeat: true">
               <div className="clubinfocard uk-card uk-card uk-card-body uk-flex-bottom">
                 <p className="clubofficers">
-                  Jack Pallot
+                  Ashley Quenault
                 </p>
               </div>
               <div class="clubinfocard uk-card uk-card uk-card-body">
                 <p className="clubofficers">
-                Tony Rees-Williams
+                Bill De La Haye
                 </p>
               </div>
               <div class="clubinfocard uk-card uk-card uk-card-body">
                 <p className="clubofficers">
-                Mo Le Mottee
+                Graham Buckland
                 </p>
               </div>
               <div class="clubinfocard uk-card uk-card uk-card-body">
                 <p className="clubofficers">
-                Sarah Campion
-                </p>
-              </div>
-            </div>
-            <div class="uk-flex uk-flex-center uk-flex-wrap" uk-grid uk-scrollspy="cls: uk-animation-fade; target: .member; delay: 200; repeat: true">
-              <div class="clubinfocard uk-card uk-card uk-card-body">
-                <p className="clubofficers">
-                Cliff Mallett
-                </p>
-              </div>
-              <div class="clubinfocard uk-card uk-card uk-card-body">
-                <p className="clubofficers">
-                Paul Pinel
-                </p>
-              </div>
-              <div class="clubinfocard uk-card uk-card uk-card-body">
-                <p className="clubofficers">
-                Geoff Michel
-                </p>
-              </div>
-              <div class="clubinfocard uk-card uk-card uk-card-body">
-                <p className="clubofficers">
-                Richard Le Boutillier
+                Dean Mauger
                 </p>
               </div>
             </div>
             <div class="uk-flex uk-flex-center uk-flex-wrap" uk-grid uk-scrollspy="cls: uk-animation-fade; target: .member; delay: 200; repeat: true">
               <div class="clubinfocard uk-card uk-card uk-card-body">
                 <p className="clubofficers">
-                Eric Payn
+                Allan Quenault
                 </p>
               </div>
               <div class="clubinfocard uk-card uk-card uk-card-body">
                 <p className="clubofficers">
-                Jason Crump
+                Hilton Carre
                 </p>
               </div>
               <div class="clubinfocard uk-card uk-card uk-card-body">
                 <p className="clubofficers">
-                Andy Le Cheminant
+                Richard Pirouet
                 </p>
               </div>
               <div class="clubinfocard uk-card uk-card uk-card-body">
                 <p className="clubofficers">
-                Andy Hood
+                Wayne Du Feu
                 </p>
               </div>
             </div>
@@ -210,12 +163,94 @@ function Western() {
             <div class="uk-flex uk-flex-center uk-flex-wrap" uk-grid uk-scrollspy="cls: uk-animation-fade; target: .member; delay: 200; repeat: true">
               <div className="clubinfocard uk-card uk-card uk-card-body uk-flex-bottom">
                 <p className="clubofficers">
-                  Sarah Campion
+                  Cameron Pirouet
+                </p>
+              </div>
+              <div className="clubinfocard uk-card uk-card uk-card-body uk-flex-bottom">
+                <p className="clubofficers">
+                  Hilton Carree
+                </p>
+              </div>
+              <div className="clubinfocard uk-card uk-card uk-card-body uk-flex-bottom">
+                <p className="clubofficers">
+                  Richard Pirouet
+                </p>
+              </div>
+              <div className="clubinfocard uk-card uk-card uk-card-body uk-flex-bottom">
+                <p className="clubofficers">
+                  Allen Quenault
+                </p>
+              </div>
+            </div>
+            <h4 id="clubtitle" className="clubofficers">Members</h4>
+            <div class="clubinfocard uk-flex uk-flex-center uk-flex-wrap" uk-grid uk-scrollspy="cls: uk-animation-fade; target: .member; delay: 200; repeat: true">
+              <div className="clubinfocard uk-card uk-card uk-card-body uk-flex-bottom">
+                <p className="clubofficers">
+                  Brook Pretty
                 </p>
               </div>
               <div class="clubinfocard uk-card uk-card uk-card-body">
                 <p className="clubofficers">
-                Jack Pallot
+                David Vibert
+                </p>
+              </div>
+              <div class="clubinfocard uk-card uk-card uk-card-body">
+                <p className="clubofficers">
+                Wayne Du Feu
+                </p>
+              </div>
+              <div class="clubinfocard uk-card uk-card uk-card-body">
+                <p className="clubofficers">
+                Margaret Ramage
+                </p>
+              </div>
+            </div>
+            <div class="uk-flex uk-flex-center uk-flex-wrap" uk-grid uk-scrollspy="cls: uk-animation-fade; target: .member; delay: 200; repeat: true">
+              <div class="clubinfocard uk-card uk-card uk-card-body">
+                <p className="clubofficers">
+                Ian Syvret
+                </p>
+              </div>
+              <div class="clubinfocard uk-card uk-card uk-card-body">
+                <p className="clubofficers">
+                Brian Williams
+                </p>
+              </div>
+              <div class="clubinfocard uk-card uk-card uk-card-body">
+                <p className="clubofficers">
+                Nick Adkins
+                </p>
+              </div>
+              <div class="clubinfocard uk-card uk-card uk-card-body">
+                <p className="clubofficers">
+                Steven Michel
+                </p>
+              </div>
+            </div>
+            <div class="uk-flex uk-flex-center uk-flex-wrap" uk-grid uk-scrollspy="cls: uk-animation-fade; target: .member; delay: 200; repeat: true">
+              <div class="clubinfocard uk-card uk-card uk-card-body">
+                <p className="clubofficers">
+                Lawrence Courtness
+                </p>
+              </div>
+              <div class="clubinfocard uk-card uk-card uk-card-body">
+                <p className="clubofficers">
+                Richard Jones
+                </p>
+              </div>
+              <div class="clubinfocard uk-card uk-card uk-card-body">
+                <p className="clubofficers">
+                Cameron Pirouet
+                </p>
+              </div>
+              <div class="clubinfocard uk-card uk-card uk-card-body">
+                <p className="clubofficers">
+                Nick Le Masurier
+                </p>
+              </div>
+              <div class="clubinfocard uk-card uk-card uk-card-body">
+                <p className="clubofficers">
+                Dean Mauger
                 </p>
               </div>
             </div>
@@ -226,4 +261,4 @@ function Western() {
   </div>
   )
 }
-export default Western
+export default Leoville
