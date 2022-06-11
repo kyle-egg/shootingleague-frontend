@@ -8,11 +8,11 @@ function Footer() {
   return (
     <div className="footer uk-flex-between uk-flex uk-flex-between uk-flex-middle">
       <ul className="uk-navbar-nav">
-            <li >
-              <a className="uk-navbar-item uk-logo" href="/">
-                <img className="footerlogo" src= {Image}></img>
-              </a>
-            </li>
+        <li >
+          <a className="uk-navbar-item uk-logo" href="/">
+            <img className="footerlogo" src= {Image}></img>
+          </a>
+        </li>
       </ul>
       <p className="footertext">© 2022 Jersey Small-bore Shooting Association (JSSA). All Rights Reserved.</p>
       <span><a className="footertext" href="/#"> Privacy Policy</a></span>
