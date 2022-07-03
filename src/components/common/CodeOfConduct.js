@@ -62,14 +62,14 @@ function CodeOfConduct() {
             <li>Report any suspected misconduct by coaches or other people involved in shooting to the club welfare officer as soon as possible.</li>
           </ul>
           <h3>General Information For Young Shooters</h3>
-          <p>Our coaches will work to help you make the most of your potential, whatever your starting point. Each week we will try to cover skills which are relevant to your development. This is to ensure you have a balance of abilities and don't just become strong in one area.</p>
+          <p>Our coaches will work to help you make the most of your potential, whatever your starting point. Each week we will try to cover skills which are relevant to your development. This is to ensure you have a balance of abilities and don`&#39;`t just become strong in one area.</p>
           <p>In the early stages of you will develop fundamental skills associated with shooting events. You will learn these techniques to achieve the best performance possible. This knowledge will help you at the next stage of your development as you focus on a specific area of competition.
           </p>
           <h3>Code of Conduct for Children and Young People</h3>
           <h5><strong>The Essentials</strong></h5>
           <ul className="uk-list uk-list-bullet">
-            <li>Keep yourself safe by listening to your coach or trainer, behaving responsibly and speak out when something isn't right.</li>
-            <li>When you are with us, stay in the places where you're supposed to, don't wander off or leave without telling a member of the club.</li>
+            <li>Keep yourself safe by listening to your coach or trainer, behaving responsibly and speak out when something isn`&#39;`t right.</li>
+            <li>When you are with us, stay in the places where you`&#39;`re supposed to, don`&#39;`t wander off or leave without telling a member of the club.</li>
             <li>Take care of our equipment and premises as if they were your own.</li>
             <li>Make it to practise sessions on time and if you are running late, let a member of the club know.</li>
             <li>Bring the right kit to practise and wear appropriate kit for the weather.</li>
@@ -78,15 +78,15 @@ function CodeOfConduct() {
           <h5><strong>Behavior</strong></h5>
           <ul className="uk-list uk-list-bullet">
             <li>Respect and celebrate difference in your club or activity and do not discriminate against anyone else on the grounds of gender, race or sexual orientation or ability.</li>
-            <li>Report any incidents of bullying, including homophobia and transphobia to a member of the club, even if you're just a witness.</li>
+            <li>Report any incidents of bullying, including homophobia and transphobia to a member of the club, even if you`&#39;`re just a witness.</li>
             <li>Treat young people with respect and appreciate that everyone has different levels of skill and talent.</li>
             <li>Make your club a welcoming and friendly place to be.</li>
-            <li>Support and encourage your teammates. Tell them when they've done well and be there for them when they are struggling.</li>
+            <li>Support and encourage your teammates. Tell them when they`&#39;`ve done well and be there for them when they are struggling.</li>
             <li>Respect the club volunteers, and the volunteers and young shooters from other clubs and teams.</li>
             <li>Be a good sport, celebrate when we win and be gracious when we lose.</li>
             <li>Play by the rules and have fun.</li>
             <li>Follow the safety rules of the club.</li>
-            <li>Get involved in club or activity decisions, it's your sport too.</li>
+            <li>Get involved in club or activity decisions, it`&#39;`s your sport too.</li>
           </ul>
           <h5><strong>As a young Person taking part in shooting, we understand you have a right to:</strong></h5>
           <ul className="uk-list uk-list-bullet">
@@ -99,12 +99,12 @@ function CodeOfConduct() {
             <li>Be encouraged and develop skills with our help. </li>
             <li>Be looked after if there is an accident or injury and have your parents informed if needed.</li>
           </ul>
-          <p>We expect all young people to follow the behaviours and requests set out in this code. If any young person behaves in a way that contradicts any of the points set out above, we'll address the problem straight away with parents' involvement and aim to resolve the issue.</p>
+          <p>We expect all young people to follow the behaviours and requests set out in this code. If any young person behaves in a way that contradicts any of the points set out above, we`&#39;`ll address the problem straight away with parents`&#39;` involvement and aim to resolve the issue.</p>
           <p><strong>Continued issues and repeated breaches of this code may result in us regrettably asking you to leave the activity, event or club permanently, for the welfare of other young people and our volunteers. This is something we never want to do.</strong></p>
           <h3>Complaints guide for members, shooters and parents/guardians</h3>
           <p>The JSSA is committed to ensuring everyone who participates in shooting has a safe and positive experience.</p>
           <p>However, where a member wishes to raise a concern or complaint, this policy is intended to provide a fair and equitable process for the purpose of dealing with concerns or complaints.</p>
-          <p>If the complaint relates to child protection, it will be submitted to the Club/League Welfare Officer, or directly to the JSSA's Child Protection Officer, where appropriate guidance will be given.</p>
+          <p>If the complaint relates to child protection, it will be submitted to the Club/League Welfare Officer, or directly to the JSSA`&#39;`s Child Protection Officer, where appropriate guidance will be given.</p>
           <p>If the complaint relates to technical matters, it will be addressed by the JSSA Appeals Committee under its existing rules for the conduct of competitions.</p>
           <p>All other complaints will follow the procedure set out below:</p>
           <h5><strong>Stage 1 - An Informal Complaint</strong></h5>
@@ -139,10 +139,10 @@ function CodeOfConduct() {
             <li>Following the enquiry, the committee will prepare and issue a draft report to both parties.</li>
             <li>The draft report will be reviewed by both parties and, after any final comments have been made, the JSSA committee will issue a final report in writing within 14 days.</li>
             <li>The elected General Council of the association will be the final arbiter of complaints. An appeal may be made solely on the basis that the club or the JSSA has failed to follow its own procedures.</li>
-            <li>An appeal may not be made against the JSSA's final decision.</li>
+            <li>An appeal may not be made against the JSSA`&#39;`s final decision.</li>
           </ul>
           <p>Where a complaint has been resolved, at any stage in the complaints process, the complainant may be asked to acknowledge in writing to the club secretary that the issue is resolved. Please note that this does not preclude the right of the complainant to re-open the complaint in the future, should it become necessary.</p> 
-          <p>While every effort will be made to handle members' complaints internally and in a confidential and independent manner, where allegations are of a serious and possibly criminal nature, the JSSA and its affiliated clubs reserve the right to refer the matter to external authorities.</p>
+          <p>While every effort will be made to handle members`&#39;` complaints internally and in a confidential and independent manner, where allegations are of a serious and possibly criminal nature, the JSSA and its affiliated clubs reserve the right to refer the matter to external authorities.</p>
           <h3>Sanctions that may be applied by the club to members in breach of the Code of Conduct guidelines:</h3>
           <p>The Code of Conduct is only as effective as the disciplinary process that supports it. Where a member is found to be in breach of the Code of Conduct, the following sanctions may be applied.</p>
           <p>Most code of conduct issues will be reviewed and resolved at the local club level by the appropriate club officials.</p>
@@ -158,7 +158,7 @@ function CodeOfConduct() {
           <p>Any sanction that is enforced must be fully documented by the club secretary.</p>
           <p>Code of Conduct violations of a more serious nature may be referred directly to the JSSA, which may convene a Disciplinary Committee to investigate the violation and enforce a sanction up to, and including, a lifetime ban from the sport.</p>
           <p>While every effort will be made to handle the sanctioning of members internally and in a confidential and independent manner, where Code of Conduct violations are of a serious and possibly criminal nature, the JSSA and its affiliated clubs reserve the right to refer the matter to external authorities.</p>
-          <p><u>Definition of 'adult at risk':</u></p>
+          <p><u>Definition of `&#39;`adult at risk`&#39;`:</u></p>
           <p>An adult at risk is any adult aged 18 or over, who has care and support needs (irrespective of whether such needs are being met); and is experiencing, or is at risk of, abuse or neglect; and is unable to protect themselves because of their care and support needs</p>
         </article>
       </div>

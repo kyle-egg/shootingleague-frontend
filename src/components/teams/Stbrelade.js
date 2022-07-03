@@ -12,48 +12,45 @@ function Brelade() {
           <div>
             <div className="uk-card-body">
               <h3 className="uk-card-title">St. Brelade</h3>
-              <h6 className="clubinfo"><a href="www.westernmrc.org.je">westernmrc.org.je</a></h6>
-              <h6 className="clubinfo"><a href="mailto:westernmrc@gmail.com">westernmrc@gmail.com</a></h6>
-              <h6 className="clubinfo"><a href="https://goo.gl/maps/avfNWuVuE35VYBbH6">La Rue de la Fosse, St Peter, Jersey, JE3 7AH</a></h6>
-              <h6 className="clubinfo"><a href="tel:www.westernmrc.org.je">01534 483293</a></h6>
+              <h6 className="clubinfo"><a href="mailto:marshallrobert46@gmail.com">marshallrobert46@gmail.com</a></h6>
+              <h6 className="clubinfo"><a href="https://goo.gl/maps/TfKCHFMsxnMy49DXA">The Tunnel, St. Aubin</a></h6>
+              <h6 className="clubinfo"><a href="tel:01534745209">01534 745209</a></h6>
+              <h6 className="clubinfo"><a href="tel:01534744081">01534 744081</a></h6>
               <br></br>
-              <h6 className="clubinfo"><strong>Operating Times:</strong> April to September</h6>
-              <h6 className="clubinfo"><strong>Club & Practice Night(s):</strong> From 7:00pm Tuesday</h6>
-              <h6 className="clubinfo"><strong>Team Shooting Night:</strong> From 7:00pm Thursday (or Friday)</h6>
+              <h6 className="clubinfo"><strong>Operating Times:</strong> From April to September Monday Evening from 7.30pm</h6>
+              <h6 className="clubinfo"><strong>Club & Practice Night(s):</strong> From October to March Monday and Wednesday evenings from 7.30pm</h6>
+              <h6 className="clubinfo"><strong>Team Shooting Night:</strong> From October to March League Shooting on a Thursday evening</h6>
               <br></br>
               <a href="https://www.facebook.com/westernmrc/" uk-icon="facebook"></a>
-              <a href="https://www.instagram.com/westernmrc/" uk-icon="instagram"></a>
-            
-              <p className="clubblurb">The club was founded in 1907, during the time between the Boer War and the First World War, when the Government of the day actively promoted the formation of shooting clubs.   The club moved to its present site in 1968. Since then, the facilities have been improved and updated on a regular basis. The last major programme was a complete refurbishment of the clubhouse in 2015 which included the installation of electronic targets.</p>
               <h4 id="clubtitle" className="clubofficers">Club Officers</h4>
               <div className="uk-flex uk-flex-center uk-flex-wrap" uk-grid uk-scrollspy="cls: uk-animation-fade; target: .member; delay: 200; repeat: true">
                 <div className="clubinfocard uk-card uk-card uk-card-body uk-flex-bottom">
                   <p className="clubofficers">
-                  Sarah Campion<br></br>
+                  Andy Chapman<br></br>
                   President
                   </p>
                 </div>
                 <div className="clubinfocard uk-card uk-card uk-card-body">
                   <p className="clubofficers">
-                Paul Pinel<br></br>
+                  Ian Jauncey<br></br>
                 Vice President
                   </p>
                 </div>
                 <div className="clubinfocard uk-card uk-card uk-card-body">
                   <p className="clubofficers">
-                Andy Hood<br></br>
+                  Gerry De La Cour<br></br>
                 Vice President
                   </p>
                 </div>
                 <div className="clubinfocard uk-card uk-card uk-card-body">
                   <p className="clubofficers">
-                R.Marshall<br></br>
+                  Mrs Janet Marshall<br></br>
                 Treasurer
                   </p>
                 </div>
                 <div className="clubinfocard uk-card uk-card uk-card-body">
                   <p className="clubofficers">
-                K. Armstrong<br></br>
+                  Bob Marshall<br></br>
                 Club Secretary
                   </p>
                 </div>
@@ -62,46 +59,34 @@ function Brelade() {
               <div className="clubinfocard uk-flex uk-flex-center uk-flex-wrap" uk-grid uk-scrollspy="cls: uk-animation-fade; target: .member; delay: 200; repeat: true">
                 <div className="clubinfocard uk-card uk-card uk-card-body uk-flex-bottom">
                   <p className="clubofficers">
-                  Jack Pallot<br></br>
-                  Competition Secretary
+                  James Marshall<br></br>
+                  
                   </p>
                 </div>
                 <div className="clubinfocard uk-card uk-card uk-card-body">
                   <p className="clubofficers">
-                Tony Rees-Williams<br></br>
-                Statistics Officer
+                  Keith Svyret<br></br>
+                
                   </p>
                 </div>
                 <div className="clubinfocard uk-card uk-card uk-card-body">
                   <p className="clubofficers">
-                Carol Le Moignan<br></br>
-                Office
+                  Simon Bertie-Roberts<br></br>
+                
                   </p>
                 </div>
               </div>
               <div className="uk-flex uk-flex-center uk-flex-wrap" uk-grid uk-scrollspy="cls: uk-animation-fade; target: .member; delay: 200; repeat: true">
                 <div className="clubinfocard uk-card uk-card uk-card-body">
                   <p className="clubofficers">
-                Richard Le Boutillier<br></br>
-                Member
+                  Jerry Willis<br></br>
+                
                   </p>
                 </div>
                 <div className="clubinfocard uk-card uk-card uk-card-body">
                   <p className="clubofficers">
-                Barry Le Cheminant<br></br>
-                Member
-                  </p>
-                </div>
-                <div className="clubinfocard uk-card uk-card uk-card-body">
-                  <p className="clubofficers">
-                John Le Ruez<br></br>
-                Member
-                  </p>
-                </div>
-                <div className="clubinfocard uk-card uk-card uk-card-body">
-                  <p className="clubofficers">
-                Goetz Eggelhoefer<br></br>
-                Member
+                  Tom Rolland<br></br>
+                
                   </p>
                 </div>
               </div>
@@ -109,20 +94,17 @@ function Brelade() {
               <div className="uk-flex uk-flex-center uk-flex-wrap" uk-grid uk-scrollspy="cls: uk-animation-fade; target: .member; delay: 200; repeat: true">
                 <div className="clubinfocard uk-card uk-card uk-card-body uk-flex-bottom">
                   <p className="clubofficers">
-                  Sarah Campion
+                  James Marshall
                   </p>
                 </div>
                 <div className="clubinfocard uk-card uk-card uk-card-body">
                   <p className="clubofficers">
-                Paul Pinel
+                  Ian Jauncey
                   </p>
                 </div>
-              </div>
-              <h4 id="clubtitle" className="clubofficers">Ammunitions Officer</h4>
-              <div className="uk-flex uk-flex-center uk-flex-wrap" uk-grid uk-scrollspy="cls: uk-animation-fade; target: .member; delay: 200; repeat: true">
-                <div className="clubinfocard uk-card uk-card uk-card-body uk-flex-bottom">
+                <div className="clubinfocard uk-card uk-card uk-card-body">
                   <p className="clubofficers">
-                  Barry Fossey
+                  Andy Chapman
                   </p>
                 </div>
               </div>
@@ -130,12 +112,7 @@ function Brelade() {
               <div className="uk-flex uk-flex-center uk-flex-wrap" uk-grid uk-scrollspy="cls: uk-animation-fade; target: .member; delay: 200; repeat: true">
                 <div className="clubinfocard uk-card uk-card uk-card-body uk-flex-bottom">
                   <p className="clubofficers">
-                  Sarah Campion
-                  </p>
-                </div>
-                <div className="clubinfocard uk-card uk-card uk-card-body">
-                  <p className="clubofficers">
-                Goetz Eggelhoefer
+                  Andy Chapman
                   </p>
                 </div>
               </div>
@@ -143,79 +120,47 @@ function Brelade() {
               <div className="clubinfocard uk-flex uk-flex-center uk-flex-wrap" uk-grid uk-scrollspy="cls: uk-animation-fade; target: .member; delay: 200; repeat: true">
                 <div className="clubinfocard uk-card uk-card uk-card-body uk-flex-bottom">
                   <p className="clubofficers">
-                  Jack Pallot
+                  Andy Chapman
                   </p>
                 </div>
                 <div className="clubinfocard uk-card uk-card uk-card-body">
                   <p className="clubofficers">
-                Tony Rees-Williams
+                  Jerry Willis
                   </p>
                 </div>
                 <div className="clubinfocard uk-card uk-card uk-card-body">
                   <p className="clubofficers">
-                Mo Le Mottee
+                  Tom Rolland
                   </p>
                 </div>
                 <div className="clubinfocard uk-card uk-card uk-card-body">
                   <p className="clubofficers">
-                Sarah Campion
+                  Chris Chambers
                   </p>
                 </div>
               </div>
               <div className="uk-flex uk-flex-center uk-flex-wrap" uk-grid uk-scrollspy="cls: uk-animation-fade; target: .member; delay: 200; repeat: true">
                 <div className="clubinfocard uk-card uk-card uk-card-body">
                   <p className="clubofficers">
-                Cliff Mallett
+                  Gerry De La Cour
                   </p>
                 </div>
                 <div className="clubinfocard uk-card uk-card uk-card-body">
                   <p className="clubofficers">
-                Paul Pinel
+                  Bob Marshall
                   </p>
                 </div>
                 <div className="clubinfocard uk-card uk-card uk-card-body">
                   <p className="clubofficers">
-                Geoff Michel
-                  </p>
-                </div>
-                <div className="clubinfocard uk-card uk-card uk-card-body">
-                  <p className="clubofficers">
-                Richard Le Boutillier
+                  James Marshall
                   </p>
                 </div>
               </div>
-              <div className="uk-flex uk-flex-center uk-flex-wrap" uk-grid uk-scrollspy="cls: uk-animation-fade; target: .member; delay: 200; repeat: true">
-                <div className="clubinfocard uk-card uk-card uk-card-body">
-                  <p className="clubofficers">
-                Eric Payn
-                  </p>
-                </div>
-                <div className="clubinfocard uk-card uk-card uk-card-body">
-                  <p className="clubofficers">
-                Jason Crump
-                  </p>
-                </div>
-                <div className="clubinfocard uk-card uk-card uk-card-body">
-                  <p className="clubofficers">
-                Andy Le Cheminant
-                  </p>
-                </div>
-                <div className="clubinfocard uk-card uk-card uk-card-body">
-                  <p className="clubofficers">
-                Andy Hood
-                  </p>
-                </div>
-              </div>
-              <h4 id="clubtitle" className="clubofficers">Safeguarding Officer(s)</h4>
+              <h4 id="clubtitle" className="clubofficers">Club Instructor/Coach:</h4>
               <div className="uk-flex uk-flex-center uk-flex-wrap" uk-grid uk-scrollspy="cls: uk-animation-fade; target: .member; delay: 200; repeat: true">
                 <div className="clubinfocard uk-card uk-card uk-card-body uk-flex-bottom">
                   <p className="clubofficers">
-                  Sarah Campion
-                  </p>
-                </div>
-                <div className="clubinfocard uk-card uk-card uk-card-body">
-                  <p className="clubofficers">
-                Jack Pallot
+                  Andy Chapman
                   </p>
                 </div>
               </div>
