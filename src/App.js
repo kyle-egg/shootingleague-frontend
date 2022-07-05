@@ -11,6 +11,7 @@ import Teams from './components/teams/Teams.js'
 import Archive from './components/common/Archive.js'
 import ContactUs from './components/common/Contact.js'
 import Footer from './components/common/Footer.js'
+import Eastern from './components/teams/Eastern.js'
 import Brelade from './components/teams/Stbrelade.js'
 import Grouville from './components/teams/Grouville.js'
 import Helier from './components/teams/Sthelier.js'
@@ -35,6 +36,7 @@ function App() {
           <Route path="/results"  element={<Results />} />
           <Route path="/CodeOfConduct"  element={<CodeOfConduct />} />
           <Route path="/teams/stbrelade" element={<Brelade />} />
+          <Route path="/teams/eastern" element={<Eastern />} />
           <Route path="/teams/grouville" element={<Grouville />} />
           <Route path="/teams/sthelier" element={<Helier />} />
           <Route path="/teams/stjohn" element={<John />} />

@@ -26,6 +26,9 @@ function Teams() {
           <a className="uk-navbar-item uk-logo" href="/teams/leoville">
             <div className="clubcard uk-card uk-card-default uk-card-body uk-grid-margin" id="leoville"><h6 id="teamtitle">Leoville</h6></div>
           </a>
+          <a className="uk-navbar-item uk-logo" href="/teams/eastern">
+            <div className="clubcard uk-card uk-card-default uk-card-body uk-grid-margin" id="eastern"><h6 id="teamtitle">Eastern Air Rifle Club</h6></div>
+          </a>
         </div>
         <div>
           <a className="uk-navbar-item uk-logo" href="/teams/vinchelez">
