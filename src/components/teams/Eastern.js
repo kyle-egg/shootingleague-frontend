@@ -1,7 +1,7 @@
-import EasternImage from '../../assets/images/Logo_EARC.jpg'
+import EasternImage from '../../assets/images/Eastern.png'
 
 
-function Western() {
+function Eastern() {
 
   return (
     <div className="uk-section clubbackground">
@@ -40,14 +40,6 @@ function Western() {
                   </p>
                 </div>
               </div>
-              <h4 id="clubtitle" className="clubofficers">Safeguarding Officer(s)</h4>
-              <div className="uk-flex uk-flex-center uk-flex-wrap" uk-grid uk-scrollspy="cls: uk-animation-fade; target: .member; delay: 200; repeat: true">
-                <div className="clubinfocard uk-card uk-card uk-card-body uk-flex-bottom">
-                  <p className="clubofficers">
-                  Sarah Campion
-                  </p>
-                </div>
-              </div>
               <h4 id="clubtitle" className="clubofficers">Delegates to JSSA</h4>
               <div className="uk-flex uk-flex-center uk-flex-wrap" uk-grid uk-scrollspy="cls: uk-animation-fade; target: .member; delay: 200; repeat: true">
                 <div className="clubinfocard uk-card uk-card uk-card-body uk-flex-bottom">
@@ -68,4 +60,4 @@ function Western() {
     </div>
   )
 }
-export default Western
+export default Eastern
