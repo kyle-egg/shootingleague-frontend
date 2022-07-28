@@ -1,4 +1,4 @@
-import HelierImage from '../../assets/images/logoplaceholder.png'
+import HelierImage from '../../assets/images/hmrc-logo.png'
 function Helier() {
 
   return (
