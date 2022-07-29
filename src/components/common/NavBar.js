@@ -42,7 +42,7 @@ function NavBar() {
             </div>
           </li>
           <li className="navtext"><a id="navtext" href="/teams">Clubs</a></li>
-          <li className="navtext"><a id="navtext" href="/archive">Archive</a></li>
+          {/* <li className="navtext"><a id="navtext" href="/archive">Archive</a></li> */}
           <li className="navtext"><a id="navtext" href="/contact">Contact Us</a></li>
         </ul>
 

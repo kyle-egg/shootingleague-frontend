@@ -26,31 +26,31 @@ function Grouville() {
               <div className="uk-flex uk-flex-center uk-flex-wrap" uk-grid uk-scrollspy="cls: uk-animation-fade; target: .member; delay: 200; repeat: true">
                 <div className="clubinfocard uk-card uk-card uk-card-body uk-flex-bottom">
                   <p className="clubofficers">
-                  <br></br>
+                    <br></br>
                   President
                   </p>
                 </div>
                 <div className="clubinfocard uk-card uk-card uk-card-body">
                   <p className="clubofficers">
-                <br></br>
+                    <br></br>
                 Vice President
                   </p>
                 </div>
                 <div className="clubinfocard uk-card uk-card uk-card-body">
                   <p className="clubofficers">
-                <br></br>
+                    <br></br>
                 Vice President
                   </p>
                 </div>
                 <div className="clubinfocard uk-card uk-card uk-card-body">
                   <p className="clubofficers">
-                <br></br>
+                    <br></br>
                 Treasurer
                   </p>
                 </div>
                 <div className="clubinfocard uk-card uk-card uk-card-body">
                   <p className="clubofficers">
-                <br></br>
+                    <br></br>
                 Club Secretary
                   </p>
                 </div>
@@ -59,19 +59,19 @@ function Grouville() {
               <div className="clubinfocard uk-flex uk-flex-center uk-flex-wrap" uk-grid uk-scrollspy="cls: uk-animation-fade; target: .member; delay: 200; repeat: true">
                 <div className="clubinfocard uk-card uk-card uk-card-body uk-flex-bottom">
                   <p className="clubofficers">
-                  <br></br>
+                    <br></br>
                   Competition Secretary
                   </p>
                 </div>
                 <div className="clubinfocard uk-card uk-card uk-card-body">
                   <p className="clubofficers">
-                <br></br>
+                    <br></br>
                 Statistics Officer
                   </p>
                 </div>
                 <div className="clubinfocard uk-card uk-card uk-card-body">
                   <p className="clubofficers">
-                <br></br>
+                    <br></br>
                 Office
                   </p>
                 </div>
@@ -79,25 +79,25 @@ function Grouville() {
               <div className="uk-flex uk-flex-center uk-flex-wrap" uk-grid uk-scrollspy="cls: uk-animation-fade; target: .member; delay: 200; repeat: true">
                 <div className="clubinfocard uk-card uk-card uk-card-body">
                   <p className="clubofficers">
-                <br></br>
+                    <br></br>
                 Member
                   </p>
                 </div>
                 <div className="clubinfocard uk-card uk-card uk-card-body">
                   <p className="clubofficers">
-                <br></br>
+                    <br></br>
                 Member
                   </p>
                 </div>
                 <div className="clubinfocard uk-card uk-card uk-card-body">
                   <p className="clubofficers">
-                <br></br>
+                    <br></br>
                 Member
                   </p>
                 </div>
                 <div className="clubinfocard uk-card uk-card uk-card-body">
                   <p className="clubofficers">
-                <br></br>
+                    <br></br>
                 Member
                   </p>
                 </div>
