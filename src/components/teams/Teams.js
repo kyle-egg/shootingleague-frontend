@@ -7,7 +7,7 @@ function Teams() {
       <div id="clubsgrid" className="uk-grid-small uk-child-width-1-4@s uk-flex-center uk-text-center" uk-grid="parallax: 150">
         <div>
           <a className="uk-navbar-item uk-logo" href="/teams/stbrelade">
-            <div className="clubcard uk-card uk-card-default uk-card-body uk-grid-margin" id="logoplaceholder"><h6 id="teamtitle">St. Brelade</h6></div>
+            <div className="clubcard uk-card uk-card-default uk-card-body uk-grid-margin" id="stbrelade"><h6 id="teamtitle">St. Brelade</h6></div>
           </a>
           <a className="uk-navbar-item uk-logo" href="/teams/sthelier">
             <div className="clubcard uk-card uk-card-default uk-card-body uk-grid-margin" id="sthelier"><h6 id="teamtitle">St. Helier</h6></div>

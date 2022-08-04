@@ -1,4 +1,4 @@
-import BreladeImage from '../../assets/images/logoplaceholder.png'
+import BreladeImage from '../../assets/images/StBrelade.png'
 
 function Brelade() {
 

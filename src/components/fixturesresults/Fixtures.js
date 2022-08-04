@@ -14,6 +14,13 @@ function Fixtures() {
             <h3 id="fixturetitle"className="uk-text-lead">FIXTURES</h3>
             <br></br>
             <div>
+              <ul className="uk-subnav uk-subnav-pill" uk-margin>
+                <li className="uk-active"><a href="#">All</a></li>
+                <li><a href="#">League 1</a></li>
+                <li><a href="#">League 2</a></li>
+              </ul>
+            </div>
+            <div>
               <iframe
                 className="fixturesgrid" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vR8CHpmypq_pEujTIftL9dbgjxwIftLYj8wMTyvFjP45nBrma-bR8WnW549jZkgkyi_-JULO3AXGBXv/pubhtml?gid=1819380640&amp;single=true&amp;widget=false&amp;headers=false&amp;scrolling=no&amp;chrome=false"></iframe>
             </div>
