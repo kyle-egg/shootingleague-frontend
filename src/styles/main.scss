@@ -100,6 +100,17 @@ $global-link-color: #cd6148;
   margin-top: -20px;
 }
 
+#contactushero {
+  background-image: url(../assets/images/contactus.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 550px;
+  margin-top: -20px;
+}
+
+
 .homemiddle {
   // background: rgb(170,177,191);
   // background: -moz-linear-gradient(0deg, rgba(170,177,191,1) 32%, rgba(255,255,255,0) 80%);
@@ -348,6 +359,14 @@ a:hover {
 
 #sthelier {
   background-image: url(../assets/images/hmrc-logo.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  text-align: center;
+  margin: 30px;
+}
+
+#stjohn {
+  background-image: url(../assets/images/StJohnLogo.png);
   background-repeat: no-repeat;
   background-size: contain;
   text-align: center;

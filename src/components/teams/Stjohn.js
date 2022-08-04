@@ -1,4 +1,4 @@
-import JohnImage from '../../assets/images/logoplaceholder.png'
+import JohnImage from '../../assets/images/StJohnLogo.png'
 
 function John() {
 
@@ -13,6 +13,9 @@ function John() {
             <div className="uk-card-body">
               <h3 className="uk-card-title">St. John</h3>
               <h6 className="clubinfo"><a href="https://goo.gl/maps/8rmfNqHbrrQE7gwn7">5 La Route du Mont Mado, Jersey JE3 4DS</a></h6>
+              <br></br>
+              <h6 className="clubinfo"><strong>Club & Practice Night(s):</strong> Rifle - 7:00pm to 9:00pm Monday | Pistol - 7:00pm to 9:00pm Wednesday</h6>
+              <h6 className="clubinfo"><strong>Team Shooting Night:</strong> 7:00pm Thursday</h6>
               <br></br>
               <a href="https://facebook.com/StJohnsShootingClub/" uk-icon="facebook"></a>
               <h4 id="clubtitle" className="clubofficers">Club Officers</h4>

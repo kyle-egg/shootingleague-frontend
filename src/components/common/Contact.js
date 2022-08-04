@@ -3,7 +3,7 @@ function Contact() {
 
   return (
     <section>
-      <div id="homehero" className="uk-background-cover uk-height-large uk-panel uk-flex uk-flex-center uk-flex-middle">      
+      <div id="contactushero" className="uk-background-cover uk-height-large uk-panel uk-flex uk-flex-center uk-flex-middle">      
       </div>
       <div className="uk-child-width-1-1@s" uk-grid>
         <div className="contactuscontainer">

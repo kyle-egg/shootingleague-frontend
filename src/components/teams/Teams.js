@@ -21,7 +21,7 @@ function Teams() {
             <div className="clubcard uk-card uk-card-default uk-card-body uk-grid-margin" id="eastern"><h6 id="teamtitle">Eastern Air Rifle Club</h6></div>
           </a>
           <a className="uk-navbar-item uk-logo" href="/teams/stjohn">
-            <div className="clubcard uk-card uk-card-default uk-card-body uk-grid-margin" id="logoplaceholder"><h6 id="teamtitle">St. John</h6></div>
+            <div className="clubcard uk-card uk-card-default uk-card-body uk-grid-margin" id="stjohn"><h6 id="teamtitle">St. John</h6></div>
           </a>
           <a className="uk-navbar-item uk-logo" href="/teams/western">
             <div className="clubcard uk-card uk-card-default uk-card-body uk-grid-margin" id="western"><h6 id="teamtitle">Western</h6></div>
