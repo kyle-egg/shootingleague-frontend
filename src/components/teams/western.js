@@ -17,9 +17,6 @@ function Western() {
               <h6 className="clubinfo"><a href="https://goo.gl/maps/avfNWuVuE35VYBbH6">La Rue de la Fosse, St Peter, Jersey, JE3 7AH</a></h6>
               <h6 className="clubinfo"><a href="tel:www.westernmrc.org.je">01534 483293</a></h6>
               <br></br>
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d651.5971493786194!2d-2.1831280000000004!3d49.212157!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x480dadba91cd37a1%3A0x96be1837656173b5!2sLa%20Rue%20des%20Fosses%2C%20Jersey%20JE3%207AH!5e0!3m2!1sen!2sje!4v1659600317644!5m2!1sen!2sje" width="400" height="300"></iframe>
-              <br></br>
-              <br></br>
               <h6 className="clubinfo"><strong>Operating Times:</strong> April to September</h6>
               <h6 className="clubinfo"><strong>Club & Practice Night(s):</strong> From 7:00pm Tuesday</h6>
               <h6 className="clubinfo"><strong>Team Shooting Night:</strong> From 7:00pm Thursday (or Friday)</h6>
