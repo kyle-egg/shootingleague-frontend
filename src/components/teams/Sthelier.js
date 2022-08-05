@@ -28,7 +28,8 @@ function Helier() {
                   </p>
                 </div>
               </div>
-            </div>
+              <br></br>
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2607.842073660357!2d-2.0949722000000004!3d49.18458330000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x159069f55b0a76c4!2zNDnCsDExJzA0LjUiTiAywrAwNSc0MS45Ilc!5e0!3m2!1sen!2sje!4v1659715033093!5m2!1sen!2sje" width="600" height="450"></iframe></div>
           </div>
         </div>
       </div>

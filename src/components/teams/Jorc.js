@@ -157,7 +157,8 @@ function JORC() {
                   </p>
                 </div>
               </div>
-            </div>
+              <br></br>
+              <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2604.7077374889273!2d-2.1929619!3d49.2440301!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xf202c1374f467ec4!2zNDnCsDE0JzM4LjUiTiAywrAxMScyNi44Ilc!5e0!3m2!1sen!2sje!4v1659715198878!5m2!1sen!2sje" width="600" height="450"></iframe></div>
           </div>
         </div>
       </div>

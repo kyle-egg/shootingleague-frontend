@@ -53,7 +53,8 @@ function Eastern() {
                   </p>
                 </div>
               </div>
-            </div>
+              <br></br>
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2607.8815995308964!2d-2.0524722000000004!3d49.183833299999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x9d71ae689121dd3c!2zNDnCsDExJzAxLjgiTiAywrAwMycwOC45Ilc!5e0!3m2!1sen!2sje!4v1659715271312!5m2!1sen!2sje" width="600" height="450"></iframe></div>
           </div>
         </div>
       </div>

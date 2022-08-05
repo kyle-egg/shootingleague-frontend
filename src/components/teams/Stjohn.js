@@ -142,7 +142,8 @@ function John() {
                   </p>
                 </div>
               </div>
-            </div>
+              <br></br>
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2604.646321692785!2d-2.1309443999999997!3d49.245194399999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x242cf8f41b9925a!2zNDnCsDE0JzQyLjciTiAywrAwNyc1MS40Ilc!5e0!3m2!1sen!2sje!4v1659714987084!5m2!1sen!2sje" width="600" height="450"></iframe></div>
           </div>
         </div>
       </div>

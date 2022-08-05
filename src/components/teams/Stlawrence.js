@@ -221,7 +221,8 @@ function Lawrence() {
                   </p>
                 </div>
               </div>
-            </div>
+              <br></br>
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10424.70943059712!2d-2.1482778000000002!3d49.21616345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x480dad1889931183%3A0x57f6ec5e4fa219e!2sJersey%20JE3%201HW!5e0!3m2!1sen!2sje!4v1659714930714!5m2!1sen!2sje" width="600" height="450"></iframe></div>
           </div>
         </div>
       </div>

@@ -254,7 +254,8 @@ function Leoville() {
                   </p>
                 </div>
               </div>
-            </div>
+              <br></br>
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10419.952816219164!2d-2.224176!3d49.23871285!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x480daec6c57324a9%3A0xdc19f6987106930d!2sJersey%20JE3%202LA!5e0!3m2!1sen!2sje!4v1659715141205!5m2!1sen!2sje" width="600" height="450"></iframe></div>
           </div>
         </div>
       </div>
