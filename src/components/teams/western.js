@@ -47,13 +47,13 @@ function Western() {
                 </div>
                 <div className="clubinfocard uk-card uk-card uk-card-body">
                   <p className="clubofficers">
-                  K. Armstrong<br></br>
+                  Andy Le Chemin<br></br>
                 Treasurer
                   </p>
                 </div>
                 <div className="clubinfocard uk-card uk-card uk-card-body">
                   <p className="clubofficers">
-                  R.Marshall<br></br>
+                  Anne Pallot<br></br>
                 Club Secretary
                   </p>
                 </div>

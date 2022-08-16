@@ -85,11 +85,6 @@ function Lawrence() {
                 L Howard
                   </p>
                 </div>
-                <div className="clubinfocard uk-card uk-card uk-card-body">
-                  <p className="clubofficers">
-                K George
-                  </p>
-                </div>
               </div>
               <h4 id="clubtitle" className="clubofficers">Safeguarding Officer(s)</h4>
               <div className="uk-flex uk-flex-center uk-flex-wrap" uk-grid uk-scrollspy="cls: uk-animation-fade; target: .member; delay: 200; repeat: true">
@@ -98,12 +93,17 @@ function Lawrence() {
                   M M Norman
                   </p>
                 </div>
+                <div className="clubinfocard uk-card uk-card uk-card-body uk-flex-bottom">
+                  <p className="clubofficers">
+                  R Bouchard
+                  </p>
+                </div>
               </div>
               <h4 id="clubtitle" className="clubofficers">Ammunitions Officer</h4>
               <div className="uk-flex uk-flex-center uk-flex-wrap" uk-grid uk-scrollspy="cls: uk-animation-fade; target: .member; delay: 200; repeat: true">
                 <div className="clubinfocard uk-card uk-card uk-card-body uk-flex-bottom">
                   <p className="clubofficers">
-                  A Barry
+                  A Berry
                   </p>
                 </div>
               </div>

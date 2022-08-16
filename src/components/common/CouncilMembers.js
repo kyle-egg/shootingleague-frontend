@@ -73,13 +73,13 @@ function CouncilMembers() {
               <div className="member uk-card uk-card uk-card-body">
                 <p className="membertitle">
             R.Marshall<br></br>
-            Treasurer
+            Secretary
                 </p>
               </div>
               <div className="member uk-card uk-card uk-card-body">
                 <p className="membertitle">
             K. Armstrong<br></br>
-            Secretary
+            Treasurer
                 </p>
               </div>
               <div className="member uk-card uk-card uk-card-body">

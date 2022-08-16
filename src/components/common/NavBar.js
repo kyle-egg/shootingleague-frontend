@@ -25,6 +25,7 @@ function NavBar() {
           </li>
           <li className="navtext"><a id="navtext" href="/fixtures">Fixtures</a></li>
           <li className="navtext"><a id="navtext" href="/results">Results</a></li>
+          <li className="navtext"><a id="navtext" href="/tables">Tables</a></li>
           <li className="navtext"><a id="navpolicies">Policies</a>
             <div className="uk-navbar-dropdown" id='navbar'>
               <ul className="uk-nav uk-navbar-dropdown-nav" uk-accordion>

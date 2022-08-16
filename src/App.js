@@ -6,6 +6,7 @@ import NavBar from './components/common/NavBar.js'
 import CouncilMembers from './components/common/CouncilMembers.js'
 import Fixtures from './components/fixturesresults/Fixtures.js'
 import Results from './components/fixturesresults/Results.js'
+import Tables from './components/fixturesresults/Tables.js'
 import CodeOfConduct from './components/common/CodeOfConduct.js'
 import Teams from './components/teams/Teams.js'
 import Archive from './components/common/Archive.js'
@@ -34,6 +35,7 @@ function App() {
           <Route path="/councilmembers" element={<CouncilMembers />} />
           <Route path="/fixtures" element={<Fixtures />} />
           <Route path="/results"  element={<Results />} />
+          <Route path="/tables"  element={<Tables />} />
           <Route path="/CodeOfConduct"  element={<CodeOfConduct />} />
           <Route path="/teams/stbrelade" element={<Brelade />} />
           <Route path="/teams/eastern" element={<Eastern />} />

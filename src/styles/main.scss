@@ -216,6 +216,33 @@ $global-link-color: #cd6148;
   background-color: rgb(225, 225, 225);
 }
 
+.tablescontainer {
+  background-color: rgb(225, 225, 225);
+  height: 1200px;
+}
+
+.tablesgrid {
+  height: 1000px;
+  width: 893px;
+  background-color: rgb(225, 225, 225);
+}
+
+#tabletitle {
+  font-weight: 100;
+  font-stretch: expanded;
+  margin-top: 1000px;
+}
+
+#tableshero {
+  background-image: url(../assets/images/tableheader.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 550px;
+  margin-top: -20px;
+}
+
 #resultsshero {
   background-image: url(../assets/images/ResultsShooter.png);
   background-size: cover;
@@ -233,8 +260,23 @@ $global-link-color: #cd6148;
 
 .footer {
   background-color: #030f26;
-  height: 150px;
+  height: 100px;
   padding: 20px;
+}
+
+#created {
+  text-align: center;
+  background-color: black;
+  color: $global-link-color;
+  font-stretch: semi-expanded;
+  font-weight: 100;
+  background-color: #030f26;
+  height: 25px;
+}
+
+.createdwrap {
+  background-color: #030f26;
+  height: 50px;
 }
 
 .footerlogo {
@@ -243,6 +285,7 @@ $global-link-color: #cd6148;
 
 .footertext {
   color: $global-link-color;
+  font-stretch: semi-expanded;
   font-weight: 100;
 }
 

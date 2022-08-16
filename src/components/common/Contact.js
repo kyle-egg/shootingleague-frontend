@@ -23,11 +23,6 @@ function Contact() {
                   <td className="paratext">moandjulie@hotmail.co.uk</td>
                 </tr>
                 <tr>
-                  <td className="paratext"> </td> 	                                    
-                  <td className="paratext">G.Huelin</td>             
-                  <td className="paratext">graham.huelin@me.com</td>
-                </tr>
-                <tr>
                   <td className="paratext"> </td>
                   <td className="paratext">G.Huelin</td>
                   <td className="paratext">graham.huelin@me.com</td>
