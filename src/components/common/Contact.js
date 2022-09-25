@@ -10,7 +10,7 @@ function Contact() {
           <div id="contactus" className="uk-background-cover uk-height-medium uk-panel uk-flex uk-flex-column uk-flex-center uk-flex-middle uk-text-center">
             <h3 id="contacttitle"className="uk-text-lead">EXECUTIVE COMMITTEE CONTACTS</h3>
             <br></br>
-            <table className="uk-table">
+            {/* <table className="uk-table">
               <tbody>
                 <tr>
                   <td className="paratext">President</td>	                            
@@ -78,7 +78,7 @@ function Contact() {
                   <td className="paratext">stevecouilliard@outlook.com</td>
                 </tr>
               </tbody>
-            </table>
+            </table> */}
           </div>
         </div>     
       </div>
