@@ -17,7 +17,7 @@ function Footer() {
             </li>
           </ul>
           <p className="footertext">© 2022 Jersey Small-bore Shooting Association (JSSA). All Rights Reserved.</p>
-          <span><a className="footertext" href="/#"> Privacy Policy</a></span>
+          <span className="privacy"><a className="footertext" href="/#"> Privacy Policy</a></span>
         </div>
         <div className="createdwrap">
           <p id="created" className="footertext"><a href='http://www.kyle-egg.co.uk/'>Website Created By Kyle-Egg</a></p>

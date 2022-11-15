@@ -523,6 +523,24 @@ a:hover {
 
   }
 
+  @media only screen and (max-width: 750px) {
+
+    .footer {
+      padding: 5px;
+    }
+    
+    .footerlogo {
+      width: 50px;
+      height: 50px;
+      padding: 0px;
+    }
+    
+    .footertext {
+      font-size: 10px;
+    }
+
+  }
+
   @media only screen and (max-width: 810px) {
 
 .homecontainer {
@@ -631,6 +649,7 @@ width: 600px;
   
   .paratext {
   width: 400px;
+  padding: 10px;
   }
   
   .member {
@@ -668,6 +687,35 @@ width: 600px;
     background-size: cover;
     height: 300px;
   }
+
+  .footer {
+    padding: 5px;
+  }
+  
+  .footerlogo {
+    display: none;
+  }
+  
+  .privacy {
+    display: none;
+  }
+
+  .footertext {
+    font-size: 10px;
+    text-align: center;
+    margin-right: 20px;
+  }
+
+  #created {
+    margin-left: 20px;
+  }
+
+  .fixturesgrid {
+    height: 669px;
+    width: 400px;
+    background-color: rgb(225, 225, 225);
+  }
+
 }
 
   
