@@ -22,6 +22,7 @@ import Leoville from './components/teams/Leoville.js'
 import Vinchelez from './components/teams/Vinchelez.js'
 import JORC from './components/teams/Jorc.js'
 import Western from './components/teams/Western.js'
+import SideNav from './components/common/SideNav.js'
 
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
     <>
       <BrowserRouter>
         <NavBar />
+        <SideNav />
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route path="/councilmembers" element={<CouncilMembers />} />

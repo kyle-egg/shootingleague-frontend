@@ -16,8 +16,8 @@ function Fixtures() {
             <div>
               <ul className="uk-subnav uk-subnav-pill" uk-margin>
                 <li className="uk-active"><a href="#">All</a></li>
-                <li><a href="#">League 1</a></li>
-                <li><a href="#">League 2</a></li>
+                <li><a href="#">Division 1</a></li>
+                <li><a href="#">Division 2</a></li>
               </ul>
             </div>
             <div>

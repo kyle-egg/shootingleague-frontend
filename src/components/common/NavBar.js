@@ -15,7 +15,7 @@ function NavBar() {
               <img className="logo" src= {Image}></img>
             </a>
           </li>
-          <li><a className="navtext" id="navabout">About</a>
+          <li className="uk-visible@l"><a className="navtext" id="navabout">About</a>
             <div className="uk-navbar-dropdown" id='navbar'>
               <ul className="uk-nav uk-navbar-dropdown-nav">
                 <li className="navtext"><a id="navtext" href="/councilmembers">Overview</a></li>
@@ -23,12 +23,12 @@ function NavBar() {
               </ul>
             </div>
           </li>
-          <li className="navtext"><a id="navtext" href="/fixtures">Fixtures</a></li>
-          <li className="navtext"><a id="navtext" href="/results">Results</a></li>
-          <li className="navtext"><a id="navtext" href="/tables">Tables</a></li>
-          <li className="navtext"><a id="navpolicies">Policies</a>
+          <li className="navtext uk-visible@l"><a id="navtext" href="/fixtures">Fixtures</a></li>
+          <li className="navtext uk-visible@l"><a id="navtext" href="/results">Results</a></li>
+          <li className="navtext uk-visible@l"><a id="navtext" href="/tables">Tables</a></li>
+          <li className="navtext uk-visible@l"><a id="navpolicies">Policies</a>
             <div className="uk-navbar-dropdown" id='navbar'>
-              <ul className="uk-nav uk-navbar-dropdown-nav" uk-accordion>
+              <ul className="uk-nav uk-navbar-dropdown-nav uk-visible@l" uk-accordion>
                 <li><a id="navpolicies" href="/codeofconduct">Code Of Conduct</a></li>
                 <li><a id="navpolicies" href="https://thecpsu.org.uk/" target="_blank" rel="noreferrer">Child Protection In Sport</a></li>
                 <li><a id="navpolicies" href="https://www.sportresolutions.com/" target="_blank" rel="noreferrer">Sport Resolutions</a></li>
@@ -42,11 +42,16 @@ function NavBar() {
               </ul>
             </div>
           </li>
-          <li className="navtext"><a id="navtext" href="/teams">Clubs</a></li>
+          <li className="navtext uk-visible@l"><a id="navtext" href="/teams">Clubs</a></li>
           {/* <li className="navtext"><a id="navtext" href="/archive">Archive</a></li> */}
-          <li className="navtext"><a id="navtext" href="/contact">Contact Us</a></li>
+          <li className="navtext uk-visible@l"><a id="navtext" href="/contact">Contact Us</a></li>
         </ul>
-
+      </div>
+      <div className="uk-navbar-right">
+        <ul className="uk-navbar-nav">
+          <li className="uk-hidden@l">
+            <img id="hamburger" src="https://img.icons8.com/ios/50/000000/menu--v4.png" className="uk-margin-small-right" type="button" uk-toggle="target: #offcanvas-nav-primary"/>            </li>
+        </ul>
       </div>
     </nav>
 

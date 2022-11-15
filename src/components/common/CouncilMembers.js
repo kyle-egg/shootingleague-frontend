@@ -8,7 +8,7 @@ function CouncilMembers() {
       <div id="about" className="uk-child-width-1-1@s" uk-grid>
         <div className="aboutcontainer">
           <div className="uk-background-cover uk-height-large uk-panel uk-flex uk-flex-column uk-flex-center uk-flex-middle uk-text-center">
-            <div className="uk-column-1-2 uk-column-divider">
+            <div className="uk-column-1-2@s uk-column-divider">
               <h3 id="abouttext"className="uk-text-lead">ABOUT THE JSSA</h3>
               <br></br>
               <p className="aboutparatext">The Association ensures that affiliated clubs in Jersey meet the legal requirements, including affiliation to the National Governing Body, the NSRA, to operate as a shooting club. All clubs must also have a current Firearms Certificate and Home Affairs Club Approval.</p>
