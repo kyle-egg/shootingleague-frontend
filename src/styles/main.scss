@@ -218,18 +218,24 @@ $global-link-color: #cd6148;
 
 .resultsgrid {
   height: 669px;
-  width: 706px;
+  width: 650px;
   background-color: rgb(225, 225, 225);
 }
 
 .tablescontainer {
   background-color: rgb(225, 225, 225);
-  height: 1200px;
+  height: 2200px;
 }
 
 .tablesgrid {
   height: 1000px;
   width: 893px;
+  background-color: rgb(225, 225, 225);
+}
+
+.averagesgrid {
+  height: 500px;
+  width: 700px;
   background-color: rgb(225, 225, 225);
 }
 
@@ -297,6 +303,13 @@ $global-link-color: #cd6148;
 
 a:hover {
   color: $global-link-color;
+}
+
+#averagestitle {
+  font-weight: 100;
+  font-stretch: expanded;
+  margin-top: 2100px;
+  padding: 20px;
 }
 
 // TEAMS
@@ -453,14 +466,27 @@ a:hover {
 #contacttitle {
   font-weight: 100;
   font-stretch: expanded;
-  margin-top: 650px;
+  margin-top: 100px;
 }
 
 .contactuscontainer {
   background-color: rgb(225, 225, 225);
-  height: 1000px;
+  height: 500px;
 }
 
+.uk-input {
+  background-color: rgb(225, 225, 225);
+  border: #000;
+  border-style: solid;
+  border-width: thin;
+}
+
+.uk-textarea {
+  background-color: rgb(225, 225, 225);
+  border: #000;
+  border-style: solid;
+  border-width: thin;
+}
 
 #nav {
     background-size: cover;
