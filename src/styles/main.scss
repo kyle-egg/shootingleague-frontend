@@ -189,6 +189,11 @@ $global-link-color: #cd6148;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000",endColorstr="#000000",GradientType=1); 
 }
 
+
+.smallFixtureLogo {
+  height: 50px;
+}
+
 #fixtureshero {
   background-image: url(../assets/images/shooting-target.jpg);
   background-size: cover;
