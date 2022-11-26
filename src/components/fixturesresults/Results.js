@@ -60,65 +60,66 @@ function Results() {
   }
 
   var today = new Date()
-  var dd = String(today.getDate()).padStart(2, '0')
-  var mm = String(today.getMonth() + 1).padStart(2, '0') //January is 0!
-  var yyyy = today.getFullYear()
-  
-  today = yyyy + mm + dd
-  
-  console.log(today)
+  var date = String(today.getDate()).padStart(2, '0')
+  var month = String(today.getMonth() + 1).padStart(2, '0') //January is 0!
+  var year = String(today.getFullYear())
+  var hh = String(today.getHours()) - 1
+  var mm = String(today.getMinutes())
+  var ss = String(today.getSeconds())
+
+  today = year + month + date + hh + mm + ss
 
   if (fixtures) {
-  const sorted = fixtures.sort(function(b,a){
-    return new Date(b.date) - new Date(a.date)
-  })
-  console.log(sorted)
+    fixtures.sort(function(b,a){
+      return new Date(b.date) - new Date(a.date)
+    })
+    
   }
   
   
-  const filterFixtures = () => {
+  const filterResults = () => {
     if (teamValue && leagueValue) {
       return fixtures.filter(fixture => {
-        console.log(leagueValue - fixture.league[0])
-        return fixture.league.some(l => leagueValue.includes(l.name)) && 
+        return fixture.league.every(l => leagueValue.includes(l.name)) && 
         fixture.homeTeam.every(hT => teamValue.includes(hT.name)) &&
-        fixture.date.split('-') > today ||
+        fixture.date.split('-').join('') + fixture.time.split(':').join('') < today ||
         fixture.league.every(l => leagueValue.includes(l.name)) && 
         fixture.awayTeam.every(aT => teamValue.includes(aT.name)) &&
-        fixture.date.split('-') > today
+        fixture.date.split('-').join('') + fixture.time.split(':').join('') < today
       })
-    } else if (teamValue){
+    } else if (teamValue) {
       return fixtures.filter(fixture => {
-        return fixture.homeTeam.every(hT => teamValue.includes(hT.name)) ||
+        return fixture.homeTeam.every(hT => teamValue.includes(hT.name)) &&
+        fixture.date.split('-').join('') + fixture.time.split(':').join('') < today ||
         fixture.awayTeam.every(aT => teamValue.includes(aT.name)) &&
-        fixture.date.split('-') > today
+        fixture.date.split('-').join('') + fixture.time.split(':').join('') < today
       }) 
-    } else if (leagueValue){
+    } else if (leagueValue) {
       return fixtures.filter(fixture => {
         return fixture.league.every(l => leagueValue.includes(l.name)) &&
-        fixture.date.split('-') > today
+        fixture.date.split('-').join('') + fixture.time.split(':').join('') < today
       })
     } else {
-    return fixtures.filter(fixture => {
-      return fixture.date.split('-') > today
-    })
+      return fixtures.filter(fixture => {
+        return fixture.date.split('-').join('') + fixture.time.split(':').join('') < today
+      })
+    }
   }
-  }
 
-// function Results() {
-//   const [showDetailed, setShowDetailed] = React.useState(false)
+  // function Results() {
+  //   const [showDetailed, setShowDetailed] = React.useState(false)
 
-//   const seeDetailed = () => {
-//     if (!showDetailed) {
-//       setShowDetailed(true)
-//     } else {
-//       setShowDetailed(false)
-//     }
-//   }
+  //   const seeDetailed = () => {
+  //     if (!showDetailed) {
+  //       setShowDetailed(true)
+  //     } else {
+  //       setShowDetailed(false)
+  //     }
+  //   }
 
-//   const closeDetailed = () => { 
-//     setShowDetailed(false)
-//   }
+  //   const closeDetailed = () => { 
+  //     setShowDetailed(false)
+  //   }
 
   return (
     <section>
@@ -177,7 +178,7 @@ function Results() {
                   </div>
                 </div>
               </div>
-              {fixtures && filterFixtures().map(fixture => {
+              {fixtures && filterResults().map(fixture => {
                 return <div className="column"key={fixture.id} id="column">
                   <div className="uk-column-1-6">
                     <p>{fixture.date.split('-').reverse().join('/')} - {fixture.time.slice(0,5)}</p>

@@ -29,15 +29,6 @@ function Fixtures() {
 
   React.useEffect(() => {
     const getData = async () => {
-      const res = await axios.get('/api/seasons')
-      setSeasons(res.data)
-    }
-    getData()
-    
-  }, [ ])
-
-  React.useEffect(() => {
-    const getData = async () => {
       const res = await axios.get('/api/seasons/2/leagues')
       setLeagues(res.data)
     }
@@ -53,53 +44,54 @@ function Fixtures() {
 
   const handleLeague = (e) => {
     setLeagueValue(e.target.value)
-    console.log(leagueValue)
   }
 
   var today = new Date()
-  var dd = String(today.getDate()).padStart(2, '0')
-  var mm = String(today.getMonth() + 1).padStart(2, '0') //January is 0!
-  var yyyy = today.getFullYear()
-  
-  today = yyyy + mm + dd
-  
-  console.log(today)
-  
+  var date = String(today.getDate()).padStart(2, '0')
+  var month = String(today.getMonth() + 1).padStart(2, '0') //January is 0!
+  var year = String(today.getFullYear())
+  var hh = String(today.getHours()) - 1
+  var mm = String(today.getMinutes())
+  var ss = String(today.getSeconds())
 
+  today = year + month + date + hh + mm + ss
+  
+  // console.log(typeof(Number(today)))
+  
   if (fixtures) {
-  const sorted = fixtures.sort(function(b,a){
-    return new Date(b.date) - new Date(a.date)
-  })
-  console.log(sorted)
+    fixtures.sort(function(b,a){
+      return new Date(b.date) - new Date(a.date)
+    })
+
   }
   
   const filterFixtures = () => {
     if (teamValue && leagueValue) {
       return fixtures.filter(fixture => {
-        console.log(leagueValue - fixture.league[0])
-        return fixture.league.some(l => leagueValue.includes(l.name)) && 
+        return fixture.league.every(l => leagueValue.includes(l.name)) && 
         fixture.homeTeam.every(hT => teamValue.includes(hT.name)) &&
-        fixture.date.split('-') > today ||
+        fixture.date.split('-').join('') + fixture.time.split(':').join('') > today ||
         fixture.league.every(l => leagueValue.includes(l.name)) && 
         fixture.awayTeam.every(aT => teamValue.includes(aT.name)) &&
-        fixture.date.split('-') > today
+        fixture.date.split('-').join('') + fixture.time.split(':').join('') > today
       })
-    } else if (teamValue){
+    } else if (teamValue) {
       return fixtures.filter(fixture => {
-        return fixture.homeTeam.every(hT => teamValue.includes(hT.name)) ||
+        return fixture.homeTeam.every(hT => teamValue.includes(hT.name)) &&
+        fixture.date.split('-').join('') + fixture.time.split(':').join('') > today ||
         fixture.awayTeam.every(aT => teamValue.includes(aT.name)) &&
-        fixture.date.split('-') > today
+        fixture.date.split('-').join('') + fixture.time.split(':').join('') > today
       }) 
-    } else if (leagueValue){
+    } else if (leagueValue) {
       return fixtures.filter(fixture => {
         return fixture.league.every(l => leagueValue.includes(l.name)) &&
-        fixture.date.split('-') > today
+        fixture.date.split('-').join('') + fixture.time.split(':').join('') > today
       })
     } else {
-    return fixtures.filter(fixture => {
-      return fixture.date.split('-') > today
-    })
-  }
+      return fixtures.filter(fixture => {
+        return fixture.date.split('-').join('') + fixture.time.split(':').join('') > today
+      })
+    }
   }
 
   return (
