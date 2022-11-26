@@ -194,6 +194,10 @@ $global-link-color: #cd6148;
   height: 50px;
 }
 
+.mediumFixtureLogo {
+  height: 100px;
+}
+
 #fixtureshero {
   background-image: url(../assets/images/shooting-target.jpg);
   background-size: cover;
@@ -225,6 +229,10 @@ $global-link-color: #cd6148;
   height: 669px;
   width: 650px;
   background-color: rgb(225, 225, 225);
+}
+
+.uk-column-1-7 {
+	column-count: 7;
 }
 
 .tablescontainer {

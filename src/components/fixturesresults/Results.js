@@ -3,12 +3,19 @@ import axios from 'axios'
 
 
 function Results() {
+  var today = new Date()
+  var date = String(today.getDate()).padStart(2, '0')
+  var month = String(today.getMonth() + 1).padStart(2, '0') //January is 0!
+  var year = String(today.getFullYear())
+  var hh = String(today.getHours()) - 1
+  var mm = String(today.getMinutes())
+  var ss = String(today.getSeconds())
   const [fixtures, setFixtures] = React.useState(null)
   const [teams, setTeams] = React.useState(null)
   const [seasons, setSeasons] = React.useState(null)
   const [leagues, setLeagues] = React.useState(null)
   const [leagueValue, setLeagueValue] = React.useState('')
-  const [seasonValue, setSeasonValue] = React.useState('')
+  const [seasonValue, setSeasonValue] = React.useState(year)
   const [teamValue, setTeamValue] = React.useState('')
 
   React.useEffect(() => {
@@ -59,49 +66,47 @@ function Results() {
     setLeagueValue(e.target.value)
   }
 
-  var today = new Date()
-  var date = String(today.getDate()).padStart(2, '0')
-  var month = String(today.getMonth() + 1).padStart(2, '0') //January is 0!
-  var year = String(today.getFullYear())
-  var hh = String(today.getHours()) - 1
-  var mm = String(today.getMinutes())
-  var ss = String(today.getSeconds())
-
   today = year + month + date + hh + mm + ss
 
   if (fixtures) {
-    fixtures.sort(function(b,a){
-      return new Date(b.date) - new Date(a.date)
-    })
-    
+    fixtures.sort((b, a) => b.date - a.date)
   }
   
+  if (seasons) {
+    seasons.sort((b, a) => a.name - b.name)
+  }
   
   const filterResults = () => {
     if (teamValue && leagueValue) {
       return fixtures.filter(fixture => {
         return fixture.league.every(l => leagueValue.includes(l.name)) && 
         fixture.homeTeam.every(hT => teamValue.includes(hT.name)) &&
+        fixture.season.every(s => seasonValue.includes(s.name)) &&
         fixture.date.split('-').join('') + fixture.time.split(':').join('') < today ||
         fixture.league.every(l => leagueValue.includes(l.name)) && 
         fixture.awayTeam.every(aT => teamValue.includes(aT.name)) &&
+        fixture.season.every(s => seasonValue.includes(s.name)) &&
         fixture.date.split('-').join('') + fixture.time.split(':').join('') < today
       })
     } else if (teamValue) {
       return fixtures.filter(fixture => {
         return fixture.homeTeam.every(hT => teamValue.includes(hT.name)) &&
+        fixture.season.every(s => seasonValue.includes(s.name)) &&
         fixture.date.split('-').join('') + fixture.time.split(':').join('') < today ||
         fixture.awayTeam.every(aT => teamValue.includes(aT.name)) &&
+        fixture.season.every(s => seasonValue.includes(s.name)) &&
         fixture.date.split('-').join('') + fixture.time.split(':').join('') < today
       }) 
     } else if (leagueValue) {
       return fixtures.filter(fixture => {
         return fixture.league.every(l => leagueValue.includes(l.name)) &&
+        fixture.season.every(s => seasonValue.includes(s.name)) &&
         fixture.date.split('-').join('') + fixture.time.split(':').join('') < today
       })
     } else {
       return fixtures.filter(fixture => {
-        return fixture.date.split('-').join('') + fixture.time.split(':').join('') < today
+        return fixture.date.split('-').join('') + fixture.time.split(':').join('') < today &&
+        fixture.season.every(s => seasonValue.includes(s.name))
       })
     }
   }
@@ -180,11 +185,12 @@ function Results() {
               </div>
               {fixtures && filterResults().map(fixture => {
                 return <div className="column"key={fixture.id} id="column">
-                  <div className="uk-column-1-6">
-                    <p>{fixture.date.split('-').reverse().join('/')} - {fixture.time.slice(0,5)}</p>
+                  <div className="uk-column-1-7">
+                    <p>{fixture.date.split('-').reverse().join('/')}</p>
                     <p>{fixture.league[0].name}</p>
                     <img className='smallFixtureLogo' src={fixture.homeTeam[0].logo}></img>
                     <p>{fixture.homeTeam[0].name}</p>
+                    <p><a href={`/fixtures/${fixture.id}`}>{fixture.homeTotalScore} - {fixture.awayTotalScore}</a></p>
                     <p>{fixture.awayTeam[0].name}</p>
                     <img className='smallFixtureLogo' src={fixture.awayTeam[0].logo}></img>
                   </div>

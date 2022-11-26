@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home from './components/common/Home.js'
 import NavBar from './components/common/NavBar.js'
 import CouncilMembers from './components/common/CouncilMembers.js'
+import FixtureProfile from './components/fixturesresults/FixtureProfile.js'
 import Fixtures from './components/fixturesresults/Fixtures.js'
 import Results from './components/fixturesresults/Results.js'
 import Tables from './components/fixturesresults/Tables.js'
@@ -35,6 +36,7 @@ function App() {
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route path="/councilmembers" element={<CouncilMembers />} />
+          <Route path="/fixtures/:fixtureId" element={<FixtureProfile />}/>
           <Route path="/fixtures" element={<Fixtures />} />
           <Route path="/results"  element={<Results />} />
           <Route path="/tables"  element={<Tables />} />
