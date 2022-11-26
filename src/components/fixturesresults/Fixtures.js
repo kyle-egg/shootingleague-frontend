@@ -5,10 +5,8 @@ import axios from 'axios'
 function Fixtures() {
   const [fixtures, setFixtures] = React.useState(null)
   const [teams, setTeams] = React.useState(null)
-  const [seasons, setSeasons] = React.useState(null)
   const [leagues, setLeagues] = React.useState(null)
-  const [leagueValue, setLeagueValue] = React.useState(null)
-  const [seasonValue, setSeasonValue] = React.useState('')
+  const [leagueValue, setLeagueValue] = React.useState('')
   const [teamValue, setTeamValue] = React.useState('')
 
   React.useEffect(() => {
@@ -47,9 +45,7 @@ function Fixtures() {
     
   }, [ ])
 
-  const handleSeason = (e) => {
-    setSeasonValue(e.target.value)
-  }
+  // console.log(leagues)
 
   const handleTeam = (e) => {
     setTeamValue(e.target.value)
@@ -57,6 +53,7 @@ function Fixtures() {
 
   const handleLeague = (e) => {
     setLeagueValue(e.target.value)
+    console.log(leagueValue)
   }
 
   var today = new Date()
@@ -64,14 +61,9 @@ function Fixtures() {
   var mm = String(today.getMonth() + 1).padStart(2, '0') //January is 0!
   var yyyy = today.getFullYear()
   
-  today = dd + '/' + mm + '/' + yyyy
+  today = yyyy + mm + dd
   
-  var sdate = '2016/10/15'
-  sdate = sdate.split('/').reverse().join('/')
-  // console.log(sdate)
-  console.log(new Date())
-  // console.log(today)
-  
+  console.log(today)
   
 
   if (fixtures) {
@@ -81,19 +73,33 @@ function Fixtures() {
   console.log(sorted)
   }
   
-  
   const filterFixtures = () => {
-    if (teamValue || seasonValue || leagueValue) {
+    if (teamValue && leagueValue) {
+      return fixtures.filter(fixture => {
+        console.log(leagueValue - fixture.league[0])
+        return fixture.league.some(l => leagueValue.includes(l.name)) && 
+        fixture.homeTeam.every(hT => teamValue.includes(hT.name)) &&
+        fixture.date.split('-') > today ||
+        fixture.league.every(l => leagueValue.includes(l.name)) && 
+        fixture.awayTeam.every(aT => teamValue.includes(aT.name)) &&
+        fixture.date.split('-') > today
+      })
+    } else if (teamValue){
       return fixtures.filter(fixture => {
         return fixture.homeTeam.every(hT => teamValue.includes(hT.name)) ||
         fixture.awayTeam.every(aT => teamValue.includes(aT.name)) &&
-        fixture.season.every(s => seasonValue.includes(s.name)) &&
-        fixture.league.every(l => leagueValue.includes(l.name)) &&
-        fixture.date > new Date()        
+        fixture.date.split('-') > today
+      }) 
+    } else if (leagueValue){
+      return fixtures.filter(fixture => {
+        return fixture.league.every(l => leagueValue.includes(l.name)) &&
+        fixture.date.split('-') > today
       })
     } else {
-      return fixtures 
-    }
+    return fixtures.filter(fixture => {
+      return fixture.date.split('-') > today
+    })
+  }
   }
 
   return (
@@ -117,15 +123,6 @@ function Fixtures() {
                 {/* <iframe
                 className="fixturesgrid" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTxlCLGun8UdSIxgeGvBmJWpJyDpSVj4U5CLMfKpbat9_dFmNqzfYTVyeTjt-IEbvkw-Ay5jerNYUW4/pubhtml?gid=1279606674&amp;single=true&amp;widget=false&amp;headers=false&amp;scrolling=no&amp;chrome=false"></iframe> */}
                 <div className='fixtureFilters uk-flex-inline'>
-                  <div>
-                    <select 
-                      className='seasonSelector'
-                      onChange={handleSeason}>
-                      {seasons && seasons.map(season => {
-                        return <option key={season.id} value={season.name}>{season.name}</option>
-                      })}
-                    </select>
-                  </div>  
                   <div>   
                     <select 
                       className='seasonSelector'
@@ -151,7 +148,7 @@ function Fixtures() {
               {fixtures && filterFixtures().map(fixture => {
                 return <div className="column"key={fixture.id} id="column">
                   <div className="uk-column-1-6">
-                    <p>{fixture.date} - {fixture.time}</p>
+                    <p>{fixture.date.split('-').reverse().join('/')} - {fixture.time.slice(0,5)}</p>
                     <p>{fixture.league[0].name}</p>
                     <img className='smallFixtureLogo' src={fixture.homeTeam[0].logo}></img>
                     <p>{fixture.homeTeam[0].name}</p>
