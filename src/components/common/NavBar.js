@@ -1,10 +1,16 @@
 import React from 'react'
 import { useLocation } from 'react-router-dom'
+import { isAuthenticated, removeToken } from '../../lib/auth'
 import Pdf from '../../assets/documents/JSSAConstitution.pdf'
 import Image from '../../assets/images/JSSA-Logo-edit.png'
 
 function NavBar() {
   useLocation()
+  const isAuth = isAuthenticated()
+
+  const handleLogout = () => {
+    removeToken()
+  }
 
   return (
     <nav className="uk-navbar-container uk-margin" id='navbar' uk-navbar="mode: click">
@@ -49,6 +55,17 @@ function NavBar() {
       </div>
       <div className="uk-navbar-right">
         <ul className="uk-navbar-nav">
+          {isAuth && (
+            <li className="navtext"><a id="navtext" href="/teamcenter">Team Center</a></li>
+          )}
+          {!isAuth && (
+            <>
+              <li className="navtext"><a id="navtext" href="/login">Log In</a></li>
+            </>
+          )}
+          {isAuth && (
+            <li className="navtext"><a id="navtext" onClick={handleLogout}>Log Out</a></li>
+          )}
           <li className="uk-hidden@l">
             <img id="hamburger" src="https://img.icons8.com/ios/50/000000/menu--v4.png" className="uk-margin-small-right" type="button" uk-toggle="target: #offcanvas-nav-primary"/>            </li>
         </ul>
