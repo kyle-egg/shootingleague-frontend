@@ -211,12 +211,23 @@ $global-link-color: #cd6148;
 #fixturetitle {
   font-weight: 100;
   font-stretch: expanded;
-  margin-top: 750px;
+  margin-top: 50px;
+}
+
+#fixtureprofiletitle {
+  font-weight: 100;
+  font-stretch: expanded;
+  margin-top: 50px;
+}
+
+.fixturesprofilecontainer {
+  background-color: rgb(225, 225, 225);
+  height: 500px;
 }
 
 .fixturescontainer {
   background-color: rgb(225, 225, 225);
-  height: 1000px;
+  height: 500px;
 }
 
 .fixturesgrid {

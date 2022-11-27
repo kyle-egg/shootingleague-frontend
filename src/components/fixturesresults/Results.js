@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios'
+import { getAllFixtures, getAllTeams, getAllSeasons } from '../../lib/api'
 
 
 function Results() {
@@ -20,7 +21,7 @@ function Results() {
 
   React.useEffect(() => {
     const getData = async () => {
-      const res = await axios.get('/api/fixtures')
+      const res = await getAllFixtures()
       setFixtures(res.data)
     }
     getData()
@@ -29,7 +30,7 @@ function Results() {
 
   React.useEffect(() => {
     const getData = async () => {
-      const res = await axios.get('/api/clubs/teams')
+      const res = await getAllTeams()
       setTeams(res.data)
     }
     getData()
@@ -38,7 +39,7 @@ function Results() {
 
   React.useEffect(() => {
     const getData = async () => {
-      const res = await axios.get('/api/seasons')
+      const res = await getAllSeasons()
       setSeasons(res.data)
     }
     getData()
@@ -184,7 +185,7 @@ function Results() {
                 </div>
               </div>
               {fixtures && filterResults().map(fixture => {
-                return <div className="column"key={fixture.id} id="column">
+                return <div className="column" key={fixture.id} id="column">
                   <div className="uk-column-1-7">
                     <p>{fixture.date.split('-').reverse().join('/')}</p>
                     <p>{fixture.league[0].name}</p>

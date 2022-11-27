@@ -1,6 +1,6 @@
 import React from 'react'
 import axios from 'axios'
-
+import { getAllFixtures, getAllTeams } from '../../lib/api'
 
 function Fixtures() {
   const [fixtures, setFixtures] = React.useState(null)
@@ -11,7 +11,7 @@ function Fixtures() {
 
   React.useEffect(() => {
     const getData = async () => {
-      const res = await axios.get('/api/fixtures')
+      const res = await getAllFixtures()
       setFixtures(res.data)
     }
     getData()
@@ -20,7 +20,7 @@ function Fixtures() {
 
   React.useEffect(() => {
     const getData = async () => {
-      const res = await axios.get('/api/clubs/teams')
+      const res = await getAllTeams()
       setTeams(res.data)
     }
     getData()

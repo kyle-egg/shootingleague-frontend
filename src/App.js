@@ -24,6 +24,8 @@ import Vinchelez from './components/teams/Vinchelez.js'
 import JORC from './components/teams/Jorc.js'
 import Western from './components/teams/Western.js'
 import SideNav from './components/common/SideNav.js'
+import TeamCenter from './user/TeamCenter.js'
+import Login from './user/Login.js'
 
 
 function App() {
@@ -54,6 +56,8 @@ function App() {
           <Route path="/teams" element={<Teams/>} />
           <Route path="/archive" element={<Archive />} />
           <Route path="/contact" element={<ContactUs />} />
+          <Route path="/teamcenter" element={<TeamCenter />} />
+          <Route path="/login" element={<Login />}/>
         </Routes>
         <Footer />
       </BrowserRouter>

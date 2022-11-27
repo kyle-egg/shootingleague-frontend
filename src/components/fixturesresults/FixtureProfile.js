@@ -39,60 +39,60 @@ function FixtureProfile() {
   //   seasons.sort((b, a) => b.name - a.name)
   //   console.log(seasons)
   // }
-  
-  // const filterResults = () => {
-  //   if (teamValue && leagueValue) {
-  //     return fixtures.filter(fixture => {
-  //       return fixture.league.every(l => leagueValue.includes(l.name)) && 
-  //       fixture.homeTeam.every(hT => teamValue.includes(hT.name)) &&
-  //       fixture.season.every(s => seasonValue.includes(s.name)) &&
-  //       fixture.date.split('-').join('') + fixture.time.split(':').join('') < today ||
-  //       fixture.league.every(l => leagueValue.includes(l.name)) && 
-  //       fixture.awayTeam.every(aT => teamValue.includes(aT.name)) &&
-  //       fixture.season.every(s => seasonValue.includes(s.name)) &&
-  //       fixture.date.split('-').join('') + fixture.time.split(':').join('') < today
-  //     })
-  //   } else if (teamValue) {
-  //     return fixtures.filter(fixture => {
-  //       return fixture.homeTeam.every(hT => teamValue.includes(hT.name)) &&
-  //       fixture.season.every(s => seasonValue.includes(s.name)) &&
-  //       fixture.date.split('-').join('') + fixture.time.split(':').join('') < today ||
-  //       fixture.awayTeam.every(aT => teamValue.includes(aT.name)) &&
-  //       fixture.season.every(s => seasonValue.includes(s.name)) &&
-  //       fixture.date.split('-').join('') + fixture.time.split(':').join('') < today
-  //     }) 
-  //   } else if (leagueValue) {
-  //     return fixtures.filter(fixture => {
-  //       return fixture.league.every(l => leagueValue.includes(l.name)) &&
-  //       fixture.season.every(s => seasonValue.includes(s.name)) &&
-  //       fixture.date.split('-').join('') + fixture.time.split(':').join('') < today
-  //     })
-  //   } else {
-  //     return fixtures.filter(fixture => {
-  //       return fixture.date.split('-').join('') + fixture.time.split(':').join('') < today &&
-  //       fixture.season.every(s => seasonValue.includes(s.name))
-  //     })
-  //   }
-  // }
+
+
+  const filterHomeResults = () => {
+    if (fixture) {
+      return fixture.results.filter(result => {
+        return result.team.username.includes(fixture.homeTeam[0].name.split(' ').join(''))
+      })
+    }
+  }
+
+  const filterAwayResults = () => {
+    if (fixture) {
+      return fixture.results.filter(result => {
+        return result.team.username.includes(fixture.awayTeam[0].name.split(' ').join(''))
+      })
+    }
+  }
+
 
   return (
     <section>
       <div id="resultsshero" className="uk-background-cover uk-height-large uk-panel uk-flex uk-flex-center uk-flex-middle">      
       </div>
       <div id="homeabout" className="uk-child-width-1-1@s" uk-grid>
-        <div className="fixturescontainer">
+        <div className="fixturesprofilecontainer">
           {fixture &&
           <div id="elevate" className="uk-background-cover uk-height-medium uk-panel uk-flex uk-flex-column uk-flex-center uk-flex-middle uk-text-center">
-``          <div className='fixtureFilters uk-flex-inline'>
-``          <img className='mediumFixtureLogo' src={fixture.homeTeam[0].logo}></img>
-``          <h3 id="fixturetitle"className="uk-text-lead">{fixture.homeTeam[0].name}   {fixture.homeTotalScore} - {fixture.awayTotalScore}   {fixture.awayTeam[0].name}</h3>
-``          <img className='mediumFixtureLogo' src={fixture.awayTeam[0].logo}></img> 
-``          </div>
+            {/* <img className='mediumFixtureLogo' src={fixture.homeTeam[0].logo}></img> */}
+            <h3 id="fixtureprofiletitle"className="uk-text-lead">{fixture.homeTeam[0].name}   {fixture.homeTotalScore} - {fixture.awayTotalScore}   {fixture.awayTeam[0].name}</h3>
+            {/* <img className='mediumFixtureLogo' src={fixture.awayTeam[0].logo}></img>  */}
             <br></br>
-            <div>
-          
+            <div className="uk-column-1-2">
+              {filterHomeResults().map(result => {
+                return <div className="column" key={result.id}>
+                  <div className="uk-column-1-3">
+                    <p>{result.player[0].name}</p>
+                    <p>{result.shotOne}</p>
+                    <p>{result.shotTwo}</p>
+                    {console.log(result.player)}
+                  </div>
+                </div>
+              })
+              }
+              {filterAwayResults().map(result => {
+                return <div className="column" key={result.id}>
+                  <div className="uk-column-1-3">
+                    <p>{result.player[0].name}</p>
+                    <p>{result.shotOne}</p>
+                    <p>{result.shotTwo}</p>
+                  </div>
+                </div>
+              })
+              }
             </div>
-            
           </div>
           }
         </div>     
