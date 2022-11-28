@@ -36,8 +36,6 @@ function Fixtures() {
     
   }, [ ])
 
-  // console.log(leagues)
-
   const handleTeam = (e) => {
     setTeamValue(e.target.value)
   }

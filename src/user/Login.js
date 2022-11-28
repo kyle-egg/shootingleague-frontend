@@ -1,12 +1,12 @@
 import React from 'react'
-// import { useHistory } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { setToken } from '../lib/auth'
 import axios from 'axios'
 // import { FadeInDiv } from '../gins/Gins'
 // import { baseUrl } from '../../config'
 
 function Login() {
-  // const history = useHistory()
+  const navigate = useNavigate()
   const [formData, setFormData] = React.useState({
     username: '',
     password: '',
@@ -23,9 +23,9 @@ function Login() {
   const handleSubmit = async (event) => {
     event.preventDefault()
     try {
-      const { data } = await axios.post('/api/login/', formData)
+      const { data } = await axios.post('/api/auth/login/', formData)
       setToken(data.token)
-      // history.push('/profile')
+      navigate.push('/teamcenter')
     } catch (err) {
       setIsError(true)
     }

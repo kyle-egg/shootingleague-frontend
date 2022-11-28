@@ -25,5 +25,5 @@ export function getAllSeasons() {
 //* AUTH REQ
 
 export function userProfile(userId) {
-  return axios.get(`/api/profile/${userId}`, headers())
+  return axios.get(`/api/auth/profile/${userId}`, headers())
 }
