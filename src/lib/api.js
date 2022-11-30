@@ -22,6 +22,12 @@ export function getAllSeasons() {
   return axios.get('/api/seasons')
 }
 
+//* RESULT REQ
+
+export function createResult(fixtureId, formData) {
+  return axios.post(`${baseUrl}/fixtures/${fixtureId}/results/`, formData, headers())
+}
+
 //* AUTH REQ
 
 export function userProfile(userId) {

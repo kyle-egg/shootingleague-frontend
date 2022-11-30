@@ -34,11 +34,11 @@ function TeamCenter() {
   var month = String(today.getMonth() + 1).padStart(2, '0') //January is 0!
   var year = String(today.getFullYear())
 
-  const matchDate = year + month + date + String('190000')
+  const matchDate = year + month + date + String('090000')
   const deadline = year + month + tomorrow + String('000000')
 
-  // // Set the date we're counting down to
-  // var countDownDate = new Date((String(today).slice(4,7) + ' ' + tomorrow + ', ' + year + ' ' + '00:00:00')).getTime()
+  // Set the date we're counting down to
+  var countDownDate = new Date((String(today).slice(4,7) + ' ' + tomorrow + ', ' + year + ' ' + '00:00:00')).getTime()
 
   // // Update the count down every 1 second
   // var x = setInterval(function() {   
@@ -47,7 +47,8 @@ function TeamCenter() {
       
   //   // Find the distance between now and the count down date
   //   var distance = countDownDate - now
-  //   console.log(distance)
+  //   // console.log(distance)
+  //   // console.log(now)
     
   //   // Time calculations for days, hours, minutes and seconds
   //   var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
@@ -58,10 +59,12 @@ function TeamCenter() {
   //   document.getElementById('countdowntimer').innerHTML = hours + 'h '
   // + minutes + 'm ' + seconds + 's '
   
-  // if (distance < 0) {
+  // if (hours > 5) {
   //   clearInterval(x)
+  //   document.getElementById('countdowntimer').innerHTML = 'DEADLINE PASSED'
   // }
   // }, 1000)
+
 
   const filterLiveResults = () => {
     if (fixtures && profile.team) {
@@ -76,6 +79,8 @@ function TeamCenter() {
     } 
   }
 
+  const liveResults = filterLiveResults()
+  console.log(liveResults)
   return (
     // <FadeInDiv>
     <section>
@@ -98,9 +103,6 @@ function TeamCenter() {
                 </div>
               })}
               <div>
-              {!filterLiveResults() ?
-              <p>No Results To Submit</p>
-              :
               <div>
             <br></br>
             <p>Please submit the below result(s) before the deadline.</p>
@@ -120,7 +122,6 @@ function TeamCenter() {
               </div>
             })}
             </div>
-          }
             </div>
           </div>
         </div>     
