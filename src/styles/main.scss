@@ -198,6 +198,10 @@ $global-link-color: #cd6148;
   height: 100px;
 }
 
+.largeFixtureLogo {
+  height: 200px;
+}
+
 #fixtureshero {
   background-image: url(../assets/images/shooting-target.jpg);
   background-size: cover;
@@ -293,6 +297,39 @@ $global-link-color: #cd6148;
   background-color: rgb(225, 225, 225);
   margin-top: -20px;
 }
+
+#loginhero {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: rgb(225, 225, 225);
+  height: 50px;
+  margin-top: -20px;
+}
+
+.liveSection {
+margin-bottom: 200px;
+}
+
+.loginhelp {
+  color: $global-link-color;
+}
+
+.logininput {
+  background-color: rgb(225, 225, 225);
+  color: #000;
+  border-top: none !important;
+  border-left: none !important;
+  border-bottom: #000;
+  border-bottom: 1px;
+  border-style: solid;
+}
+
+#tctitle {
+  font-weight: 100;
+  font-stretch: expanded;
+}
+
 
 .footer {
   background-color: #030f26;

@@ -2,6 +2,7 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { setToken } from '../lib/auth'
 import axios from 'axios'
+
 // import { FadeInDiv } from '../gins/Gins'
 // import { baseUrl } from '../../config'
 
@@ -25,7 +26,7 @@ function Login() {
     try {
       const { data } = await axios.post('/api/auth/login/', formData)
       setToken(data.token)
-      navigate.push('/teamcenter')
+      navigate('/teamcenter')
     } catch (err) {
       setIsError(true)
     }
@@ -33,52 +34,59 @@ function Login() {
 
   return (
     // <FadeInDiv>
-    <section className="hero is-fullheight" id="myprofile">
-      <div className="hero-body" id="profile-body">
-        <h1 id="checkoutheader">Login!</h1>
-        <div className="section">
-          <form
-            className="column"
-            onSubmit={handleSubmit}
-          >
-            <div className="field">
-              <label className="label">Username:</label>
-              <div className="control">
-                <input
-                  className="input"
-                  placeholder="Username"
-                  name="username"
-                  onChange={handleChange}
-                />
-              </div>
+    <section>
+      <div id="loginhero" className="uk-background-cover uk-height-large uk-panel uk-flex uk-flex-center uk-flex-middle">      
+      </div>
+      <div id="homeabout" className="uk-child-width-1-1@s" uk-grid>
+        <div className="homecontainer">
+          <div id="elevate" className="uk-background-cover uk-height-medium uk-panel uk-flex uk-flex-column uk-flex-center uk-flex-middle uk-text-center">
+            <h3 id="abouttitle"className="uk-text-lead">LOGIN</h3>
+            <br></br>  
+            <div className="section">
+              <form
+                className="column"
+                onSubmit={handleSubmit}
+              >
+                <div className="field">
+                  <div className="control">
+                    <input
+                      className="logininput"
+                      placeholder="USERNAME"
+                      name="username"
+                      onChange={handleChange}
+                    />
+                  </div>
+                </div>
+                <br></br>
+                <div className="field">
+                  <div className="control">
+                    <input
+                      type="password"
+                      className="logininput"
+                      placeholder="PASSWORD"
+                      name="password"
+                      onChange={handleChange}
+                    />
+                  </div>
+                </div>
+                {isError && (
+                  <>
+                    <p className="loginhelp">
+              Your Username And/Or Password Are Incorrect<br></br>
+              Please Try Again Or Contact Admin
+                    </p>
+                  </>
+                )}
+                <br></br>
+                <div className="field">
+                  <button type="submit" className="buttons">
+                  Log In!
+                  </button>
+                </div>
+              </form>
             </div>
-            <div className="field">
-              <label className="label">Password:</label>
-              <div className="control">
-                <input
-                  type="password"
-                  className="input"
-                  placeholder="Password"
-                  name="password"
-                  onChange={handleChange}
-                />
-              </div>
-            </div>
-            {isError && (
-              <>
-                <p className="help is-danger">
-              Your E-mail And/Or Password Are Incorrect!<br></br>
-              Please Contact Admin
-                </p>
-              </>
-            )}
-            <div className="field">
-              <button type="submit" className="buttons">
-              Log In!
-              </button>
-            </div>
-          </form>
-        </div>
+          </div>
+        </div>     
       </div>
     </section>
     // </FadeInDiv>

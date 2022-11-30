@@ -1,15 +1,17 @@
 import React from 'react'
-import { useLocation } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { isAuthenticated, removeToken } from '../../lib/auth'
 import Pdf from '../../assets/documents/JSSAConstitution.pdf'
 import Image from '../../assets/images/JSSA-Logo-edit.png'
 
 function NavBar() {
   useLocation()
+  const navigate = useNavigate()
   const isAuth = isAuthenticated()
 
   const handleLogout = () => {
     removeToken()
+    navigate('/')
   }
 
   return (
