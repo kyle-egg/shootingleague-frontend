@@ -1,16 +1,15 @@
 import React from 'react'
 import axios from 'axios'
 import { useParams } from 'react-router-dom'
-import { isAuthenticated } from '../../lib/auth'
 import { getUserId } from '../../lib/auth'
 import { useLocation } from 'react-router-dom'
 import { userProfile, headers, createResult } from '../../lib/api'
 
-const initialState = {
-  'player': '',
-  'shotOne': '',
-  'shotTwo': '',
-}
+// const initialState = {
+//   'player': '',
+//   'shotOne': '',
+//   'shotTwo': '',
+// }
 
 function FixtureProfile() {
   useLocation()
@@ -18,8 +17,8 @@ function FixtureProfile() {
   const { fixtureId } = useParams()
   const [fixture, setFixture] = React.useState(null)
   const [players, setPlayers] = React.useState(null)
-  const [formData, setFormData] = React.useState(initialState)
-  const [formErrors, setFormErrors] = React.useState(initialState)
+  const [formData, setFormData] = React.useState('')
+  const [formErrors, setFormErrors] = React.useState('')
 
   React.useEffect(() => {
     const getData = async () => {
@@ -114,6 +113,7 @@ const resultSubmission = () => {
 
   const filterPlayers = () => {
     if (players && profile.team) {
+      console.log(profile.team)
       return players.filter(player => {
         return player.teamPlayers.every(team => profile.team[0].name.includes(team.name))
       })
@@ -138,6 +138,7 @@ const resultSubmission = () => {
     setFormErrors({ ...formErrors, [e.target.name]: '' })
   }
 
+
   return (
     <section>
       <div id="resultsshero" className="uk-background-cover uk-height-large uk-panel uk-flex uk-flex-center uk-flex-middle">      
@@ -154,7 +155,7 @@ const resultSubmission = () => {
               {filterHomeResults().map(result => {
                 return <div className="column" key={result.id}>
                   <div className="uk-column-1-3">
-                    <p>{result.player[0].name}</p>
+                    <p>{result.playerName}</p>
                     <p>{result.shotOne}</p>
                     <p>{result.shotTwo}</p>
                   </div>
@@ -164,7 +165,7 @@ const resultSubmission = () => {
               {filterAwayResults().map(result => {
                 return <div className="column" key={result.id}>
                   <div className="uk-column-1-3">
-                    <p>{result.player[0].name}</p>
+                    <p>{result.playerName}</p>
                     <p>{result.shotOne}</p>
                     <p>{result.shotTwo}</p>
                   </div>
@@ -177,7 +178,7 @@ const resultSubmission = () => {
         </div>
         {submitResult && isResultLive &&
         <div className="inputresultscontainer">
-          {fixture &&
+          {fixture && players &&
           <div id="elevate" className="uk-background-cover uk-height-medium uk-panel uk-flex uk-flex-column uk-flex-center uk-flex-middle uk-text-center">
             <h3 id="fixtureprofiletitle"className="uk-text-lead">SUBMIT A RESULT</h3>
                     <form
@@ -186,9 +187,10 @@ const resultSubmission = () => {
                       <div className="field uk-flex">
                         <div className="control">
                         <select 
-                      className={`input ${formErrors.player}`}
+                      className={`input ${formErrors.playerName}`}
                       onChange={inputtingResult}
-                      value={formData.player}>
+                      name='playerName'
+                      value={formData.playerName}>
                       {players && filterPlayers().map(player => {
                         return <option key={player.id} value={player.name}>{player.name}</option>
                       })}
@@ -218,7 +220,7 @@ const resultSubmission = () => {
                           type="submit" 
                           className="buttons"
                           onSubmit={postResult}>
-                      Submit Review!
+                          Submit Result!
                         </button>
                       </div>
                     </form>

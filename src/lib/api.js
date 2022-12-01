@@ -25,7 +25,7 @@ export function getAllSeasons() {
 //* RESULT REQ
 
 export function createResult(fixtureId, formData) {
-  return axios.post(`${baseUrl}/fixtures/${fixtureId}/results/`, formData, headers())
+  return axios.post(`/api/fixtures/${fixtureId}/results/`, formData, headers())
 }
 
 //* AUTH REQ
@@ -33,3 +33,8 @@ export function createResult(fixtureId, formData) {
 export function userProfile(userId) {
   return axios.get(`/api/auth/profile/${userId}`, headers())
 }
+
+
+// export function createReview(fixtureId, formData) {
+//   return axios.post(`${baseUrl}/fixtures/${fixtureId}/results/`, formData, headers())
+// }
