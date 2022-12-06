@@ -1,4 +1,4 @@
-import VinchelezImage from '../../assets/images/logoplaceholder.png'
+import VinchelezImage from '../../assets/images/vin-logo.png'
 
 function Vinchelez() {
 

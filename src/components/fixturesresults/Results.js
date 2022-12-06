@@ -16,7 +16,7 @@ function Results() {
   const [seasons, setSeasons] = React.useState(null)
   const [leagues, setLeagues] = React.useState(null)
   const [leagueValue, setLeagueValue] = React.useState('')
-  const [seasonValue, setSeasonValue] = React.useState(year)
+  const [seasonValue, setSeasonValue] = React.useState('2023')
   const [teamValue, setTeamValue] = React.useState('')
 
   React.useEffect(() => {
@@ -190,9 +190,9 @@ function Results() {
                     <p>{fixture.date.split('-').reverse().join('/')}</p>
                     <p>{fixture.league[0].name}</p>
                     <img className='smallFixtureLogo' src={fixture.homeTeam[0].logo}></img>
-                    <p>{fixture.homeTeam[0].name}</p>
+                    <p><a href={`/teams/${fixture.homeTeam[0].id}`}>{fixture.homeTeam[0].name}</a></p>
                     <p><a href={`/fixtures/${fixture.id}`}>{fixture.homeTotalScore} - {fixture.awayTotalScore}</a></p>
-                    <p>{fixture.awayTeam[0].name}</p>
+                    <p><a href={`/teams/${fixture.awayTeam[0].id}`}>{fixture.awayTeam[0].name}</a></p>
                     <img className='smallFixtureLogo' src={fixture.awayTeam[0].logo}></img>
                   </div>
                 </div>

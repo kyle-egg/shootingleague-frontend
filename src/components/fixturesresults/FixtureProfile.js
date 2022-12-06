@@ -5,11 +5,12 @@ import { getUserId } from '../../lib/auth'
 import { useLocation } from 'react-router-dom'
 import { userProfile, headers, createResult } from '../../lib/api'
 
-// const initialState = {
-//   'player': '',
-//   'shotOne': '',
-//   'shotTwo': '',
-// }
+const initialState = {
+  'player': '',
+  // 'playerId': '',
+  'shotOne': 0,
+  'shotTwo': 0,
+}
 
 function FixtureProfile() {
   useLocation()
@@ -17,8 +18,9 @@ function FixtureProfile() {
   const { fixtureId } = useParams()
   const [fixture, setFixture] = React.useState(null)
   const [players, setPlayers] = React.useState(null)
-  const [formData, setFormData] = React.useState('')
-  const [formErrors, setFormErrors] = React.useState('')
+  const [formData, setFormData] = React.useState(initialState)
+  // const [playerIdValue, setPlayerIdValue] = React.useState('')
+  const [formErrors, setFormErrors] = React.useState(initialState)
 
   React.useEffect(() => {
     const getData = async () => {
@@ -36,7 +38,7 @@ function FixtureProfile() {
   React.useEffect(() => {
     const getData = async () => {
       try {
-        const res = await axios.get(`/api/players/`)
+        const res = await axios.get('/api/players/')
         setPlayers(res.data)
       } catch (err) {
         console.log(err)
@@ -66,7 +68,7 @@ function FixtureProfile() {
   const deadline = year + month + tomorrow + String('000000')
 
   
-const resultSubmission = () => {
+  const resultSubmission = () => {
     if (fixture && profile.team) {
       if (fixture.homeTeam[0].name || 
           fixture.awayTeam[0].name === 
@@ -78,18 +80,18 @@ const resultSubmission = () => {
         return false
       }
     }      
-    } 
+  } 
 
-    const liveResult = () => {
-      if (fixture && profile.team) {
-        if (fixture.date.split('-').join('') + fixture.time.split(':').join('') > matchDate && 
-            fixture.date.split('-').join('') + fixture.time.split(':').join('') < deadline) {
-          return true
-        } else {
-          return false
-        }
-      }      
-      }   
+  const liveResult = () => {
+    if (fixture && profile.team) {
+      if (fixture.date.split('-').join('') + fixture.time.split(':').join('') > matchDate && 
+          fixture.date.split('-').join('') + fixture.time.split(':').join('') < deadline) {
+        return true
+      } else {
+        return false
+      }
+    }      
+  }   
 
   const submitResult = resultSubmission()
   const isResultLive = liveResult()
@@ -105,6 +107,7 @@ const resultSubmission = () => {
 
   const filterAwayResults = () => {
     if (fixture) {
+      console.log(fixture.results.playerName)
       return fixture.results.filter(result => {
         return result.team.username.includes(fixture.awayTeam[0].name.split(' ').join(''))
       })
@@ -113,18 +116,29 @@ const resultSubmission = () => {
 
   const filterPlayers = () => {
     if (players && profile.team) {
-      console.log(profile.team)
       return players.filter(player => {
         return player.teamPlayers.every(team => profile.team[0].name.includes(team.name))
       })
     }
   }
 
+  
+  // const filterPlayerId = () => {
+  //   if (playerIdValue && fixture) {
+  //     console.log(fixture.results)
+  //     return fixture.results.filter(result => {
+  //       return result.playerName.includes(playerIdValue)
+  //     })} 
+  //   }     
+    // console.log(filterPlayerId())
+    // console.log(playerIdValue)
+  
   const postResult = async e => {
     e.preventDefault()
     try {
       const { data } = await createResult(fixtureId, formData)
       console.log('Result Submitted:', data)
+      location.reload()
     } catch (err) {
       console.log(formErrors)
       setFormErrors(err.response.data.errors)
@@ -133,10 +147,21 @@ const resultSubmission = () => {
 
   }
 
+  // const twoCommands = (e) => {
+  //   inputtingResult(e)
+  //   handlePlayerId(e)
+  // }
+
   const inputtingResult = e => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
     setFormErrors({ ...formErrors, [e.target.name]: '' })
   }
+
+  // const handlePlayerId = (e) => {
+  //   setPlayerIdValue(e.target.id)
+  // }
+
+  const reducer = (previousValue, currentValue) => previousValue + currentValue
 
 
   return (
@@ -148,30 +173,42 @@ const resultSubmission = () => {
           {fixture &&
           <div id="elevate" className="uk-background-cover uk-height-medium uk-panel uk-flex uk-flex-column uk-flex-center uk-flex-middle uk-text-center">
             {/* <img className='mediumFixtureLogo' src={fixture.homeTeam[0].logo}></img> */}
-            <h3 id="fixtureprofiletitle"className="uk-text-lead">{fixture.homeTeam[0].name}   {fixture.homeTotalScore} - {fixture.awayTotalScore}   {fixture.awayTeam[0].name}</h3>
+            <h3 id="fixtureprofiletitle"className="uk-text-lead">
+            <a href={`/teams/${fixture.homeTeam[0].id}`}>{fixture.homeTeam[0].name} </a>
+            {fixture.homeTotalScore} - {fixture.awayTotalScore} <a href={`/teams/${fixture.awayTeam[0].id}`}>{fixture.awayTeam[0].name}</a></h3>
             {/* <img className='mediumFixtureLogo' src={fixture.awayTeam[0].logo}></img>  */}
             <br></br>
             <div className="uk-column-1-2">
               {filterHomeResults().map(result => {
                 return <div className="column" key={result.id}>
-                  <div className="uk-column-1-3">
-                    <p>{result.playerName}</p>
+                  <div className="uk-column-1-4">
+                    <p><a href={`/players/${result.playerName.slice(0, result.playerName.indexOf("#"))}`}>{result.playerName.slice(result.playerName.indexOf("#") + 1)}</a></p>
                     <p>{result.shotOne}</p>
                     <p>{result.shotTwo}</p>
+                    <p>{(result.shotOne + result.shotTwo)}</p>
                   </div>
                 </div>
               })
               }
               {filterAwayResults().map(result => {
                 return <div className="column" key={result.id}>
-                  <div className="uk-column-1-3">
-                    <p>{result.playerName}</p>
+                  <div className="uk-column-1-5">
+                  <button>Edit Result</button>
+                  <p><a href={`/players/${result.playerName.slice(0, result.playerName.indexOf("#"))}`}>{result.playerName.slice(result.playerName.indexOf("#") + 1)}</a></p>
                     <p>{result.shotOne}</p>
                     <p>{result.shotTwo}</p>
+                    <p><strong>{(result.shotOne + result.shotTwo)}</strong></p>
                   </div>
                 </div>
               })
               }
+                  {/* <div className="uk-column-1-5">
+                  <p></p>
+                  <p>{console.log(filterAwayResults())}</p>
+                  <p>{result.shotOne.reduce(reducer)}</p>
+                  <p>{result.shotTwo.reduce(reducer)}</p>
+                  <p>Mr</p>
+                  </div> */}
             </div>
           </div>
           }
@@ -181,53 +218,69 @@ const resultSubmission = () => {
           {fixture && players &&
           <div id="elevate" className="uk-background-cover uk-height-medium uk-panel uk-flex uk-flex-column uk-flex-center uk-flex-middle uk-text-center">
             <h3 id="fixtureprofiletitle"className="uk-text-lead">SUBMIT A RESULT</h3>
-                    <form
-                      id='createResult'
-                      onSubmit={postResult}>
-                      <div className="field uk-flex">
-                        <div className="control">
-                        <select 
-                      className={`input ${formErrors.playerName}`}
-                      onChange={inputtingResult}
-                      name='playerName'
-                      value={formData.playerName}>
-                      {players && filterPlayers().map(player => {
-                        return <option key={player.id} value={player.name}>{player.name}</option>
-                      })}
-                    </select>
-                        </div>
-                        <div className="control">
-                          <input
-                            className={`input ${formErrors.shotOne}`}
-                            name="shotOne"
-                            placeholder="Shot One"
-                            type="number"
-                            onChange={inputtingResult}
-                            value={formData.shotOne}
-                          />
-                        </div>
-                        <div className="control">
-                          <input
-                            className={`input ${formErrors.shotTwo}`}
-                            name="shotTwo"
-                            placeholder="Shot Two"
-                            type="number"
-                            onChange={inputtingResult}
-                            value={formData.shotTwo}
-                          />
-                        </div>
-                        <button 
-                          type="submit" 
-                          className="buttons"
-                          onSubmit={postResult}>
-                          Submit Result!
-                        </button>
-                      </div>
-                    </form>
+            <form
+              id='createResult'
+              onSubmit={postResult}>
+              <div className="field uk-flex">
+                <div className="control">
+                  <select 
+                    className={`input ${formErrors.playerName}`}
+                    onChange={inputtingResult}
+                    name='playerName'
+                    value={formData.playerName}>
+                      <option>Choose A Player</option>
+                    {players && filterPlayers().map(player => {
+                      return <option key={player.id} id={player.id} value={ (player.id + '#' + player.name) }>{player.name}</option>
+                    })}
+                  </select>
+                </div>
+                {/* <div className="control">
+                {playerIdValue && filterPlayerId().map(player => {
+                      return <input
+                    key={player.id}
+                    className={`input ${formErrors.playerId}`}
+                    name="playerId"
+                    placeholder="playerId"
+                    type="number"
+                    onChange={inputtingResult}
+                    value={formData.playerId}
+                    id={player.id}
+                  >{player.id}
+                  </input>
+                                      })}
+                </div> */}
+                <div className="control">
+                  <input
+                    className={`input ${formErrors.shotOne}`}
+                    name="shotOne"
+                    placeholder="Shot One"
+                    type="number"
+                    onChange={inputtingResult}
+                    value={formData.shotOne}
+                  />
+                </div>
+                <div className="control">
+                  <input
+                    className={`input ${formErrors.shotTwo}`}
+                    name="shotTwo"
+                    placeholder="Shot Two"
+                    type="number"
+                    onChange={inputtingResult}
+                    value={formData.shotTwo}
+                  />
+                </div>
+                <button 
+                  type="submit" 
+                  className="buttons"
+                  onSubmit={postResult}>
+                  Submit Result!
+                </button>
+              </div>
+            </form>
           </div>
           }
         </div>      
-          }
+        }
       </div>
     </section>
   )

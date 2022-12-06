@@ -38,7 +38,7 @@ function Teams() {
             <div className="clubcard uk-card uk-card-default uk-card-body uk-grid-margin" id="stlawrence"><h6 id="teamtitle">St. Lawrence</h6></div>
           </a>
           <a className="uk-navbar-item uk-logo" href="/teams/vinchelez">
-            <div className="clubcard uk-card uk-card-default uk-card-body uk-grid-margin" id="logoplaceholder"><h6 id="teamtitle">Vinchelez</h6></div>
+            <div className="clubcard uk-card uk-card-default uk-card-body uk-grid-margin" id="vinchelez"><h6 id="teamtitle">Vinchelez</h6></div>
           </a>
         </div>
       </div>

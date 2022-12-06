@@ -4,7 +4,9 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home from './components/common/Home.js'
 import NavBar from './components/common/NavBar.js'
 import CouncilMembers from './components/common/CouncilMembers.js'
+import PlayerProfile from './components/common/PlayerProfile.js'
 import FixtureProfile from './components/fixturesresults/FixtureProfile.js'
+import TeamProfile from './components/teams/TeamProfile.js'
 import Fixtures from './components/fixturesresults/Fixtures.js'
 import Results from './components/fixturesresults/Results.js'
 import Tables from './components/fixturesresults/Tables.js'
@@ -38,11 +40,13 @@ function App() {
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route path="/councilmembers" element={<CouncilMembers />} />
+          <Route path="/players/:playerId" element={<PlayerProfile />}/>
           <Route path="/fixtures/:fixtureId" element={<FixtureProfile />}/>
           <Route path="/fixtures" element={<Fixtures />} />
           <Route path="/results"  element={<Results />} />
           <Route path="/tables"  element={<Tables />} />
           <Route path="/CodeOfConduct"  element={<CodeOfConduct />} />
+          <Route path="/teams/:teamId" element={<TeamProfile />}/>
           <Route path="/teams/stbrelade" element={<Brelade />} />
           <Route path="/teams/eastern" element={<Eastern />} />
           <Route path="/teams/grouville" element={<Grouville />} />
