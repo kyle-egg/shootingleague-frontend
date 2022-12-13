@@ -66,10 +66,10 @@ function Fixtures() {
   const filterFixtures = () => {
     if (teamValue && leagueValue) {
       return fixtures.filter(fixture => {
-        return fixture.league.every(l => leagueValue.includes(l.name)) && 
+        return fixture.league.some(l => leagueValue.includes(l.name)) && 
         fixture.homeTeam.every(hT => teamValue.includes(hT.name)) &&
         fixture.date.split('-').join('') + fixture.time.split(':').join('') > today ||
-        fixture.league.every(l => leagueValue.includes(l.name)) && 
+        fixture.league.some(l => leagueValue.includes(l.name)) && 
         fixture.awayTeam.every(aT => teamValue.includes(aT.name)) &&
         fixture.date.split('-').join('') + fixture.time.split(':').join('') > today
       })
@@ -82,7 +82,7 @@ function Fixtures() {
       }) 
     } else if (leagueValue) {
       return fixtures.filter(fixture => {
-        return fixture.league.every(l => leagueValue.includes(l.name)) &&
+        return fixture.league.some(l => leagueValue.includes(l.name)) &&
         fixture.date.split('-').join('') + fixture.time.split(':').join('') > today
       })
     } else {

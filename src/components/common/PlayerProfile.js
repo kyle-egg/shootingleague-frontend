@@ -28,20 +28,22 @@ function PlayerProfile() {
     <div className="uk-section clubbackground">
       <div className="uk-container">
         <div id="club" className="uk-card uk-card-default clubcontainer">
-          <div id="clubcrest" className="uk-card-media-top">
-            <img src={player.avatar} uk-cover/>
-          </div>
-          <div>
-            <div className="uk-card-body">
-              <h3 className="uk-card-title">{player.name}</h3>
-              <h6 className="clubinfo">{player.clubPlayers[0].name}</h6>
-              <h6 className="clubinfo">{player.title}</h6>
-              <h6 className="clubinfo">{player.teamPlayers[0].name}</h6>
-              <h6 className="clubinfo">{player.honours}</h6>
-              <h6 className="clubinfo"></h6>
-              <br></br>
-            </div>
-          </div>
+          {player &&
+          <><div id="clubcrest" className="uk-card-media-top">
+              <img src={player.avatar} uk-cover />
+            </div><div>
+                <div className="uk-card-body">
+                  <h3 className="uk-card-title">{player.name}</h3>
+                  <h6 className="clubinfo">{player.clubPlayers[0].name}</h6>
+                  <h6 className="clubinfo">{player.title}</h6>
+                  <h6 className="clubinfo">{player.teamPlayers[0].name}</h6>
+                  <h6 className="clubinfo">{player.honours}</h6>
+                  <h6 className="clubinfo"></h6>
+                  <br></br>
+                  
+                </div>
+              </div></>
+          }
         </div>
       </div>
     </div>

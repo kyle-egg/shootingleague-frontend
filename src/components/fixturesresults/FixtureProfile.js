@@ -100,38 +100,27 @@ function FixtureProfile() {
   const filterHomeResults = () => {
     if (fixture) {
       return fixture.results.filter(result => {
-        return result.team.username.includes(fixture.homeTeam[0].name.split(' ').join(''))
+        return result.team.username.slice(0,5).includes(fixture.homeTeam[0].name.split(' ').join('').slice(0,5))
       })
     }
   }
 
   const filterAwayResults = () => {
     if (fixture) {
-      console.log(fixture.results.playerName)
       return fixture.results.filter(result => {
-        return result.team.username.includes(fixture.awayTeam[0].name.split(' ').join(''))
+        return result.team.username.slice(0,5).includes(fixture.awayTeam[0].name.split(' ').join('').slice(0,5))
       })
     }
   }
+
 
   const filterPlayers = () => {
-    if (players && profile.team) {
+    if (players && profile.club) {
       return players.filter(player => {
-        return player.teamPlayers.every(team => profile.team[0].name.includes(team.name))
+        return player.clubPlayers.some(club => profile.club[0].name.includes(club.name))
       })
     }
   }
-
-  
-  // const filterPlayerId = () => {
-  //   if (playerIdValue && fixture) {
-  //     console.log(fixture.results)
-  //     return fixture.results.filter(result => {
-  //       return result.playerName.includes(playerIdValue)
-  //     })} 
-  //   }     
-    // console.log(filterPlayerId())
-    // console.log(playerIdValue)
   
   const postResult = async e => {
     e.preventDefault()
@@ -147,22 +136,59 @@ function FixtureProfile() {
 
   }
 
-  // const twoCommands = (e) => {
-  //   inputtingResult(e)
-  //   handlePlayerId(e)
-  // }
-
   const inputtingResult = e => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
     setFormErrors({ ...formErrors, [e.target.name]: '' })
   }
 
-  // const handlePlayerId = (e) => {
-  //   setPlayerIdValue(e.target.id)
-  // }
 
-  const reducer = (previousValue, currentValue) => previousValue + currentValue
+  const calcHomeShotOne = () => {
+    if (filterHomeResults()) { 
+      return filterHomeResults().reduce(function(prev, cur) {
+        return prev + cur.shotOne
+      }, 0)
+    }
+  }
 
+  const calcHomeShotTwo = () => {
+    if (filterHomeResults()) { 
+      return filterHomeResults().reduce(function(prev, cur) {
+        return prev + cur.shotTwo
+      }, 0)
+    }
+  }
+
+  const calcHomeShotTotal = () => {
+    if (filterHomeResults()) { 
+      return filterHomeResults().reduce(function(prev, cur) {
+        return prev + cur.shotTwo + cur.shotOne 
+      }, 0)
+    }
+  }
+
+  const calcAwayShotOne = () => {
+    if (filterAwayResults()) { 
+      return filterAwayResults().reduce(function(prev, cur) {
+        return prev + cur.shotOne
+      }, 0)
+    }
+  }
+
+  const calcAwayShotTwo = () => {
+    if (filterAwayResults()) { 
+      return filterAwayResults().reduce(function(prev, cur) {
+        return prev + cur.shotTwo
+      }, 0)
+    }
+  }
+
+  const calcAwayShotTotal = () => {
+    if (filterAwayResults()) { 
+      return filterAwayResults().reduce(function(prev, cur) {
+        return prev + cur.shotTwo + cur.shotOne 
+      }, 0)
+    }
+  }
 
   return (
     <section>
@@ -170,46 +196,55 @@ function FixtureProfile() {
       </div>
       <div id="homeabout" className="uk-child-width-1-1@s" uk-grid>
         <div className="fixturesprofilecontainer">
-          {fixture &&
+          {fixture && 
           <div id="elevate" className="uk-background-cover uk-height-medium uk-panel uk-flex uk-flex-column uk-flex-center uk-flex-middle uk-text-center">
             {/* <img className='mediumFixtureLogo' src={fixture.homeTeam[0].logo}></img> */}
             <h3 id="fixtureprofiletitle"className="uk-text-lead">
-            <a href={`/teams/${fixture.homeTeam[0].id}`}>{fixture.homeTeam[0].name} </a>
-            {fixture.homeTotalScore} - {fixture.awayTotalScore} <a href={`/teams/${fixture.awayTeam[0].id}`}>{fixture.awayTeam[0].name}</a></h3>
+              <a href={`/teams/${fixture.homeTeam[0].id}`}>{fixture.homeTeam[0].name} </a>
+              {fixture.homeTotalScore} - {fixture.awayTotalScore} <a href={`/teams/${fixture.awayTeam[0].id}`}>{fixture.awayTeam[0].name}</a></h3>
             {/* <img className='mediumFixtureLogo' src={fixture.awayTeam[0].logo}></img>  */}
             <br></br>
-            <div className="uk-column-1-2">
-              {filterHomeResults().map(result => {
-                return <div className="column" key={result.id}>
-                  <div className="uk-column-1-4">
-                    <p><a href={`/players/${result.playerName.slice(0, result.playerName.indexOf("#"))}`}>{result.playerName.slice(result.playerName.indexOf("#") + 1)}</a></p>
-                    <p>{result.shotOne}</p>
-                    <p>{result.shotTwo}</p>
-                    <p>{(result.shotOne + result.shotTwo)}</p>
-                  </div>
-                </div>
-              })
-              }
-              {filterAwayResults().map(result => {
-                return <div className="column" key={result.id}>
-                  <div className="uk-column-1-5">
-                  <button>Edit Result</button>
-                  <p><a href={`/players/${result.playerName.slice(0, result.playerName.indexOf("#"))}`}>{result.playerName.slice(result.playerName.indexOf("#") + 1)}</a></p>
+            <div className="uk-column-1-2 uk-column-divider">
+              <div className="column">
+                {filterHomeResults().map(result => {
+                  return <div  key={result.id} id="homeResultDetail" className="uk-column-1-5">
+                    <button>Edit Result</button>
+                    <p><a href={`/players/${result.playerName.slice(0, result.playerName.indexOf('#'))}`}>{result.playerName.slice(result.playerName.indexOf('#') + 1)}</a></p>
                     <p>{result.shotOne}</p>
                     <p>{result.shotTwo}</p>
                     <p><strong>{(result.shotOne + result.shotTwo)}</strong></p>
                   </div>
-                </div>
+                })
+                }
+                <><hr></hr><div className="uk-column-1-5" id="homeResultDetail">
+                      <p>null</p>
+                      <p>null</p>
+                      <p><strong>{calcHomeShotOne()}</strong></p>
+                      <p><strong>{calcHomeShotTwo()}</strong></p>
+                      <p><strong>{calcHomeShotTotal()}</strong></p>
+                    </div></>
+              </div>
+              <div className="column">
+              {filterAwayResults().map(result => {
+                return <div key={result.id} id="awayResultDetail" className="uk-column-1-5">
+                    <button>Edit Result</button>
+                    <p><a href={`/players/${result.playerName.slice(0, result.playerName.indexOf('#'))}`}>{result.playerName.slice(result.playerName.indexOf('#') + 1)}</a></p>
+                    <p>{result.shotOne}</p>
+                    <p>{result.shotTwo}</p>
+                    <p><strong>{(result.shotOne + result.shotTwo)}</strong></p>
+                  </div>
               })
               }
-                  {/* <div className="uk-column-1-5">
-                  <p></p>
-                  <p>{console.log(filterAwayResults())}</p>
-                  <p>{result.shotOne.reduce(reducer)}</p>
-                  <p>{result.shotTwo.reduce(reducer)}</p>
-                  <p>Mr</p>
-                  </div> */}
+              <hr></hr>
+              <div className="uk-column-1-5" id="awayResultDetail">
+                <p>null</p>
+                <p>null</p>
+                <p><strong>{calcAwayShotOne()}</strong></p>
+                <p><strong>{calcAwayShotTwo()}</strong></p>
+                <p><strong>{calcAwayShotTotal()}</strong></p>
+              </div>
             </div>
+          </div>
           </div>
           }
         </div>
@@ -228,27 +263,12 @@ function FixtureProfile() {
                     onChange={inputtingResult}
                     name='playerName'
                     value={formData.playerName}>
-                      <option>Choose A Player</option>
+                    <option>Choose A Player</option>
                     {players && filterPlayers().map(player => {
                       return <option key={player.id} id={player.id} value={ (player.id + '#' + player.name) }>{player.name}</option>
                     })}
                   </select>
                 </div>
-                {/* <div className="control">
-                {playerIdValue && filterPlayerId().map(player => {
-                      return <input
-                    key={player.id}
-                    className={`input ${formErrors.playerId}`}
-                    name="playerId"
-                    placeholder="playerId"
-                    type="number"
-                    onChange={inputtingResult}
-                    value={formData.playerId}
-                    id={player.id}
-                  >{player.id}
-                  </input>
-                                      })}
-                </div> */}
                 <div className="control">
                   <input
                     className={`input ${formErrors.shotOne}`}
