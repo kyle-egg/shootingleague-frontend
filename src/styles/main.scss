@@ -16,6 +16,18 @@ $global-link-color: #cd6148;
   background-color: #000;
 }
 
+
+.centerContent {
+	text-align: center;
+	padding: 0px;
+  display: flex;
+  justify-content: center;
+}
+
+.invisible {
+  visibility: hidden;
+  }
+
 .indent {
   text-indent: -5em;
 }
@@ -221,11 +233,12 @@ $global-link-color: #cd6148;
 #fixtureprofiletitle {
   font-weight: 100;
   font-stretch: expanded;
-  margin-top: 50px;
+  margin-top: 150px;
 }
 
 .fixturesprofilecontainer {
   background-color: rgb(225, 225, 225);
+  min-height: 500px;
   height: auto;
   padding-bottom: 50px;
 }
@@ -539,6 +552,53 @@ a:hover {
   margin: 30px;
 }
 
+#resultScores {
+  width: 100%;
+}
+
+.resultColumn {
+  width: 50%;
+}
+
+.inputresultscontainer {
+	background-color: #072603;
+	margin-top: -38px !important;
+}
+
+#fixtureprofilesecondtitle {
+	font-weight: 100;
+	font-stretch: expanded;
+  color: whitesmoke;
+}
+
+.finishedcheckbox {
+  color: whitesmoke;
+}
+
+.editButton {
+  margin-left: -75px;
+}
+
+.scoresOne {
+  width: 50px;
+}
+
+.scoresTwo {
+  width: 50px;
+  margin-left: -50px;
+}
+
+.scoresTotal {
+  width: 50px;
+  margin-left: -50px;
+}
+
+.playerName {
+  width: 200px;
+  text-align: left;
+  margin-left: -50px;
+}
+
 #contactus {
   background-color: rgb(225, 225, 225);
 }
@@ -554,12 +614,6 @@ a:hover {
   height: 500px;
 }
 
-.uk-input {
-  background-color: rgb(225, 225, 225);
-  border: #000;
-  border-style: solid;
-  border-width: thin;
-}
 
 .uk-textarea {
   background-color: rgb(225, 225, 225);

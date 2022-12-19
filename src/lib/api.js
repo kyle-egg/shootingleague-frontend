@@ -14,6 +14,10 @@ export function getAllFixtures() {
   return axios.get('/api/fixtures')
 }
 
+export function editTotal(fixtureId, formTotaldata) {
+  return axios.put(`/api/fixtures/${fixtureId}/`, formTotaldata, headers())
+}
+
 export function getAllTeams() {
   return axios.get('/api/clubs/teams')
 }

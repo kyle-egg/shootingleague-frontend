@@ -1,26 +1,27 @@
 import React from 'react'
 import axios from 'axios'
-import { useParams } from 'react-router-dom'
 import { getUserId } from '../../lib/auth'
-import { useLocation } from 'react-router-dom'
-import { userProfile, headers, createResult } from '../../lib/api'
+import { useParams, useLocation, useNavigate } from 'react-router-dom'
+import { userProfile, headers, createResult, editTotal } from '../../lib/api'
 
 const initialState = {
   'player': '',
-  // 'playerId': '',
   'shotOne': 0,
   'shotTwo': 0,
 }
 
 function FixtureProfile() {
   useLocation()
+  const navigate = useNavigate()
   const [profile, setProfile] = React.useState({})
   const { fixtureId } = useParams()
   const [fixture, setFixture] = React.useState(null)
   const [players, setPlayers] = React.useState(null)
   const [formData, setFormData] = React.useState(initialState)
-  // const [playerIdValue, setPlayerIdValue] = React.useState('')
   const [formErrors, setFormErrors] = React.useState(initialState)
+  // const [shotOneValue, setShotOneValue] = React.useState(0)
+  // const [shotTwoValue, setShotTwoValue] = React.useState(0)
+  // const [hasExecuted, setHasExecuted] = React.useState(false)
 
   React.useEffect(() => {
     const getData = async () => {
@@ -64,10 +65,9 @@ function FixtureProfile() {
   var month = String(today.getMonth() + 1).padStart(2, '0') //January is 0!
   var year = String(today.getFullYear())
 
-  const matchDate = year + month + date + String('090000')
+  const matchDate = year + month + date + String('000000')
   const deadline = year + month + tomorrow + String('000000')
 
-  
   const resultSubmission = () => {
     if (fixture && profile.team) {
       if (fixture.homeTeam[0].name || 
@@ -75,6 +75,28 @@ function FixtureProfile() {
           profile.team[0].name &&
           fixture.date.split('-').join('') + fixture.time.split(':').join('') > matchDate && 
           fixture.date.split('-').join('') + fixture.time.split(':').join('') < deadline) {
+        return true
+      } else {
+        return false
+      }
+    }      
+  } 
+
+  const homeTeam = () => {
+    if (fixture && profile.team) {
+      if (fixture.homeTeam[0].name === 
+          profile.team[0].name) {
+        return true
+      } else {
+        return false
+      }
+    }      
+  } 
+
+  const awayTeam = () => {
+    if (fixture && profile.team) {
+      if (fixture.awayTeam[0].name === 
+          profile.team[0].name) {
         return true
       } else {
         return false
@@ -92,10 +114,10 @@ function FixtureProfile() {
       }
     }      
   }   
-
   const submitResult = resultSubmission()
   const isResultLive = liveResult()
-
+  const isHomeTeam = homeTeam()
+  const isAwayTeam = awayTeam()
   
   const filterHomeResults = () => {
     if (fixture) {
@@ -105,6 +127,7 @@ function FixtureProfile() {
     }
   }
 
+
   const filterAwayResults = () => {
     if (fixture) {
       return fixture.results.filter(result => {
@@ -113,6 +136,8 @@ function FixtureProfile() {
     }
   }
 
+  const isHomeResults = filterHomeResults()
+  const isAwayResults = filterAwayResults()
 
   const filterPlayers = () => {
     if (players && profile.club) {
@@ -125,9 +150,15 @@ function FixtureProfile() {
   const postResult = async e => {
     e.preventDefault()
     try {
+      postTotalResult()
       const { data } = await createResult(fixtureId, formData)
       console.log('Result Submitted:', data)
-      location.reload()
+      calcAwayShotTotal()
+      calcHomeShotTotal()
+      postTotalResult()
+      setTimeout(function(){
+        window.location.reload()
+      }, 1500)
     } catch (err) {
       console.log(formErrors)
       setFormErrors(err.response.data.errors)
@@ -139,8 +170,8 @@ function FixtureProfile() {
   const inputtingResult = e => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
     setFormErrors({ ...formErrors, [e.target.name]: '' })
+    inputtingTotalScore()
   }
-
 
   const calcHomeShotOne = () => {
     if (filterHomeResults()) { 
@@ -190,119 +221,238 @@ function FixtureProfile() {
     }
   }
 
+  // const shotOneTwoFunctions = (e) => {
+  //   inputtingResult(e)
+  //   handleShotOne(e)
+  // }
+
+  // const handleShotOne = (e) => {
+  //   setShotOneValue(e.target.value)
+  // }
+
+  // const handleShotTwo = (e) => {
+  //   setShotTwoValue(e.target.value)
+  // }
+
+  // const shotTwoTwoFunctions = (e) => {
+  //   inputtingResult(e)
+  //   handleShotTwo(e)
+  // }
+
+
+  const [awayScore, setAwayScore] = React.useState(calcAwayShotTotal())
+  const [awayScoreErrors, setAwayScoreErrors] = React.useState(calcAwayShotTotal())
+  const [homeScore, setHomeScore] = React.useState(calcHomeShotTotal())
+  const [homeScoreErrors, setHomeScoreErrors] = React.useState(calcHomeShotTotal())
+  
+  const inputtingTotalScore = () => {
+    setHomeScore({ ...homeScore, 'homeTotalScore': calcHomeShotTotal() })
+    setHomeScoreErrors({ ...homeScoreErrors, 'homeTotalScore': '' })
+    setAwayScore({ ...awayScore, 'awayTotalScore': calcAwayShotTotal() })
+    setAwayScoreErrors({ ...awayScoreErrors, 'awayTotalScore': '' })
+  }
+
+  const postAwayScore = async () => {
+    try {
+      const { data } = await editTotal(fixtureId, awayScore)
+      console.log('Home Total Submitted:', data)
+    } catch (err) {
+      console.log(awayScoreErrors)
+      setAwayScoreErrors(err.response.data.errors)
+      console.log(err)
+    }
+  }
+
+  const postHomeScore = async () => {
+    try {
+      const { data } = await editTotal(fixtureId, homeScore)
+      console.log('Away Total Submitted:', data)
+    } catch (err) {
+      console.log(homeScoreErrors)
+      setHomeScoreErrors(err.response.data.errors)
+      console.log(err)
+    }
+  }
+
+  const postTotalResult = () => {
+    inputtingTotalScore()
+    if (isHomeTeam) {
+      postHomeScore()
+    }
+    if (isAwayTeam) {
+      postAwayScore()
+    }
+  }
+
+  const finalResult = () => {
+    postTotalResult()
+    setTimeout(function(){
+      navigate('/teamcenter')
+    }, 500)
+  }
+  const maxPlayers = () => {
+    if (isHomeTeam && isHomeResults) {
+      if (filterHomeResults().length > 5) {
+        return true
+      } else {
+        return false
+      }
+    }
+    if (isAwayTeam && isAwayResults) {
+      if (filterAwayResults().length > 5) {
+        return true
+      } else {
+        return false
+      }
+    }        
+  } 
+
+  const isMaxPlayers = maxPlayers()
+
   return (
-    <section>
-      <div id="resultsshero" className="uk-background-cover uk-height-large uk-panel uk-flex uk-flex-center uk-flex-middle">      
+    <><section>
+      <div id="resultsshero" className="uk-background-cover uk-height-large uk-panel uk-flex uk-flex-center uk-flex-middle">
       </div>
-      <div id="homeabout" className="uk-child-width-1-1@s" uk-grid>
+      <div id="homeabout" className="uk-child-width-1-1@s" uk-grid='true'>
         <div className="fixturesprofilecontainer">
-          {fixture && 
-          <div id="elevate" className="uk-background-cover uk-height-medium uk-panel uk-flex uk-flex-column uk-flex-center uk-flex-middle uk-text-center">
-            {/* <img className='mediumFixtureLogo' src={fixture.homeTeam[0].logo}></img> */}
-            <h3 id="fixtureprofiletitle"className="uk-text-lead">
-              <a href={`/teams/${fixture.homeTeam[0].id}`}>{fixture.homeTeam[0].name} </a>
-              {fixture.homeTotalScore} - {fixture.awayTotalScore} <a href={`/teams/${fixture.awayTeam[0].id}`}>{fixture.awayTeam[0].name}</a></h3>
-            {/* <img className='mediumFixtureLogo' src={fixture.awayTeam[0].logo}></img>  */}
-            <br></br>
-            <div className="uk-column-1-2 uk-column-divider">
-              <div className="column">
-                {filterHomeResults().map(result => {
-                  return <div  key={result.id} id="homeResultDetail" className="uk-column-1-5">
-                    <button>Edit Result</button>
-                    <p><a href={`/players/${result.playerName.slice(0, result.playerName.indexOf('#'))}`}>{result.playerName.slice(result.playerName.indexOf('#') + 1)}</a></p>
-                    <p>{result.shotOne}</p>
-                    <p>{result.shotTwo}</p>
-                    <p><strong>{(result.shotOne + result.shotTwo)}</strong></p>
-                  </div>
-                })
-                }
-                <><hr></hr><div className="uk-column-1-5" id="homeResultDetail">
-                      <p>null</p>
-                      <p>null</p>
-                      <p><strong>{calcHomeShotOne()}</strong></p>
-                      <p><strong>{calcHomeShotTwo()}</strong></p>
-                      <p><strong>{calcHomeShotTotal()}</strong></p>
-                    </div></>
+          {fixture &&
+            <div id="resultContainer" className="uk-background-cover uk-height-medium uk-panel uk-flex uk-flex-column uk-flex-center uk-flex-middle uk-text-center">
+              {/* <img className='mediumFixtureLogo' src={fixture.homeTeam[0].logo}></img> */}
+              <h3 id="fixtureprofiletitle" className="uk-text-lead">
+                <a href={`/teams/${fixture.homeTeam[0].id}`}>{fixture.homeTeam[0].name} </a>
+                {calcHomeShotTotal()} - {calcAwayShotTotal()} <a href={`/teams/${fixture.awayTeam[0].id}`}>{fixture.awayTeam[0].name}</a></h3>
+              {/* <img className='mediumFixtureLogo' src={fixture.awayTeam[0].logo}></img>  */}
+              <div className="uk-column-1-2 uk-column-divider uk-flex" id="resultScores">
+                <div className="resultColumn" id="homeResultColumn">
+                  {filterHomeResults().length > 0 ?
+                    <><div>
+                      {filterHomeResults().map(result => {
+                        return <div key={result.id} id="homeResultDetail" className="uk-column-1-5">
+                          {isHomeTeam && isResultLive ?
+                            <button className="editButton uk-button uk-button-secondary" uk-toggle='target: #modal-edit-score'>Edit</button>
+                            :
+                            <p className='invisible'>null</p>}
+                          <p className='playerName'><a href={`/players/${result.playerName.slice(0, result.playerName.indexOf('#'))}`}>{result.playerName.slice(result.playerName.indexOf('#') + 1)}</a></p>
+                          <p className='scoresOne'>{result.shotOne}</p>
+                          <p className='scoresTwo'>{result.shotTwo}</p>
+                          <p className='scoresTotal'><strong>{(result.shotOne + result.shotTwo)}</strong></p>
+                        </div>
+                      })}
+                    </div><><hr></hr><div className="uk-column-1-5" id="homeResultDetail">
+                      <p className='invisible'>null</p>
+                      <p className='invisible'>null</p>
+                      <p className='scoresOne'><strong>{calcHomeShotOne()}</strong></p>
+                      <p className='scoresTwo'><strong>{calcHomeShotTwo()}</strong></p>
+                      <p className='scoresTotal'><strong>{calcHomeShotTotal()}</strong></p>
+                    </div></></>
+                    :
+                    <p className='resultColumn'>No Home Results Submitted</p>}
+                </div>
+                <div className="resultColumn" id="awayResultColumn">
+                  {filterAwayResults().length > 0 ?
+                    <div>
+                      {filterAwayResults().map(result => {
+                        return <div key={result.id} id="awayResultDetail" className="uk-column-1-5">
+                          {isAwayTeam && isResultLive ?
+                            <button className="editButton uk-button uk-button-secondary" uk-toggle='target: #modal-edit-score'>Edit</button>
+                            :
+                            <p></p>}
+                          <p className='playerName'><a href={`/players/${result.playerName.slice(0, result.playerName.indexOf('#'))}`}>{result.playerName.slice(result.playerName.indexOf('#') + 1)}</a></p>
+                          <p className='scoresOne'>{result.shotOne}</p>
+                          <p className='scoresTwo'>{result.shotTwo}</p>
+                          <p className='scoresTotal'><strong>{(result.shotOne + result.shotTwo)}</strong></p>
+                        </div>
+                      })}
+                      <hr></hr>
+                      <div className="uk-column-1-5" id="awayResultDetail">
+                        <p className='invisible'>null</p>
+                        <p className='invisible'>null</p>
+                        <p className='scoresOne'><strong>{calcAwayShotOne()}</strong></p>
+                        <p className='scoresTwo'><strong>{calcAwayShotTwo()}</strong></p>
+                        <p className='scoresTotal'><strong>{calcAwayShotTotal()}</strong></p>
+                      </div>
+                    </div>
+                    :
+                    <p className='resultColumn'>No Away Result Submitted</p>}
+                </div>
               </div>
-              <div className="column">
-              {filterAwayResults().map(result => {
-                return <div key={result.id} id="awayResultDetail" className="uk-column-1-5">
-                    <button>Edit Result</button>
-                    <p><a href={`/players/${result.playerName.slice(0, result.playerName.indexOf('#'))}`}>{result.playerName.slice(result.playerName.indexOf('#') + 1)}</a></p>
-                    <p>{result.shotOne}</p>
-                    <p>{result.shotTwo}</p>
-                    <p><strong>{(result.shotOne + result.shotTwo)}</strong></p>
-                  </div>
-              })
-              }
-              <hr></hr>
-              <div className="uk-column-1-5" id="awayResultDetail">
-                <p>null</p>
-                <p>null</p>
-                <p><strong>{calcAwayShotOne()}</strong></p>
-                <p><strong>{calcAwayShotTwo()}</strong></p>
-                <p><strong>{calcAwayShotTotal()}</strong></p>
-              </div>
-            </div>
-          </div>
-          </div>
-          }
+            </div>}
         </div>
         {submitResult && isResultLive &&
-        <div className="inputresultscontainer">
-          {fixture && players &&
-          <div id="elevate" className="uk-background-cover uk-height-medium uk-panel uk-flex uk-flex-column uk-flex-center uk-flex-middle uk-text-center">
-            <h3 id="fixtureprofiletitle"className="uk-text-lead">SUBMIT A RESULT</h3>
-            <form
-              id='createResult'
-              onSubmit={postResult}>
-              <div className="field uk-flex">
-                <div className="control">
-                  <select 
-                    className={`input ${formErrors.playerName}`}
-                    onChange={inputtingResult}
-                    name='playerName'
-                    value={formData.playerName}>
-                    <option>Choose A Player</option>
-                    {players && filterPlayers().map(player => {
-                      return <option key={player.id} id={player.id} value={ (player.id + '#' + player.name) }>{player.name}</option>
-                    })}
-                  </select>
-                </div>
-                <div className="control">
-                  <input
-                    className={`input ${formErrors.shotOne}`}
-                    name="shotOne"
-                    placeholder="Shot One"
-                    type="number"
-                    onChange={inputtingResult}
-                    value={formData.shotOne}
-                  />
-                </div>
-                <div className="control">
-                  <input
-                    className={`input ${formErrors.shotTwo}`}
-                    name="shotTwo"
-                    placeholder="Shot Two"
-                    type="number"
-                    onChange={inputtingResult}
-                    value={formData.shotTwo}
-                  />
-                </div>
-                <button 
-                  type="submit" 
-                  className="buttons"
-                  onSubmit={postResult}>
-                  Submit Result!
-                </button>
-              </div>
-            </form>
-          </div>
-          }
-        </div>      
-        }
+          <div className="inputresultscontainer">
+            {fixture && players &&
+              <div id="elevate" className="uk-background-cover uk-height-medium uk-panel uk-flex uk-flex-column uk-flex-center uk-flex-middle uk-text-center">
+                {!isMaxPlayers ?
+                  <><h3 id="fixtureprofilesecondtitle" className="uk-text-lead">SUBMIT A RESULT</h3><form
+                    id='createResult'
+                    onSubmit={postResult}>
+                    <div className="field uk-flex">
+                      <div className="control">
+                        <select
+                          className={`uk-select input ${formErrors.playerName}`}
+                          onChange={inputtingResult}
+                          name='playerName'
+                          value={formData.playerName}>
+                          <option>Choose A Player</option>
+                          {players && filterPlayers().map(player => {
+                            return <option key={player.id} id={player.id} value={(player.id + '#' + player.name)}>{player.name}</option>
+                          })}
+                        </select>
+                      </div>
+                      <div className="control">
+                        <input
+                          className={`uk-input input ${formErrors.shotOne}`}
+                          name="shotOne"
+                          placeholder="Shot One"
+                          type="number"
+                          onChange={inputtingResult}
+                          value={formData.shotOne}
+                          min="0"
+                          max="100" />
+                      </div>
+                      <div className="control">
+                        <input
+                          className={`uk-input input ${formErrors.shotTwo}`}
+                          name="shotTwo"
+                          placeholder="Shot Two"
+                          type="number"
+                          onChange={inputtingResult}
+                          value={formData.shotTwo}
+                          min="0"
+                          max="100" />
+                      </div>
+                      <button className="uk-button uk-button-primary uk-margin-small-right" type="button submit"
+                        onSubmit={postResult} uk-toggle='target: #modal-result-submission'>Submit Shot(s)</button>
+                    </div>
+                  </form>
+                    <div id='modal-result-submission' uk-modal='true'>
+                      <div className="uk-modal-dialog uk-modal-body resultModal">
+                        <h2 className="uk-modal-title uk-text-center" id="abouttitle">Submitting Shot(s)!</h2>
+                        <span className='centerContent' uk-spinner="ratio: 3"></span>
+                        <p className="uk-text-right">
+                        </p>
+                      </div>
+                    </div></>
+                  :
+                  <><h3 id="fixtureprofilesecondtitle" className="uk-text-lead">FINISHED?</h3>
+                    <div className="uk-margin uk-grid-small uk-child-width-auto uk-grid">
+                      <label className='finishedcheckbox'><input name="homeTotalScore" onChange={inputtingTotalScore} className="uk-checkbox" type="checkbox" uk-toggle="target: #completeresultbutton" /> YES</label>
+                    </div>
+                    <button onClick={finalResult} id="completeresultbutton" className="uk-button uk-button-danger" hidden>Finalise Results</button>
+                  </>}
+              </div>}
+          </div>}
       </div>
-    </section>
+    </section><div id="modal-edit-score" uk-modal='true'>
+        <div class="uk-modal-dialog uk-modal-body">
+          <h2 class="uk-modal-title">Headline</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          <p class="uk-text-right">
+            <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+            <button class="uk-button uk-button-primary" type="button">Save</button>
+          </p>
+        </div>
+      </div></>
   )
 }
 

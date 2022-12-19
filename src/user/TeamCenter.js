@@ -116,7 +116,7 @@ function TeamCenter() {
                   <img className='smallFixtureLogo' src={liveFixture.awayTeam[0].logo}></img>
                   <p className="loginhelp" id="countdowntimer"></p>
                   <a href={`/fixtures/${liveFixture.id}`}>
-                    <button href={`/fixtures/${liveFixture.id}`}>Submit Result</button>
+                    <button class='uk-button uk-button-primary' href={`/fixtures/${liveFixture.id}`}>Submit Result</button>
                   </a>
                 </div>
               </div>

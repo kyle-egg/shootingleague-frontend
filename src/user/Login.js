@@ -47,25 +47,30 @@ function Login() {
                 className="column"
                 onSubmit={handleSubmit}
               >
-                <div className="field">
-                  <div className="control">
+
+<div class="uk-margin">
+        <div class="uk-inline">
+        <span class="uk-form-icon" uk-icon="icon: user"></span>
                     <input
-                      className="logininput"
+                      className="uk-input logininput"
                       placeholder="USERNAME"
                       name="username"
                       onChange={handleChange}
+                      aria-label="Not clickable icon"
                     />
                   </div>
                 </div>
                 <br></br>
-                <div className="field">
-                  <div className="control">
+                <div class="uk-margin">
+        <div class="uk-inline">
+        <span class="uk-form-icon" uk-icon="icon: lock"></span>
                     <input
                       type="password"
-                      className="logininput"
+                      className="uk-input logininput"
                       placeholder="PASSWORD"
                       name="password"
                       onChange={handleChange}
+                      aria-label="Not clickable icon"
                     />
                   </div>
                 </div>
@@ -79,7 +84,7 @@ function Login() {
                 )}
                 <br></br>
                 <div className="field">
-                  <button type="submit" className="buttons">
+                  <button type="submit" className="buttons uk-button uk-button-primary">
                   Log In!
                   </button>
                 </div>
