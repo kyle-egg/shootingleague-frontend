@@ -137,11 +137,12 @@ function Fixtures() {
               </div>
               {fixtures && filterFixtures().map(fixture => {
                 return <div className="column"key={fixture.id} id="column">
-                  <div className="uk-column-1-6">
+                  <div className="uk-column-1-7">
                     <p>{fixture.date.split('-').reverse().join('/')} - {fixture.time.slice(0,5)}</p>
                     <p>{fixture.league[0].name}</p>
                     <img className='smallFixtureLogo' src={fixture.homeTeam[0].logo}></img>
                     <p>{fixture.homeTeam[0].name}</p>
+                    <p>V</p>
                     <p>{fixture.awayTeam[0].name}</p>
                     <img className='smallFixtureLogo' src={fixture.awayTeam[0].logo}></img>
                   </div>

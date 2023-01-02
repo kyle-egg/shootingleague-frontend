@@ -70,7 +70,10 @@ function Results() {
   today = year + month + date + hh + mm + ss
 
   if (fixtures) {
-    fixtures.sort((b, a) => b.date - a.date)
+    fixtures.sort(function(b,a){
+      return new Date(a.date) - new Date(b.date)
+    })
+
   }
   
   if (seasons) {

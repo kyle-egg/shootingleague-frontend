@@ -10,6 +10,14 @@ const initialState = {
   'shotTwo': 0,
 }
 
+const initialShotOne = {
+  'shotOne': '',
+}
+
+const initialShotTwo = {
+  'shotTwo': '',
+}
+
 function FixtureProfile() {
   useLocation()
   const navigate = useNavigate()
@@ -19,9 +27,10 @@ function FixtureProfile() {
   const [players, setPlayers] = React.useState(null)
   const [formData, setFormData] = React.useState(initialState)
   const [formErrors, setFormErrors] = React.useState(initialState)
-  // const [shotOneValue, setShotOneValue] = React.useState(0)
-  // const [shotTwoValue, setShotTwoValue] = React.useState(0)
-  // const [hasExecuted, setHasExecuted] = React.useState(false)
+  const [shotOneFormData, setShotOneFormData] = React.useState(initialShotOne)
+  const [shotOneFormErrors, setShotOneFormErrors] = React.useState(initialShotOne)
+  const [shotTwoFormData, setShotTwoFormData] = React.useState(initialShotTwo)
+  const [shotTwoFormErrors, setShotTwoFormErrors] = React.useState(initialShotTwo)
 
   React.useEffect(() => {
     const getData = async () => {
@@ -158,7 +167,7 @@ function FixtureProfile() {
       postTotalResult()
       setTimeout(function(){
         window.location.reload()
-      }, 1500)
+      }, 1000)
     } catch (err) {
       console.log(formErrors)
       setFormErrors(err.response.data.errors)
@@ -221,25 +230,6 @@ function FixtureProfile() {
     }
   }
 
-  // const shotOneTwoFunctions = (e) => {
-  //   inputtingResult(e)
-  //   handleShotOne(e)
-  // }
-
-  // const handleShotOne = (e) => {
-  //   setShotOneValue(e.target.value)
-  // }
-
-  // const handleShotTwo = (e) => {
-  //   setShotTwoValue(e.target.value)
-  // }
-
-  // const shotTwoTwoFunctions = (e) => {
-  //   inputtingResult(e)
-  //   handleShotTwo(e)
-  // }
-
-
   const [awayScore, setAwayScore] = React.useState(calcAwayShotTotal())
   const [awayScoreErrors, setAwayScoreErrors] = React.useState(calcAwayShotTotal())
   const [homeScore, setHomeScore] = React.useState(calcHomeShotTotal())
@@ -290,6 +280,7 @@ function FixtureProfile() {
       navigate('/teamcenter')
     }, 500)
   }
+
   const maxPlayers = () => {
     if (isHomeTeam && isHomeResults) {
       if (filterHomeResults().length > 5) {
@@ -308,6 +299,45 @@ function FixtureProfile() {
   } 
 
   const isMaxPlayers = maxPlayers()
+
+const deleteResult = async e => {
+  e.preventDefault()
+  postTotalResult()
+  await axios.delete(`/api/fixtures/${fixtureId}/results/${e.target.id}`, headers())
+    setTimeout(function(){
+      window.location.reload()
+    }, 1000)
+}
+
+const editScoreOne = async e => {
+  e.preventDefault()
+  postTotalResult()
+  await axios.put(`/api/fixtures/${fixtureId}/results/${e.target.id}/`, shotOneFormData, headers())
+    setTimeout(function(){
+      window.location.reload()
+    }, 1000)
+}
+
+const inputtingShotOne = e => {
+  inputtingTotalScore()
+  setShotOneFormData({ ...shotOneFormData, [e.target.name]: e.target.value })
+  setShotOneFormErrors({ ...shotOneFormErrors, [e.target.name]: '' })
+}
+
+const editScoreTwo = async e => {
+  e.preventDefault()
+  postTotalResult()
+  await axios.put(`/api/fixtures/${fixtureId}/results/${e.target.id}/`, shotTwoFormData, headers())
+    setTimeout(function(){
+      window.location.reload()
+    }, 1000)
+}
+
+const inputtingShotTwo = e => {
+  inputtingTotalScore()
+  setShotTwoFormData({ ...shotTwoFormData, [e.target.name]: e.target.value })
+  setShotTwoFormErrors({ ...shotTwoFormErrors, [e.target.name]: '' })
+}
 
   return (
     <><section>
@@ -329,12 +359,67 @@ function FixtureProfile() {
                       {filterHomeResults().map(result => {
                         return <div key={result.id} id="homeResultDetail" className="uk-column-1-5">
                           {isHomeTeam && isResultLive ?
-                            <button className="editButton uk-button uk-button-secondary" uk-toggle='target: #modal-edit-score'>Edit</button>
+                          <div class="uk-inline">
+                            <button className="uk-button-small uk-button uk-button-danger" mode="click" type="button">DELETE</button>
+                            <div class="uk-card uk-card-body uk-card-default" uk-drop="true; animation: slide-top; animate-out: true; duration: 1000">
+                              <p className="uk-modal-title uk-text-center" id="abouttitle">Delete Score?</p>                            
+                              <button id={result.id} onClick={deleteResult} className="uk-button-small uk-button uk-button-danger" uk-toggle='target: #modal-delete-score'>DELETE</button>
+                            </div>
+                            </div>
                             :
                             <p className='invisible'>null</p>}
                           <p className='playerName'><a href={`/players/${result.playerName.slice(0, result.playerName.indexOf('#'))}`}>{result.playerName.slice(result.playerName.indexOf('#') + 1)}</a></p>
+                          {isHomeTeam && isResultLive ?
+                          <><div class="uk-inline">
+                              <button className="uk-button uk-button-default" mode="click" type="button">{result.shotOne}</button>
+                              <div class="uk-card uk-card-body uk-card-default" uk-drop="true; animation: slide-top; animate-out: true; duration: 1000">
+                                <p className="uk-modal-title uk-text-center" id="abouttitle">Edit Shot One</p>
+                                <form
+                                  id='editResult'
+                                  onSubmit={editScoreOne}>
+                                <div className="control">
+                                  <input
+                                    className={`uk-input input ${shotOneFormErrors.shotOne}`}
+                                    name="shotOne"
+                                    placeholder="Shot One"
+                                    type="number"
+                                    onChange={inputtingShotOne}
+                                    value={shotOneFormData.shotOne}
+                                    min="0"
+                                    max="100" />
+                                </div>
+                                <button id={result.id} onClick={editScoreOne} className="uk-button-small uk-button uk-button-secondary" uk-toggle='target: #modal-edit-score'>EDIT</button>
+                                </form>
+                              </div>
+                            </div>
+                            <div class="uk-inline">
+                                <button className="uk-button uk-button-default" mode="click" type="button">{result.shotTwo}</button>
+                                <div class="uk-card uk-card-body uk-card-default" uk-drop="true; animation: slide-top; animate-out: true; duration: 1000">
+                                  <p className="uk-modal-title uk-text-center" id="abouttitle">Edit Shot Two</p>
+                                  <form
+                                  id='editResult'
+                                  onSubmit={editScoreTwo}>
+                                <div className="control">
+                                  <input
+                                    className={`uk-input input ${formErrors.shotTwo}`}
+                                    name="shotTwo"
+                                    placeholder="Shot Two"
+                                    type="number"
+                                    onChange={inputtingShotTwo}
+                                    value={shotTwoFormData.shotTwo}
+                                    min="0"
+                                    max="100" />
+                                </div>
+                                <button id={result.id} onClick={editScoreTwo} className="uk-button-small uk-button uk-button-secondary" uk-toggle='target: #modal-edit-score'>EDIT</button>
+                                </form>
+                                </div>
+                              </div></>
+                            :
+                          <>
                           <p className='scoresOne'>{result.shotOne}</p>
                           <p className='scoresTwo'>{result.shotTwo}</p>
+                          </>
+                      }
                           <p className='scoresTotal'><strong>{(result.shotOne + result.shotTwo)}</strong></p>
                         </div>
                       })}
@@ -354,7 +439,13 @@ function FixtureProfile() {
                       {filterAwayResults().map(result => {
                         return <div key={result.id} id="awayResultDetail" className="uk-column-1-5">
                           {isAwayTeam && isResultLive ?
-                            <button className="editButton uk-button uk-button-secondary" uk-toggle='target: #modal-edit-score'>Edit</button>
+                            <div class="uk-inline">
+                              <button className="uk-button-small uk-button uk-button-danger" mode="click" type="button">DELETE</button>
+                              <div class="uk-card uk-card-body uk-card-default" uk-drop="true; animation: slide-top; animate-out: true; duration: 1000">
+                                <p className="uk-modal-title uk-text-center" id="abouttitle">Delete Score?</p>                            
+                                <button id={result.id} onClick={deleteResult} className="uk-button-small uk-button uk-button-danger" uk-toggle='target: #modal-delete-score'>DELETE</button>
+                              </div>
+                            </div>
                             :
                             <p></p>}
                           <p className='playerName'><a href={`/players/${result.playerName.slice(0, result.playerName.indexOf('#'))}`}>{result.playerName.slice(result.playerName.indexOf('#') + 1)}</a></p>
@@ -383,7 +474,8 @@ function FixtureProfile() {
             {fixture && players &&
               <div id="elevate" className="uk-background-cover uk-height-medium uk-panel uk-flex uk-flex-column uk-flex-center uk-flex-middle uk-text-center">
                 {!isMaxPlayers ?
-                  <><h3 id="fixtureprofilesecondtitle" className="uk-text-lead">SUBMIT A RESULT</h3><form
+                  <><h3 id="fixtureprofilesecondtitle" className="uk-text-lead">SUBMIT A RESULT</h3>
+                  <form
                     id='createResult'
                     onSubmit={postResult}>
                     <div className="field uk-flex">
@@ -443,16 +535,24 @@ function FixtureProfile() {
               </div>}
           </div>}
       </div>
-    </section><div id="modal-edit-score" uk-modal='true'>
-        <div class="uk-modal-dialog uk-modal-body">
-          <h2 class="uk-modal-title">Headline</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-          <p class="uk-text-right">
-            <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
-            <button class="uk-button uk-button-primary" type="button">Save</button>
-          </p>
-        </div>
-      </div></>
+    </section>
+    <div id='modal-edit-score' uk-modal='true'>
+                      <div className="uk-modal-dialog uk-modal-body resultModal">
+                        <h2 className="uk-modal-title uk-text-center" id="abouttitle">Editing Shot!</h2>
+                        <span className='centerContent' uk-spinner="ratio: 3"></span>
+                        <p className="uk-text-right">
+                        </p>
+                      </div>
+                    </div>
+                    <div id='modal-delete-score' uk-modal='true'>
+                      <div className="uk-modal-dialog uk-modal-body resultModal">
+                        <h2 className="uk-modal-title uk-text-center" id="abouttitle">Deleting Shot(s)!</h2>
+                        <span className='centerContent' uk-spinner="ratio: 3"></span>
+                        <p className="uk-text-right">
+                        </p>
+                      </div>
+                    </div>
+      </>
   )
 }
 
