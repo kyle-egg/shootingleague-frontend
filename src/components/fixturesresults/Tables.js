@@ -1,10 +1,11 @@
-import { getAllSeasons } from "../../lib/api"
+import { getAllSeasons, getAllFixtures } from "../../lib/api"
 import React from 'react'
 
 function Tables() {
   const [seasonValue, setSeasonValue] = React.useState('2023')
   const [seasons, setSeasons] = React.useState(null)
-  const [fixtures, setFixtures] = React.useState(null)
+  const [fixtures, setFixtures] = React.useState([])
+  const [parsedResults, setParsedResults] = React.useState(null)
 
   React.useEffect(() => {
     const getData = async () => {
@@ -27,6 +28,26 @@ function Tables() {
   const handleSeason = (e) => {
     setSeasonValue(e.target.value)
   }
+
+  React.useEffect(() => {
+    if (fixtures.length > 0) {
+  const parsed = fixtures.map(fixture => {
+    return {
+      homeTeam: fixture.homeTeam[0].name,
+      awayTeam: fixture.awayTeam[0].name,
+      homeTeamScore: fixture.homeTotalScore,
+      awayTeamScore: fixture.awayTotalScore,
+      points: fixture.homeTotalScore > fixture.awayTotalScore ? 3 : fixture.homeTotalScore === fixture.awayTotalScore ? 1 : 0
+    }
+  })
+  parsed.sort((b, a) => a.points - b.points)
+  setParsedResults(parsed)
+}
+}, [fixtures])
+
+if (!parsedResults) {
+return <p>Loading...</p>
+}
 
   return (
     // <section>
@@ -89,6 +110,26 @@ function Tables() {
                   </div>
                 </div>
               })}
+                  <table>
+      <thead>
+        <tr>
+          <th>Team</th>
+          <th>Wins</th>
+          <th>Losses</th>
+          <th>Points</th>
+        </tr>
+      </thead>
+      <tbody>
+        {parsedResults.map(result => (
+          <tr>
+            <td>{result.homeTeam}</td>
+            <td>{result.homeTeamScore > result.awayTeamScore ? 1 : 0}</td>
+            <td>{result.homeTeamScore < result.awayTeamScore ? 1 : 0}</td>
+            <td>{result.points}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
             </div>
       </div>     
     </div>
