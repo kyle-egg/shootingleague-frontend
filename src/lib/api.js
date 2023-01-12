@@ -32,7 +32,9 @@ export function createResult(fixtureId, formData) {
   return axios.post(`/api/fixtures/${fixtureId}/results/`, formData, headers())
 }
 
-
+export function getAllResults() {
+  return axios.get('/api/fixtures/results')
+}
 
 //* AUTH REQ
 

@@ -75,7 +75,7 @@ function Results() {
     })
 
   }
-  
+
   if (seasons) {
     seasons.sort((b, a) => a.name - b.name)
   }

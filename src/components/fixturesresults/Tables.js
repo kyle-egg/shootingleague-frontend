@@ -1,4 +1,4 @@
-import { getAllSeasons, getAllFixtures } from '../../lib/api'
+import { getAllSeasons, getAllFixtures, getAllResults } from '../../lib/api'
 import React from 'react'
 import axios from 'axios'
 
@@ -15,6 +15,7 @@ function Tables() {
   const [leagues, setLeagues] = React.useState(null)
   const [seasons, setSeasons] = React.useState(null)
   const [fixtures, setFixtures] = React.useState([])
+  const [results, setResults] = React.useState([])
   const [parsedResults, setParsedResults] = React.useState(null)
   
 
@@ -35,6 +36,16 @@ function Tables() {
     getData()
     
   }, [ ])
+
+  React.useEffect(() => {
+    const getData = async () => {
+      const res = await getAllResults()
+      setResults(res.data)
+    }
+    getData()
+    
+  }, [ ])
+
 
   React.useEffect(() => {
     const getData = async () => {
@@ -63,7 +74,7 @@ function Tables() {
 
   today = year + month + date + hh + mm + ss
 
-  const results = () => {
+  const filterTeamResults = () => {
     if (fixtures) {
       return fixtures.filter(fixture => {
         return fixture.date.split('-').join('') + fixture.time.split(':').join('') < today
@@ -71,9 +82,11 @@ function Tables() {
     }
   }
 
+  const teamResults = filterTeamResults()
+
   React.useEffect(() => {
     if (fixtures) {
-      const parsed = results().map(fixture => {
+      const parsed = teamResults.map(fixture => {
         return {
           homeTeamId: fixture.homeTeam[0].id,
           awayTeamId: fixture.awayTeam[0].id,
@@ -178,6 +191,60 @@ function Tables() {
     }
   }
 
+  const playerScores = {}
+
+  results.forEach(result => {
+    if (playerScores[result.playerName]) {
+      playerScores[result.playerName].shotOne += result.shotOne
+      playerScores[result.playerName].shotTwo += result.shotTwo
+      playerScores[result.playerName].matchesPlayed += 1
+    } else {
+      playerScores[result.playerName] = result
+      playerScores[result.playerName].matchesPlayed = 1
+    }
+  })
+
+  const sortedPlayers = Object.values(playerScores).sort((a, b) => {
+    const aAvg = (a.shotOne + a.shotTwo) / 2
+    const bAvg = (b.shotOne + b.shotTwo) / 2
+    return bAvg - aAvg
+  })
+
+  // const juniorLeagues = 'JSSA Juniors'
+
+  // const filterSeniorPlayerResults = () => {
+  //   if (fixtures) {
+  //     return fixtures.filter(fixture => {
+  //       return !fixture.league[0].name.includes('Juniors')
+  //     })
+  //   }
+  // }
+
+  const filterSeniorPlayerLeague = () => {
+    if (fixtures) {
+      return fixtures.filter(fixture => {
+        return fixture.league.some(l => !'JSSA Juniors'.includes(l.name))
+      })
+    }
+  }
+  
+  const seniorLeagues = filterSeniorPlayerLeague()
+
+  const filterSeniorFixtures = () => {
+    if (fixtures && results && seniorLeagues) {
+      return results.filter(result => {
+        console.log(result.fixture)
+        console.log(seniorLeagues.id)
+        return result.fixture === seniorLeagues.filter(league => {
+          league.id
+        })
+      })
+    }
+  }
+
+  console.log(seniorLeagues)
+  console.log(filterSeniorFixtures())
+  
   return (
     // <section>
     //   <div id="tableshero" className="uk-background-cover uk-height-large uk-panel uk-flex uk-flex-center uk-flex-middle">      
@@ -206,7 +273,7 @@ function Tables() {
     //   </div>
     // </section>
     <section>
-      <div id="tableshero" className="uk-background-cover uk-height-large uk-panel uk-flex uk-flex-center uk-flex-middle">      
+      <div id="tableshero" className="uk-background-cover uk-height-large uk-panel uk-flex uk-flex-center uk-flex-middle">    
       </div>
       <div id="homeabout" className="uk-child-width-1-1@s" uk-grid="true">
         <div className="tablescontainer">
@@ -266,6 +333,26 @@ function Tables() {
                   ))}
                 </tbody>
               </table>
+              <table className="uk-table uk-table-hover uk-table-divider">
+      <thead>
+        <tr>
+          <th>Position</th>
+          <th>Player</th>
+          <th>Matches Played</th>
+          <th>Score Average</th>
+        </tr>
+      </thead>
+      <tbody>
+        {sortedPlayers.map((player, index) => (
+          <tr key={player.id}>
+            <td>{index + 1}</td>
+            <td><a href={`/players/${player.playerName.slice(0, player.playerName.indexOf('#'))}`}>{player.playerName.slice(player.playerName.indexOf('#') + 1)}</a></td>
+            <td>{player.matchesPlayed}</td>
+            <td>{((player.shotOne + player.shotTwo) / 2).toFixed(2)}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
             </div>
           </div>     
         </div>

@@ -5,7 +5,7 @@ import { useParams, useLocation, useNavigate } from 'react-router-dom'
 import { userProfile, headers, createResult, editTotal } from '../../lib/api'
 
 const initialState = {
-  'player': '',
+  'playerName': '',
   'shotOne': 0,
   'shotTwo': 0,
 }
@@ -164,7 +164,6 @@ function FixtureProfile() {
       console.log('Result Submitted:', data)
       calcAwayShotTotal()
       calcHomeShotTotal()
-      postTotalResult()
       setTimeout(function(){
         window.location.reload()
       }, 1000)
@@ -401,7 +400,7 @@ const inputtingShotTwo = e => {
                                   onSubmit={editScoreTwo}>
                                 <div className="control">
                                   <input
-                                    className={`uk-input input ${formErrors.shotTwo}`}
+                                    className={`uk-input input ${shotTwoFormErrors.shotTwo}`}
                                     name="shotTwo"
                                     placeholder="Shot Two"
                                     type="number"
