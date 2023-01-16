@@ -299,44 +299,44 @@ function FixtureProfile() {
 
   const isMaxPlayers = maxPlayers()
 
-const deleteResult = async e => {
-  e.preventDefault()
-  postTotalResult()
-  await axios.delete(`/api/fixtures/${fixtureId}/results/${e.target.id}`, headers())
+  const deleteResult = async e => {
+    e.preventDefault()
+    postTotalResult()
+    await axios.delete(`/api/fixtures/${fixtureId}/results/${e.target.id}`, headers())
     setTimeout(function(){
       window.location.reload()
     }, 1000)
-}
+  }
 
-const editScoreOne = async e => {
-  e.preventDefault()
-  postTotalResult()
-  await axios.put(`/api/fixtures/${fixtureId}/results/${e.target.id}/`, shotOneFormData, headers())
+  const editScoreOne = async e => {
+    e.preventDefault()
+    postTotalResult()
+    await axios.put(`/api/fixtures/${fixtureId}/results/${e.target.id}/`, shotOneFormData, headers())
     setTimeout(function(){
       window.location.reload()
     }, 1000)
-}
+  }
 
-const inputtingShotOne = e => {
-  inputtingTotalScore()
-  setShotOneFormData({ ...shotOneFormData, [e.target.name]: e.target.value })
-  setShotOneFormErrors({ ...shotOneFormErrors, [e.target.name]: '' })
-}
+  const inputtingShotOne = e => {
+    inputtingTotalScore()
+    setShotOneFormData({ ...shotOneFormData, [e.target.name]: e.target.value })
+    setShotOneFormErrors({ ...shotOneFormErrors, [e.target.name]: '' })
+  }
 
-const editScoreTwo = async e => {
-  e.preventDefault()
-  postTotalResult()
-  await axios.put(`/api/fixtures/${fixtureId}/results/${e.target.id}/`, shotTwoFormData, headers())
+  const editScoreTwo = async e => {
+    e.preventDefault()
+    postTotalResult()
+    await axios.put(`/api/fixtures/${fixtureId}/results/${e.target.id}/`, shotTwoFormData, headers())
     setTimeout(function(){
       window.location.reload()
     }, 1000)
-}
+  }
 
-const inputtingShotTwo = e => {
-  inputtingTotalScore()
-  setShotTwoFormData({ ...shotTwoFormData, [e.target.name]: e.target.value })
-  setShotTwoFormErrors({ ...shotTwoFormErrors, [e.target.name]: '' })
-}
+  const inputtingShotTwo = e => {
+    inputtingTotalScore()
+    setShotTwoFormData({ ...shotTwoFormData, [e.target.name]: e.target.value })
+    setShotTwoFormErrors({ ...shotTwoFormErrors, [e.target.name]: '' })
+  }
 
   return (
     <><section>
@@ -358,67 +358,67 @@ const inputtingShotTwo = e => {
                       {filterHomeResults().map(result => {
                         return <div key={result.id} id="homeResultDetail" className="uk-column-1-5">
                           {isHomeTeam && isResultLive ?
-                          <div class="uk-inline">
-                            <button className="uk-button-small uk-button uk-button-danger" mode="click" type="button">DELETE</button>
-                            <div class="uk-card uk-card-body uk-card-default" uk-drop="true; animation: slide-top; animate-out: true; duration: 1000">
-                              <p className="uk-modal-title uk-text-center" id="abouttitle">Delete Score?</p>                            
-                              <button id={result.id} onClick={deleteResult} className="uk-button-small uk-button uk-button-danger" uk-toggle='target: #modal-delete-score'>DELETE</button>
-                            </div>
+                            <div className="uk-inline">
+                              <button className="uk-button-small uk-button uk-button-danger" mode="click" type="button">DELETE</button>
+                              <div className="uk-card uk-card-body uk-card-default" uk-drop="true; animation: slide-top; animate-out: true; duration: 1000">
+                                <p className="uk-modal-title uk-text-center" id="abouttitle">Delete Score?</p>                            
+                                <button id={result.id} onClick={deleteResult} className="uk-button-small uk-button  uk-button-danger" uk-toggle='target: #modal-delete-score'>DELETE</button>
+                              </div>
                             </div>
                             :
                             <p className='invisible'>null</p>}
                           <p className='playerName'><a href={`/players/${result.playerName.slice(0, result.playerName.indexOf('#'))}`}>{result.playerName.slice(result.playerName.indexOf('#') + 1)}</a></p>
                           {isHomeTeam && isResultLive ?
-                          <><div class="uk-inline">
+                            <><div className="uk-inline">
                               <button className="uk-button uk-button-default" mode="click" type="button">{result.shotOne}</button>
-                              <div class="uk-card uk-card-body uk-card-default" uk-drop="true; animation: slide-top; animate-out: true; duration: 1000">
+                              <div className="uk-card uk-card-body uk-card-default" uk-drop="true; animation: slide-top; animate-out: true; duration: 1000">
                                 <p className="uk-modal-title uk-text-center" id="abouttitle">Edit Shot One</p>
                                 <form
                                   id='editResult'
                                   onSubmit={editScoreOne}>
-                                <div className="control">
-                                  <input
-                                    className={`uk-input input ${shotOneFormErrors.shotOne}`}
-                                    name="shotOne"
-                                    placeholder="Shot One"
-                                    type="number"
-                                    onChange={inputtingShotOne}
-                                    value={shotOneFormData.shotOne}
-                                    min="0"
-                                    max="100" />
-                                </div>
-                                <button id={result.id} onClick={editScoreOne} className="uk-button-small uk-button uk-button-secondary" uk-toggle='target: #modal-edit-score'>EDIT</button>
+                                  <div className="control">
+                                    <input
+                                      className={`uk-input input ${shotOneFormErrors.shotOne}`}
+                                      name="shotOne"
+                                      placeholder="Shot One"
+                                      type="number"
+                                      onChange={inputtingShotOne}
+                                      value={shotOneFormData.shotOne}
+                                      min="0"
+                                      max="100" />
+                                  </div>
+                                  <button id={result.id} onClick={editScoreOne} className="uk-button-small uk-button uk-button-secondary" uk-toggle='target: #modal-edit-score'>EDIT</button>
                                 </form>
                               </div>
                             </div>
-                            <div class="uk-inline">
-                                <button className="uk-button uk-button-default" mode="click" type="button">{result.shotTwo}</button>
-                                <div class="uk-card uk-card-body uk-card-default" uk-drop="true; animation: slide-top; animate-out: true; duration: 1000">
-                                  <p className="uk-modal-title uk-text-center" id="abouttitle">Edit Shot Two</p>
-                                  <form
+                            <div className="uk-inline">
+                              <button className="uk-button uk-button-default" mode="click" type="button">{result.shotTwo}</button>
+                              <div className="uk-card uk-card-body uk-card-default" uk-drop="true; animation: slide-top; animate-out: true; duration: 1000">
+                                <p className="uk-modal-title uk-text-center" id="abouttitle">Edit Shot Two</p>
+                                <form
                                   id='editResult'
                                   onSubmit={editScoreTwo}>
-                                <div className="control">
-                                  <input
-                                    className={`uk-input input ${shotTwoFormErrors.shotTwo}`}
-                                    name="shotTwo"
-                                    placeholder="Shot Two"
-                                    type="number"
-                                    onChange={inputtingShotTwo}
-                                    value={shotTwoFormData.shotTwo}
-                                    min="0"
-                                    max="100" />
-                                </div>
-                                <button id={result.id} onClick={editScoreTwo} className="uk-button-small uk-button uk-button-secondary" uk-toggle='target: #modal-edit-score'>EDIT</button>
+                                  <div className="control">
+                                    <input
+                                      className={`uk-input input ${shotTwoFormErrors.shotTwo}`}
+                                      name="shotTwo"
+                                      placeholder="Shot Two"
+                                      type="number"
+                                      onChange={inputtingShotTwo}
+                                      value={shotTwoFormData.shotTwo}
+                                      min="0"
+                                      max="100" />
+                                  </div>
+                                  <button id={result.id} onClick={editScoreTwo} className="uk-button-small uk-button uk-button-secondary" uk-toggle='target: #modal-edit-score'>EDIT</button>
                                 </form>
-                                </div>
-                              </div></>
+                              </div>
+                            </div></>
                             :
-                          <>
-                          <p className='scoresOne'>{result.shotOne}</p>
-                          <p className='scoresTwo'>{result.shotTwo}</p>
-                          </>
-                      }
+                            <>
+                              <p className='scoresOne'>{result.shotOne}</p>
+                              <p className='scoresTwo'>{result.shotTwo}</p>
+                            </>
+                          }
                           <p className='scoresTotal'><strong>{(result.shotOne + result.shotTwo)}</strong></p>
                         </div>
                       })}
@@ -438,9 +438,9 @@ const inputtingShotTwo = e => {
                       {filterAwayResults().map(result => {
                         return <div key={result.id} id="awayResultDetail" className="uk-column-1-5">
                           {isAwayTeam && isResultLive ?
-                            <div class="uk-inline">
+                            <div className="uk-inline">
                               <button className="uk-button-small uk-button uk-button-danger" mode="click" type="button">DELETE</button>
-                              <div class="uk-card uk-card-body uk-card-default" uk-drop="true; animation: slide-top; animate-out: true; duration: 1000">
+                              <div className="uk-card uk-card-body uk-card-default" uk-drop="true; animation: slide-top; animate-out: true; duration: 1000">
                                 <p className="uk-modal-title uk-text-center" id="abouttitle">Delete Score?</p>                            
                                 <button id={result.id} onClick={deleteResult} className="uk-button-small uk-button uk-button-danger" uk-toggle='target: #modal-delete-score'>DELETE</button>
                               </div>
@@ -474,48 +474,48 @@ const inputtingShotTwo = e => {
               <div id="elevate" className="uk-background-cover uk-height-medium uk-panel uk-flex uk-flex-column uk-flex-center uk-flex-middle uk-text-center">
                 {!isMaxPlayers ?
                   <><h3 id="fixtureprofilesecondtitle" className="uk-text-lead">SUBMIT A RESULT</h3>
-                  <form
-                    id='createResult'
-                    onSubmit={postResult}>
-                    <div className="field uk-flex">
-                      <div className="control">
-                        <select
-                          className={`uk-select input ${formErrors.playerName}`}
-                          onChange={inputtingResult}
-                          name='playerName'
-                          value={formData.playerName}>
-                          <option>Choose A Player</option>
-                          {players && filterPlayers().map(player => {
-                            return <option key={player.id} id={player.id} value={(player.id + '#' + player.name)}>{player.name}</option>
-                          })}
-                        </select>
+                    <form
+                      id='createResult'
+                      onSubmit={postResult}>
+                      <div className="field uk-flex">
+                        <div className="control">
+                          <select
+                            className={`uk-select input ${formErrors.playerName}`}
+                            onChange={inputtingResult}
+                            name='playerName'
+                            value={formData.playerName}>
+                            <option>Choose A Player</option>
+                            {players && filterPlayers().map(player => {
+                              return <option key={player.id} id={player.id} value={(player.id + '#' + player.name)}>{player.name}</option>
+                            })}
+                          </select>
+                        </div>
+                        <div className="control">
+                          <input
+                            className={`uk-input input ${formErrors.shotOne}`}
+                            name="shotOne"
+                            placeholder="Shot One"
+                            type="number"
+                            onChange={inputtingResult}
+                            value={formData.shotOne}
+                            min="0"
+                            max="100" />
+                        </div>
+                        <div className="control">
+                          <input
+                            className={`uk-input input ${formErrors.shotTwo}`}
+                            name="shotTwo"
+                            placeholder="Shot Two"
+                            type="number"
+                            onChange={inputtingResult}
+                            value={formData.shotTwo}
+                            min="0"
+                            max="100" />
+                        </div>
+                        <button className="uk-button uk-button-primary uk-margin-small-right" type="button submit"
+                          onSubmit={postResult} uk-toggle='target: #modal-result-submission'>Submit Shot(s)</button>
                       </div>
-                      <div className="control">
-                        <input
-                          className={`uk-input input ${formErrors.shotOne}`}
-                          name="shotOne"
-                          placeholder="Shot One"
-                          type="number"
-                          onChange={inputtingResult}
-                          value={formData.shotOne}
-                          min="0"
-                          max="100" />
-                      </div>
-                      <div className="control">
-                        <input
-                          className={`uk-input input ${formErrors.shotTwo}`}
-                          name="shotTwo"
-                          placeholder="Shot Two"
-                          type="number"
-                          onChange={inputtingResult}
-                          value={formData.shotTwo}
-                          min="0"
-                          max="100" />
-                      </div>
-                      <button className="uk-button uk-button-primary uk-margin-small-right" type="button submit"
-                        onSubmit={postResult} uk-toggle='target: #modal-result-submission'>Submit Shot(s)</button>
-                    </div>
-                  </form>
+                    </form>
                     <div id='modal-result-submission' uk-modal='true'>
                       <div className="uk-modal-dialog uk-modal-body resultModal">
                         <h2 className="uk-modal-title uk-text-center" id="abouttitle">Submitting Shot(s)!</h2>
@@ -536,22 +536,22 @@ const inputtingShotTwo = e => {
       </div>
     </section>
     <div id='modal-edit-score' uk-modal='true'>
-                      <div className="uk-modal-dialog uk-modal-body resultModal">
-                        <h2 className="uk-modal-title uk-text-center" id="abouttitle">Editing Shot!</h2>
-                        <span className='centerContent' uk-spinner="ratio: 3"></span>
-                        <p className="uk-text-right">
-                        </p>
-                      </div>
-                    </div>
-                    <div id='modal-delete-score' uk-modal='true'>
-                      <div className="uk-modal-dialog uk-modal-body resultModal">
-                        <h2 className="uk-modal-title uk-text-center" id="abouttitle">Deleting Shot(s)!</h2>
-                        <span className='centerContent' uk-spinner="ratio: 3"></span>
-                        <p className="uk-text-right">
-                        </p>
-                      </div>
-                    </div>
-      </>
+      <div className="uk-modal-dialog uk-modal-body resultModal">
+        <h2 className="uk-modal-title uk-text-center" id="abouttitle">Editing Shot!</h2>
+        <span className='centerContent' uk-spinner="ratio: 3"></span>
+        <p className="uk-text-right">
+        </p>
+      </div>
+    </div>
+    <div id='modal-delete-score' uk-modal='true'>
+      <div className="uk-modal-dialog uk-modal-body resultModal">
+        <h2 className="uk-modal-title uk-text-center" id="abouttitle">Deleting Shot(s)!</h2>
+        <span className='centerContent' uk-spinner="ratio: 3"></span>
+        <p className="uk-text-right">
+        </p>
+      </div>
+    </div>
+    </>
   )
 }
 

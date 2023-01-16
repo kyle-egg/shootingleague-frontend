@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import { getAllFixtures, getAllTeams } from '../../lib/api'
+import { dynamicSeasonValue } from './Tables'
 
 function Fixtures() {
   const [fixtures, setFixtures] = React.useState(null)
@@ -29,7 +30,7 @@ function Fixtures() {
 
   React.useEffect(() => {
     const getData = async () => {
-      const res = await axios.get('/api/seasons/2/leagues')
+      const res = await axios.get('/api/seasons')
       setLeagues(res.data)
     }
     getData()
@@ -53,8 +54,6 @@ function Fixtures() {
   var ss = String(today.getSeconds())
 
   today = year + month + date + hh + mm + ss
-  
-  // console.log(typeof(Number(today)))
   
   if (fixtures) {
     fixtures.sort(function(b,a){
@@ -92,6 +91,16 @@ function Fixtures() {
     }
   }
 
+  const filterLeagues = () => {
+    if (leagues) {
+      return leagues.filter(league => {
+        return JSON.stringify(league.name).includes(dynamicSeasonValue())
+      })
+    }
+  }
+  
+  const currentLeagues = filterLeagues()
+
   return (
     <section>
       <div id="fixtureshero" className="uk-background-cover uk-height-large uk-panel uk-flex uk-flex-center uk-flex-middle">      
@@ -115,17 +124,17 @@ function Fixtures() {
                 <div className='fixtureFilters uk-flex-inline'>
                   <div>   
                     <select 
-                      className='seasonSelector'
+                      className='uk-select seasonSelector'
                       onChange={handleLeague}>
                       <option value=''>LEAGUES</option>
-                      {leagues && leagues.map(league => {
+                      {currentLeagues && currentLeagues[0].leagues.map(league => {
                         return <option key={league.id} value={league.name}>{league.name}</option>
                       })}
                     </select>
                   </div>
                   <div>
                     <select 
-                      className='teamSelector'
+                      className='uk-select teamSelector'
                       onChange={handleTeam}>
                       <option value=''>TEAMS</option>
                       {teams && teams.map(team => {

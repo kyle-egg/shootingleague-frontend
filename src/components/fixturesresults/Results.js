@@ -1,6 +1,6 @@
 import React from 'react'
-import axios from 'axios'
 import { getAllFixtures, getAllTeams, getAllSeasons } from '../../lib/api'
+import { dynamicSeasonValue } from './Tables'
 
 
 function Results() {
@@ -14,9 +14,8 @@ function Results() {
   const [fixtures, setFixtures] = React.useState(null)
   const [teams, setTeams] = React.useState(null)
   const [seasons, setSeasons] = React.useState(null)
-  const [leagues, setLeagues] = React.useState(null)
   const [leagueValue, setLeagueValue] = React.useState('')
-  const [seasonValue, setSeasonValue] = React.useState('2023')
+  const [seasonValue, setSeasonValue] = React.useState(dynamicSeasonValue())
   const [teamValue, setTeamValue] = React.useState('')
 
   React.useEffect(() => {
@@ -41,15 +40,6 @@ function Results() {
     const getData = async () => {
       const res = await getAllSeasons()
       setSeasons(res.data)
-    }
-    getData()
-    
-  }, [ ])
-
-  React.useEffect(() => {
-    const getData = async () => {
-      const res = await axios.get('/api/seasons/2/leagues')
-      setLeagues(res.data)
     }
     getData()
     
@@ -115,6 +105,16 @@ function Results() {
     }
   }
 
+  const filterCurrentLeagues = () => {
+    if (seasons && seasonValue) {
+      return seasons.filter(league => {
+        return JSON.stringify(league.name).includes(seasonValue)
+      })
+    }
+  }
+  
+  const currentLeagues = filterCurrentLeagues()
+
   // function Results() {
   //   const [showDetailed, setShowDetailed] = React.useState(false)
 
@@ -158,7 +158,7 @@ function Results() {
                 <div className='fixtureFilters uk-flex-inline'>
                   <div>
                     <select 
-                      className='seasonSelector'
+                      className='uk-select seasonSelector'
                       onChange={handleSeason}>
                       {seasons && seasons.map(season => {
                         return <option key={season.id} value={season.name}>{season.name}</option>
@@ -167,17 +167,17 @@ function Results() {
                   </div>  
                   <div>   
                     <select 
-                      className='seasonSelector'
+                      className='uk-select seasonSelector'
                       onChange={handleLeague}>
                       <option value=''>LEAGUES</option>
-                      {leagues && leagues.map(league => {
+                      {currentLeagues && currentLeagues[0].leagues.map(league => {
                         return <option key={league.id} value={league.name}>{league.name}</option>
                       })}
                     </select>
                   </div>
                   <div>
                     <select 
-                      className='teamSelector'
+                      className='uk-select teamSelector'
                       onChange={handleTeam}>
                       <option value=''>TEAMS</option>
                       {teams && teams.map(team => {
