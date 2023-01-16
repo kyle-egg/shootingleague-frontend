@@ -12,6 +12,9 @@ function Tables() {
   var ss = String(today.getSeconds())
   const [seasonValue, setSeasonValue] = React.useState('2023')
   const [leagueValue, setLeagueValue] = React.useState('JSSA Division One')
+  const [playerSeasonValue, setPlayerSeasonValue] = React.useState('2023')
+  const [playerLeagueValue, setPlayerLeagueValue] = React.useState('JSSA Division One')
+  const [playerSearchValue, setPlayerSearchValue] = React.useState('')
   const [leagues, setLeagues] = React.useState(null)
   const [seasons, setSeasons] = React.useState(null)
   const [fixtures, setFixtures] = React.useState([])
@@ -72,7 +75,22 @@ function Tables() {
     setLeagueValue(e.target.value)
   }
 
+  const handlePlayerSeason = (e) => {
+    setPlayerSeasonValue(e.target.value)
+  }
+
+  const handlePlayerLeague = (e) => {
+    setPlayerLeagueValue(e.target.value)
+  }
+
+  const handlePlayerSearch = (e) => {
+    setPlayerSearchValue(e.target.value)
+  }
+
   today = year + month + date + hh + mm + ss
+  
+  // const startSeason = year + month
+  // const endSeason = 
 
   const filterTeamResults = () => {
     if (fixtures) {
@@ -210,6 +228,27 @@ function Tables() {
     return bAvg - aAvg
   })
 
+
+  const filterPlayersLeague = () => {
+    if (playerSeasonValue || playerSearchValue) {
+      return sortedPlayers.filter(result => {
+        return result.createdAt.split('-').join('').slice(0,6) > (playerSeasonValue - 1) + '07' &&
+        result.createdAt.split('-').join('').slice(0,6) < playerSeasonValue + '06' &&
+        result.playerName.slice(result.playerName.indexOf('#') + 1).toLowerCase().includes(playerSearchValue.toLowerCase())
+      })
+    } else {
+      return sortedPlayers.filter(result => {
+        return result.createdAt.split('-').join('').slice(0,6) > (playerSeasonValue - 1) + '07' &&
+        result.createdAt.split('-').join('').slice(0,6) < playerSeasonValue + '06' &&
+        result.playerName.slice(result.playerName.indexOf('#') + 1).toLowerCase().includes(playerSearchValue.toLowerCase())
+      })
+    }
+  }
+
+  // if (sortedPlayers) {
+  //   console.log(sortedPlayers[0].createdAt.split('-').join('').slice(0,6))
+  // }
+
   // const juniorLeagues = 'JSSA Juniors'
 
   // const filterSeniorPlayerResults = () => {
@@ -220,30 +259,28 @@ function Tables() {
   //   }
   // }
 
-  const filterSeniorPlayerLeague = () => {
-    if (fixtures) {
-      return fixtures.filter(fixture => {
-        return fixture.league.some(l => !'JSSA Juniors'.includes(l.name))
-      })
-    }
-  }
+  // const filterSeniorPlayerLeague = () => {
+  //   if (fixtures) {
+  //     return fixtures.filter(fixture => {
+  //       return fixture.league.some(l => !'JSSA Juniors'.includes(l.name))
+  //     })
+  //   }
+  // }
   
-  const seniorLeagues = filterSeniorPlayerLeague()
+  // const seniorLeagues = filterSeniorPlayerLeague()
 
-  const filterSeniorFixtures = () => {
-    if (fixtures && results && seniorLeagues) {
-      return results.filter(result => {
-        console.log(result.fixture)
-        console.log(seniorLeagues.id)
-        return result.fixture === seniorLeagues.filter(league => {
-          league.id
-        })
-      })
-    }
-  }
+  // const filterSeniorFixtures = () => {
+  //   if (fixtures && results && seniorLeagues) {
+  //     return results.filter(result => {
+  //       console.log(result.fixture)
+  //       console.log(filterSeniorPlayerLeague().id)
+  //       return result.fixture === seniorLeagues[0].id
+  //     })
+  //   }
+  // }
 
-  console.log(seniorLeagues)
-  console.log(filterSeniorFixtures())
+  // console.log(filterSeniorPlayerLeague())
+  // console.log(filterSeniorFixtures())
   
   return (
     // <section>
@@ -278,7 +315,7 @@ function Tables() {
       <div id="homeabout" className="uk-child-width-1-1@s" uk-grid="true">
         <div className="tablescontainer">
           <div id="elevate" className="uk-background-cover uk-height-medium uk-panel uk-flex uk-flex-column uk-flex-center uk-flex-middle uk-text-center">
-            <h3 id="fixturetitle"className="uk-text-lead">LEAGUE TABLES</h3>
+            <h3 id="fixturetitle"className="uk-text-lead">TEAM LEAGUE TABLES</h3>
             <div>
               <div>
                 <div className='fixtureFilters uk-flex-inline'>
@@ -333,26 +370,50 @@ function Tables() {
                   ))}
                 </tbody>
               </table>
+              <h3 id="fixturetitle"className="uk-text-lead">PLAYER LEAGUE TABLES</h3>
+            <div>
+              <div>
+                <div className='fixtureFilters uk-flex-inline'>
+                  <div>
+                    <select 
+                      className='seasonSelector'
+                      onChange={handlePlayerSeason}>
+                      {seasons && seasons.map(season => {
+                        return <option key={season.id} value={season.name}>{season.name}</option>
+                      })}
+                    </select>
+                  </div>
+                  <div>
+                    <input 
+                      className='searchGins'
+                      placeholder='SEARCH'
+                      onChange={handlePlayerSearch}
+                      id="sub-header"
+                    />
+                  </div>
+                </div>
+              </div>
+              </div>
               <table className="uk-table uk-table-hover uk-table-divider">
-      <thead>
-        <tr>
-          <th>Position</th>
-          <th>Player</th>
-          <th>Matches Played</th>
-          <th>Score Average</th>
-        </tr>
-      </thead>
-      <tbody>
-        {sortedPlayers.map((player, index) => (
-          <tr key={player.id}>
-            <td>{index + 1}</td>
-            <td><a href={`/players/${player.playerName.slice(0, player.playerName.indexOf('#'))}`}>{player.playerName.slice(player.playerName.indexOf('#') + 1)}</a></td>
-            <td>{player.matchesPlayed}</td>
-            <td>{((player.shotOne + player.shotTwo) / 2).toFixed(2)}</td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
+                <thead>
+                  <tr>
+                    <th>Position</th>
+                    <th>Player</th>
+                    <th>Matches Played</th>
+                    <th>Score Average</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {filterPlayersLeague().map((player, index) => (
+                    <tr key={player.id}>
+                      <td>{index + 1}</td>
+                      <td><a href={`/players/${player.playerName.slice(0, player.playerName.indexOf('#'))}`}>{player.playerName.slice(player.playerName.indexOf('#') + 1)}</a></td>
+                      <td>{player.matchesPlayed}</td>
+                      <td>{((player.shotOne + player.shotTwo) / 2).toFixed(2)}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             </div>
           </div>     
         </div>
