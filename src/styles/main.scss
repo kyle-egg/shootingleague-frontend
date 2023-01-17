@@ -227,7 +227,14 @@ $global-link-color: #cd6148;
 #fixturetitle {
   font-weight: 100;
   font-stretch: expanded;
-  margin-top: 50px;
+  margin-top: 20px;
+}
+
+
+.fixtureFilters {
+padding: 0px 0px 20px 0px;
+font-weight: 100;
+font-stretch: expanded;
 }
 
 #fixtureprofiletitle {
@@ -245,7 +252,8 @@ $global-link-color: #cd6148;
 
 .fixturescontainer {
   background-color: rgb(225, 225, 225);
-  height: 500px;
+  height: auto;
+  padding: 25px;
 }
 
 .fixturesgrid {
@@ -254,10 +262,18 @@ $global-link-color: #cd6148;
   background-color: rgb(225, 225, 225);
 }
 
+
 .resultsgrid {
   height: 669px;
   width: 650px;
   background-color: rgb(225, 225, 225);
+}
+
+.uk-divider {
+  background-color: #030f26;
+  height: 5px;
+  width: 100%;
+  margin: 50px 0px;
 }
 
 .uk-column-1-7 {
@@ -267,7 +283,7 @@ $global-link-color: #cd6148;
 
 .tablescontainer {
   background-color: rgb(225, 225, 225);
-  height: 2200px;
+  height: auto;
 }
 
 .tablesgrid {
@@ -297,13 +313,21 @@ $global-link-color: #cd6148;
 }
 
 #tableshero {
-  background-image: url(../assets/images/tableheader.jpg);
+  background-image: url(../assets/images/shottarget.jpg);
   background-size: cover;
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   height: 550px;
   margin-top: -20px;
+}
+
+.leftColumn {
+  text-align: left;
+}
+
+.centerColumn {
+  text-align: center !important;
 }
 
 #resultsshero {
@@ -456,9 +480,23 @@ a:hover {
   border-style: solid;
 }
 
+.teamcontainer {
+  background-color: #000;
+  border: rgb(225, 225, 225);
+  border-style: solid;
+}
+
 .clubbackground {
   background-image: url(../assets/images/wood-background.jpg);
   margin-top: -20px;
+}
+
+.teambackground {
+  background-image: url(../assets/images/color-background.jpg);
+  margin-top: -20px;
+  background-repeat: no-repeat;
+  background-size: cover;
+
 }
 
 .uk-card-title {
@@ -469,6 +507,10 @@ a:hover {
   font-stretch: semi-expanded;
   font-weight: 100;
   margin-top: 175px;
+}
+
+.team-profile {
+  color: whitesmoke !important;
 }
 
 #eastern {

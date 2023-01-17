@@ -61,7 +61,7 @@ function Tables() {
 
   React.useEffect(() => {
     const getData = async () => {
-      const res = await axios.get('/api/seasons/2/leagues')
+      const res = await axios.get('/api/seasons/leagues')
       setLeagues(res.data)
     }
     getData()
@@ -329,7 +329,7 @@ function Tables() {
       </div>
       <div id="homeabout" className="uk-child-width-1-1@s" uk-grid="true">
         <div className="tablescontainer">
-          <div id="elevate" className="uk-background-cover uk-height-medium uk-panel uk-flex uk-flex-column uk-flex-center uk-flex-middle uk-text-center">
+          <div id="elevate" className="uk-background-cover uk-panel uk-flex uk-flex-column uk-flex-center uk-flex-middle uk-text-center">
             <h3 id="fixturetitle"className="uk-text-lead">TEAM LEAGUE TABLES</h3>
             <div>
               <div>
@@ -354,12 +354,11 @@ function Tables() {
                   </div>  
                 </div>
               </div>
-
               <table className="uk-table uk-table-hover uk-table-divider">
                 <thead>
                   <tr>
                     <th className="uk-table-shrink"></th>
-                    <th>Team</th>
+                    <th className='leftColumn'>Team</th>
                     <th>Played</th>
                     <th>Wins</th>
                     <th>Draws</th>
@@ -373,7 +372,7 @@ function Tables() {
                   {filterLeague().map((team) => (
                     <tr key={team.name}>
                       <td><a href={team.teamId}><img className="uk-preserve-width" width="40" height="40" alt="" src={team.teamLogo}/></a></td>
-                      <td><a href={team.teamId}>{team.name}</a></td>
+                      <td className='leftColumn'><a href={`/teams/${team.teamId}`}>{team.name}</a></td>
                       <td>{team.gamesPlayed}</td>
                       <td>{team.wins}</td>
                       <td>{team.draws}</td>
@@ -385,6 +384,7 @@ function Tables() {
                   ))}
                 </tbody>
               </table>
+              <div className="uk-divider"></div>
               <h3 id="fixturetitle"className="uk-text-lead">PLAYER LEAGUE TABLES</h3>
               <div>
                 <div>
@@ -400,7 +400,7 @@ function Tables() {
                     </div>
                     <div>
                       <input 
-                        className="uk-search-input" type="search" placeholder="Search" aria-label="Search"                       id='playerTableSearch'
+                        className="uk-search-input" type="search" placeholder="Player Search" aria-label="Search" id='playerTableSearch'
                         onChange={handlePlayerSearch}
                       />
                     </div>
@@ -411,16 +411,16 @@ function Tables() {
                 <thead>
                   <tr>
                     <th>Position</th>
-                    <th>Player</th>
-                    <th>Matches Played</th>
-                    <th>Score Average</th>
+                    <th className='leftColumn'>Player</th>
+                    <th className='centerColumn'>Matches Played</th>
+                    <th className='centerColumn'>Score Average</th>
                   </tr>
                 </thead>
                 <tbody>
                   {sortedPlayers.map((player, index) => (
                     <tr key={player.id}>
                       <td>{index + 1}</td>
-                      <td><a href={`/players/${player.playerName.slice(0, player.playerName.indexOf('#'))}`}>{player.playerName.slice(player.playerName.indexOf('#') + 1)}</a></td>
+                      <td className='leftColumn'><a href={`/players/${player.playerName.slice(0, player.playerName.indexOf('#'))}`}>{player.playerName.slice(player.playerName.indexOf('#') + 1)}</a></td>
                       <td>{player.matchesPlayed}</td>
                       <td>{((player.shotOne + player.shotTwo) / 2).toFixed(2)}</td>
                     </tr>

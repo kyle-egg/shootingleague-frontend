@@ -22,6 +22,10 @@ export function getAllTeams() {
   return axios.get('/api/clubs/teams')
 }
 
+export function getAllClubs() {
+  return axios.get('/api/clubs')
+}
+
 export function getAllSeasons() {
   return axios.get('/api/seasons')
 }

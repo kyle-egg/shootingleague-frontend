@@ -132,11 +132,11 @@ function Results() {
 
   return (
     <section>
-      <div id="resultsshero" className="uk-background-cover uk-height-large uk-panel uk-flex uk-flex-center uk-flex-middle">      
+      <div id="resultsshero" className="uk-background-cover uk-panel uk-flex uk-flex-center uk-flex-middle">      
       </div>
       <div id="homeabout" className="uk-child-width-1-1@s" uk-grid>
         <div className="fixturescontainer">
-          <div id="elevate" className="uk-background-cover uk-height-medium uk-panel uk-flex uk-flex-column uk-flex-center uk-flex-middle uk-text-center">
+          <div id="elevate" className="uk-background-cover uk-panel uk-flex uk-flex-column uk-flex-center uk-flex-middle uk-text-center">
             <h3 id="fixturetitle"className="uk-text-lead">RESULTS</h3>
             <br></br>
             {/* <div>

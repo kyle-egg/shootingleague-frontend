@@ -107,7 +107,7 @@ function Fixtures() {
       </div>
       <div id="homeabout" className="uk-child-width-1-1@s" uk-grid>
         <div className="fixturescontainer">
-          <div id="elevate" className="uk-background-cover uk-height-medium uk-panel uk-flex uk-flex-column uk-flex-center uk-flex-middle uk-text-center">
+          <div id="elevate" className="uk-background-cover uk-panel uk-flex uk-flex-column uk-flex-center uk-flex-middle uk-text-center">
             <h3 id="fixturetitle"className="uk-text-lead">FIXTURES</h3>
             <br></br>
             {/* <div>
@@ -150,9 +150,9 @@ function Fixtures() {
                     <p>{fixture.date.split('-').reverse().join('/')} - {fixture.time.slice(0,5)}</p>
                     <p>{fixture.league[0].name}</p>
                     <img className='smallFixtureLogo' src={fixture.homeTeam[0].logo}></img>
-                    <p>{fixture.homeTeam[0].name}</p>
+                    <p><a href={`/teams/${fixture.homeTeam[0].id}`}>{fixture.homeTeam[0].name}</a></p>
                     <p>V</p>
-                    <p>{fixture.awayTeam[0].name}</p>
+                    <p><a href={`/teams/${fixture.awayTeam[0].id}`}>{fixture.awayTeam[0].name}</a></p>
                     <img className='smallFixtureLogo' src={fixture.awayTeam[0].logo}></img>
                   </div>
                 </div>
