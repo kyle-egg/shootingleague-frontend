@@ -2,17 +2,27 @@
   import axios from 'axios'
   import { useLocation } from 'react-router-dom'
   import { useParams } from 'react-router-dom'
-  import { getAllClubs, getAllResults } from '../../lib/api'
+  import { getAllClubs, getAllResults, getAllFixtures } from '../../lib/api'
   import { dynamicSeasonValue } from '../fixturesresults/Tables'
-  import { month } from '../fixturesresults/Tables'
+
   
   function TeamProfile() {
     useLocation()
+    var today = new Date()
+    var date = String(today.getDate()).padStart(2, '0')
+    var month = String(today.getMonth() + 1).padStart(2, '0') //January is 0!
+    var year = String(today.getFullYear())
+    var hh = String(today.getHours()) - 1
+    var mm = String(today.getMinutes())
+    var ss = String(today.getSeconds())
     const { teamId } = useParams()
     const [team, setTeam] = React.useState(null)
     const [clubs, setClubs] = React.useState(null)
+    const [fixtures, setFixtures] = React.useState(null)
     const [results, setResults] = React.useState([])
-  
+    
+    today = year + month + date + hh + mm + ss  
+
     React.useEffect(() => {
       const getData = async () => {
         try {
@@ -43,6 +53,15 @@
       getData()
       
     }, [ ])
+
+    React.useEffect(() => {
+      const getData = async () => {
+        const res = await getAllFixtures()
+        setFixtures(res.data)
+      }
+      getData()
+      
+    }, [ ])
   
   const parentClub = () => {
     if (clubs) {
@@ -52,6 +71,12 @@
   )}
   }
 
+  if (fixtures) {
+    fixtures.sort(function(b,a){
+      return new Date(a.date) - new Date(b.date)
+    })
+  }
+
   const fatherClub = parentClub()
 
   const filterPlayersLeague = () => {
@@ -59,7 +84,13 @@
       return results.filter(result => {
         return result.createdAt.split('-').join('').slice(0,6) >= (dynamicSeasonValue() - 1) + '07' &&
         result.createdAt.split('-').join('').slice(0,6) <= dynamicSeasonValue() + '07' &&
-        // result.playerName.slice(result.playerName.indexOf('#') + 1).includes(team.players[0].name)
+        team.players.some(p => result.playerName.slice(result.playerName.indexOf('#') + 1).includes(p.name))
+      })
+    }
+    if (month > '07' && results) {
+      return results.filter(result => {
+        return result.createdAt.split('-').join('').slice(0,6) >= dynamicSeasonValue() + '07' &&
+        result.createdAt.split('-').join('').slice(0,6) <= (dynamicSeasonValue() + 1) + '07' &&
         team.players.some(p => result.playerName.slice(result.playerName.indexOf('#') + 1).includes(p.name))
       })
     }
@@ -92,6 +123,31 @@
     return bAvg - aAvg
   })
 
+  const filterFixtures = () => {
+    if (team) {
+      return fixtures.filter(fixture => {
+        return fixture.homeTeam.every(hT => team.name.includes(hT.name)) &&
+        fixture.date.split('-').join('') + fixture.time.split(':').join('') > today ||
+        fixture.awayTeam.every(aT => team.name.includes(aT.name)) &&
+        fixture.date.split('-').join('') + fixture.time.split(':').join('') > today
+      }) 
+  }
+}
+
+const filterResults = () => {
+  if (team) {
+    return fixtures.filter(fixture => {
+      return fixture.homeTeam.every(hT => team.name.includes(hT.name)) &&
+      fixture.season.every(s => dynamicSeasonValue().includes(s.name)) &&
+      fixture.date.split('-').join('') + fixture.time.split(':').join('') < today ||
+      fixture.awayTeam.every(aT => team.name.includes(aT.name)) &&
+      fixture.season.every(s => dynamicSeasonValue().includes(s.name)) &&
+      fixture.date.split('-').join('') + fixture.time.split(':').join('') < today
+    }) 
+  }
+}
+
+
   return (
     <div className="uk-section teambackground">
     {team && fatherClub &&
@@ -106,17 +162,6 @@
               <h4 id="clubtitle" className="team-profile clubofficers">Parent Club</h4>
               <p className="team-profile clubofficers"><a href={`/clubs/${fatherClub[0].id}`}>{fatherClub[0].name}</a></p>
               <h4 id="clubtitle" className="team-profile clubofficers">Current Team Averages</h4>
-              {/* <div className="uk-flex uk-flex-center uk-flex-wrap" uk-scrollspy="cls: uk-animation-fade; target: .member; delay: 200; repeat: true">
-                {team.players.map(player => {
-                return <div className="column" key={player.id} id="column">
-                <div className="clubinfocard uk-card uk-card uk-card-body uk-flex-bottom">
-                  <p className="team-profile clubofficers">
-                  <a href={`../players/${player.id}`}>{player.name}</a>
-                  </p>
-                </div>
-                </div>
-                })}
-              </div> */}
               <table className="uk-table uk-table-hover uk-table-divider">
                 <thead>
                   <tr>
@@ -137,6 +182,32 @@
                   ))}
                 </tbody>
               </table>
+              <div className="column">
+              <div className="uk-column-1-2 nextFiveLastFive">
+              <div className="column" id="column">
+              <h4 id="fiveResults" className="team-profile clubofficers">Latest Results</h4>
+              {fixtures && filterResults().map(fixture => {
+                return <div className="column" key={fixture.id} id="column">
+                  <div className="uk-column-1-4">
+                    <p>{fixture.date.split('-').reverse().join('/')}</p>
+                    <p><a href={`/teams/${fixture.homeTeam[0].id}`}>{fixture.homeTeam[0].name}</a></p>
+                    <p><a href={`/fixtures/${fixture.id}`}>{fixture.homeTotalScore} - {fixture.awayTotalScore}</a></p>
+                    <p><a href={`/teams/${fixture.awayTeam[0].id}`}>{fixture.awayTeam[0].name}</a></p>
+                  </div>
+                </div>
+              })}
+              </div>
+              <div className="column" id="column">
+              <h4 id="fiveFixtures" className="team-profile clubofficers">Upcoming Fixtures</h4>
+              {fixtures && filterFixtures().map(fixture => {
+                return <div className="uk-column-1-2" key={fixture.id}>
+                    <p>{fixture.date.split('-').reverse().join('/')} - {fixture.time.slice(0,5)}</p>
+                    <p><a href={`/teams/${fixture.homeTeam[0].id}`}>{fixture.homeTeam[0].name}</a> V <a href={`/teams/${fixture.awayTeam[0].id}`}>{fixture.awayTeam[0].name}</a></p>
+                  </div>
+              })}
+                  </div>
+                </div>
+                </div>
             </div>
           </div>
         </div>

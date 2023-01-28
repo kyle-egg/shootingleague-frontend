@@ -22,7 +22,7 @@ export const dynamicSeasonValue = () => {
 function Tables() {
   const [seasonValue, setSeasonValue] = React.useState(dynamicSeasonValue())
   const [leagueValue, setLeagueValue] = React.useState('JSSA Division One')
-  const [playerSeasonValue, setPlayerSeasonValue] = React.useState(dynamicSeasonValue())
+  const [playerSeasonValue, setPlayerSeasonValue] = React.useState('')
   const [playerSearchValue, setPlayerSearchValue] = React.useState('')
   const [leagues, setLeagues] = React.useState(null)
   const [seasons, setSeasons] = React.useState(null)
@@ -212,20 +212,28 @@ function Tables() {
   }
 
   const filterPlayersLeague = () => {
-    if (month <= '07' && results && playerSeasonValue || playerSearchValue) {
+    if (playerSeasonValue) {
+    if (month <= '07' && results || playerSearchValue) {
       return results.filter(result => {
         return result.createdAt.split('-').join('').slice(0,6) >= (playerSeasonValue - 1) + '07' &&
         result.createdAt.split('-').join('').slice(0,6) <= playerSeasonValue + '07' &&
         result.playerName.slice(result.playerName.indexOf('#') + 1).toLowerCase().includes(playerSearchValue.toLowerCase())
       })
-    } else {
+    } if (month > '07' && results || playerSearchValue) {
       return results.filter(result => {
         return result.createdAt.split('-').join('').slice(0,6) >= playerSeasonValue + '07' &&
         result.createdAt.split('-').join('').slice(0,6) <= (playerSeasonValue + 1) + '07' &&
         result.playerName.slice(result.playerName.indexOf('#') + 1).toLowerCase().includes(playerSearchValue.toLowerCase())
       })
-    }
+    } 
+  } else {
+    if (results || playerSearchValue) {
+      return results.filter(result => {
+        return result.playerName.slice(result.playerName.indexOf('#') + 1).toLowerCase().includes(playerSearchValue.toLowerCase())
+      })
+    } 
   }
+}
 
   const washedPlayerData = filterPlayersLeague()
 
@@ -396,6 +404,7 @@ function Tables() {
                         {seasons && seasons.map(season => {
                           return <option key={season.id} value={season.name}>{season.name}</option>
                         })}
+                        <option value=''>All Seasons</option>
                       </select>
                     </div>
                     <div>
