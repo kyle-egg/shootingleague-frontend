@@ -84,7 +84,8 @@ $global-link-color: #cd6148;
 
 .homecontainer {
   background-color: rgb(225, 225, 225);
-  height: 400px;
+  height: auto;
+  padding-bottom: 50px;
 }
 
 #abouthero {
@@ -240,7 +241,33 @@ font-stretch: expanded;
 #fixtureprofiletitle {
   font-weight: 100;
   font-stretch: expanded;
-  margin-top: 150px;
+  margin-top: 50px;
+}
+
+#fixtureprofile {
+  margin-top: 20px;
+}
+
+.playerName {
+	display: ruby;
+  margin-left: -45px;
+}
+
+.scoresOne {
+  width: 30px;
+  padding: 0px 30px;
+}
+
+.scoresTwo {
+  width: 30px;
+  padding: 0px 30px;
+  margin-left: -45px;
+}
+
+.scoresTotal {
+  width: 30px;
+  padding: 0px 30px;
+  margin-left: -45px;
 }
 
 .fixturesprofilecontainer {
@@ -248,6 +275,7 @@ font-stretch: expanded;
   min-height: 500px;
   height: auto;
   padding-bottom: 50px;
+  margin-top: -20px;
 }
 
 .fixturescontainer {
@@ -303,7 +331,16 @@ font-stretch: expanded;
 }
 
 #homeResultDetail {
-  column-gap: 0px;
+  padding: 5px 0px;
+}
+
+.playerName {
+	display: inline-block;
+	vertical-align: text-bottom;
+	width: 185px;
+	margin-top: 7px;
+	margin-bottom: 0px;
+	text-align: left;
 }
 
 #tabletitle {
@@ -486,6 +523,10 @@ a:hover {
   border-style: solid;
 }
 
+#teamcentercontainer {
+  height: auto;
+}
+
 .clubbackground {
   background-image: url(../assets/images/wood-background.jpg);
   margin-top: -20px;
@@ -609,11 +650,25 @@ a:hover {
 
 .resultColumn {
   width: 50%;
+  min-width: 715px;
+}
+
+// #awayscoretwobutton {
+// 	margin-left: -100px;
+// }
+
+#awayResultColumn {
+  margin-left: -80px;
+}
+
+.uk-button.uk-button-small.uk-button-default.home-columns {
+	padding: 0px 20px;
+	width: 70px;
 }
 
 .inputresultscontainer {
 	background-color: #072603;
-	margin-top: -38px !important;
+	margin-top: 10px !important;
 }
 
 #fixtureprofilesecondtitle {

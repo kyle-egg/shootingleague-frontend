@@ -340,12 +340,10 @@ function FixtureProfile() {
 
   return (
     <><section>
-      <div id="resultsshero" className="uk-background-cover uk-height-large uk-panel uk-flex uk-flex-center uk-flex-middle">
-      </div>
-      <div id="homeabout" className="uk-child-width-1-1@s" uk-grid='true'>
+      <div id="fixtureprofile" className="uk-child-width-1-1@s" uk-grid='true'>
         <div className="fixturesprofilecontainer">
           {fixture &&
-            <div id="resultContainer" className="uk-background-cover uk-height-medium uk-panel uk-flex uk-flex-column uk-flex-center uk-flex-middle uk-text-center">
+            <div id="resultContainer" className="uk-background-cover uk-height-medium uk-panel uk-flex uk-flex-column uk-text-center">
               {/* <img className='mediumFixtureLogo' src={fixture.homeTeam[0].logo}></img> */}
               <h3 id="fixtureprofiletitle" className="uk-text-lead">
                 <a href={`/teams/${fixture.homeTeam[0].id}`}>{fixture.homeTeam[0].name} </a>
@@ -359,7 +357,7 @@ function FixtureProfile() {
                         return <div key={result.id} id="homeResultDetail" className="uk-column-1-5">
                           {isHomeTeam && isResultLive ?
                             <div className="uk-inline">
-                              <button className="uk-button-small uk-button uk-button-danger" mode="click" type="button">DELETE</button>
+                              <button className="uk-button uk-button-small uk-button-danger home-columns" mode="click" type="button">DELETE</button>
                               <div className="uk-card uk-card-body uk-card-default" uk-drop="true; animation: slide-top; animate-out: true; duration: 1000">
                                 <p className="uk-modal-title uk-text-center" id="abouttitle">Delete Score?</p>                            
                                 <button id={result.id} onClick={deleteResult} className="uk-button-small uk-button  uk-button-danger" uk-toggle='target: #modal-delete-score'>DELETE</button>
@@ -367,10 +365,10 @@ function FixtureProfile() {
                             </div>
                             :
                             <p className='invisible'>null</p>}
-                          <p className='playerName'><a href={`/players/${result.playerName.slice(0, result.playerName.indexOf('#'))}`}>{result.playerName.slice(result.playerName.indexOf('#') + 1)}</a></p>
+                          <p className='playerName home-columns'><a href={`/players/${result.playerName.slice(0, result.playerName.indexOf('#'))}`}>{result.playerName.slice(result.playerName.indexOf('#') + 1)}</a></p>
                           {isHomeTeam && isResultLive ?
                             <><div className="uk-inline">
-                              <button className="uk-button uk-button-default" mode="click" type="button">{result.shotOne}</button>
+                              <button className="uk-button uk-button-small uk-button-default home-columns" mode="click" type="button">{result.shotOne}</button>
                               <div className="uk-card uk-card-body uk-card-default" uk-drop="true; animation: slide-top; animate-out: true; duration: 1000">
                                 <p className="uk-modal-title uk-text-center" id="abouttitle">Edit Shot One</p>
                                 <form
@@ -392,7 +390,7 @@ function FixtureProfile() {
                               </div>
                             </div>
                             <div className="uk-inline">
-                              <button className="uk-button uk-button-default" mode="click" type="button">{result.shotTwo}</button>
+                              <button className="uk-button uk-button-small uk-button-default home-columns" mode="click" type="button">{result.shotTwo}</button>
                               <div className="uk-card uk-card-body uk-card-default" uk-drop="true; animation: slide-top; animate-out: true; duration: 1000">
                                 <p className="uk-modal-title uk-text-center" id="abouttitle">Edit Shot Two</p>
                                 <form
@@ -415,11 +413,11 @@ function FixtureProfile() {
                             </div></>
                             :
                             <>
-                              <p className='scoresOne'>{result.shotOne}</p>
-                              <p className='scoresTwo'>{result.shotTwo}</p>
+                              <p className='scoresOne home-columns'>{result.shotOne}</p>
+                              <p className='scoresTwo home-columns'>{result.shotTwo}</p>
                             </>
                           }
-                          <p className='scoresTotal'><strong>{(result.shotOne + result.shotTwo)}</strong></p>
+                          <p className='scoresTotal home-columns'><strong>{(result.shotOne + result.shotTwo)}</strong></p>
                         </div>
                       })}
                     </div><><hr></hr><div className="uk-column-1-5" id="homeResultDetail">
@@ -433,37 +431,84 @@ function FixtureProfile() {
                     <p className='resultColumn'>No Home Results Submitted</p>}
                 </div>
                 <div className="resultColumn" id="awayResultColumn">
-                  {filterAwayResults().length > 0 ?
-                    <div>
+                {filterAwayResults().length > 0 ?
+                    <><div>
                       {filterAwayResults().map(result => {
-                        return <div key={result.id} id="awayResultDetail" className="uk-column-1-5">
+                        return <div key={result.id} id="homeResultDetail" className="uk-column-1-5">
                           {isAwayTeam && isResultLive ?
                             <div className="uk-inline">
-                              <button className="uk-button-small uk-button uk-button-danger" mode="click" type="button">DELETE</button>
+                              <button className="uk-button uk-button-small uk-button-danger home-columns" mode="click" type="button">DELETE</button>
                               <div className="uk-card uk-card-body uk-card-default" uk-drop="true; animation: slide-top; animate-out: true; duration: 1000">
                                 <p className="uk-modal-title uk-text-center" id="abouttitle">Delete Score?</p>                            
-                                <button id={result.id} onClick={deleteResult} className="uk-button-small uk-button uk-button-danger" uk-toggle='target: #modal-delete-score'>DELETE</button>
+                                <button id={result.id} onClick={deleteResult} className="uk-button-small uk-button  uk-button-danger" uk-toggle='target: #modal-delete-score'>DELETE</button>
                               </div>
                             </div>
                             :
-                            <p></p>}
-                          <p className='playerName'><a href={`/players/${result.playerName.slice(0, result.playerName.indexOf('#'))}`}>{result.playerName.slice(result.playerName.indexOf('#') + 1)}</a></p>
-                          <p className='scoresOne'>{result.shotOne}</p>
-                          <p className='scoresTwo'>{result.shotTwo}</p>
-                          <p className='scoresTotal'><strong>{(result.shotOne + result.shotTwo)}</strong></p>
+                            <p className='invisible'>null</p>}
+                          <p className='playerName home-columns'><a href={`/players/${result.playerName.slice(0, result.playerName.indexOf('#'))}`}>{result.playerName.slice(result.playerName.indexOf('#') + 1)}</a></p>
+                          {isAwayTeam && isResultLive ?
+                            <><div className="uk-inline">
+                              <button className="uk-button uk-button-small uk-button-default home-columns" mode="click" type="button">{result.shotOne}</button>
+                              <div className="uk-card uk-card-body uk-card-default" uk-drop="true; animation: slide-top; animate-out: true; duration: 1000">
+                                <p className="uk-modal-title uk-text-center" id="abouttitle">Edit Shot One</p>
+                                <form
+                                  id='editResult'
+                                  onSubmit={editScoreOne}>
+                                  <div className="control">
+                                    <input
+                                      className={`uk-input input ${shotOneFormErrors.shotOne}`}
+                                      name="shotOne"
+                                      placeholder="Shot One"
+                                      type="number"
+                                      onChange={inputtingShotOne}
+                                      value={shotOneFormData.shotOne}
+                                      min="0"
+                                      max="100" />
+                                  </div>
+                                  <button id={result.id} onClick={editScoreOne} className="uk-button-small uk-button uk-button-secondary" uk-toggle='target: #modal-edit-score'>EDIT</button>
+                                </form>
+                              </div>
+                            </div>
+                            <div className="uk-inline">
+                              <button className="uk-button uk-button-default uk-button-small home-columns" id='awayscoretwobutton' mode="click" type="button">{result.shotTwo}</button>
+                              <div className="uk-card uk-card-body uk-card-default" uk-drop="true; animation: slide-top; animate-out: true; duration: 1000">
+                                <p className="uk-modal-title uk-text-center"  id="abouttitle">Edit Shot Two</p>
+                                <form
+                                  id='editResult'
+                                  onSubmit={editScoreTwo}>
+                                  <div className="control">
+                                    <input
+                                      className={`uk-input input ${shotTwoFormErrors.shotTwo}`}
+                                      name="shotTwo"
+                                      placeholder="Shot Two"
+                                      type="number"
+                                      onChange={inputtingShotTwo}
+                                      value={shotTwoFormData.shotTwo}
+                                      min="0"
+                                      max="100" />
+                                  </div>
+                                  <button id={result.id} onClick={editScoreTwo} className="uk-button-small uk-button uk-button-secondary" uk-toggle='target: #modal-edit-score'>EDIT</button>
+                                </form>
+                              </div>
+                            </div></>
+                            :
+                            <>
+                              <p className='scoresOne home-columns'>{result.shotOne}</p>
+                              <p className='scoresTwo home-columns'>{result.shotTwo}</p>
+                            </>
+                          }
+                          <p className='scoresTotal home-columns'><strong>{(result.shotOne + result.shotTwo)}</strong></p>
                         </div>
                       })}
-                      <hr></hr>
-                      <div className="uk-column-1-5" id="awayResultDetail">
-                        <p className='invisible'>null</p>
-                        <p className='invisible'>null</p>
-                        <p className='scoresOne'><strong>{calcAwayShotOne()}</strong></p>
-                        <p className='scoresTwo'><strong>{calcAwayShotTwo()}</strong></p>
-                        <p className='scoresTotal'><strong>{calcAwayShotTotal()}</strong></p>
-                      </div>
-                    </div>
+                    </div><><hr></hr><div className="uk-column-1-5" id="homeResultDetail">
+                      <p className='invisible'>null</p>
+                      <p className='invisible'>null</p>
+                      <p className='scoresOne'><strong>{calcAwayShotOne()}</strong></p>
+                      <p className='scoresTwo'><strong>{calcAwayShotTwo()}</strong></p>
+                      <p className='scoresTotal'><strong>{calcAwayShotTotal()}</strong></p>
+                    </div></></>
                     :
-                    <p className='resultColumn'>No Away Result Submitted</p>}
+                    <p className='resultColumn'>No Away Results Submitted</p>}
                 </div>
               </div>
             </div>}

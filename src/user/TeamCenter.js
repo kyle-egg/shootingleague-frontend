@@ -34,7 +34,7 @@ function TeamCenter() {
   var month = String(today.getMonth() + 1).padStart(2, '0') //January is 0!
   var year = String(today.getFullYear())
 
-  const matchDate = year + month + date + String('090000')
+  const matchDate = year + month + date + String('170000')
   const deadline = year + month + tomorrow + String('000000')
 
   // Set the date we're counting down to
@@ -47,8 +47,6 @@ function TeamCenter() {
       
     // Find the distance between now and the count down date
     var distance = countDownDate - now
-    // console.log(distance)
-    // console.log(now)
     
     // Time calculations for days, hours, minutes and seconds
     var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
@@ -56,8 +54,7 @@ function TeamCenter() {
     var seconds = Math.floor((distance % (1000 * 60)) / 1000)
 
     // Output the result in an element with id="demo"
-    document.getElementById('countdowntimer').innerHTML = hours + 'h '
-  + minutes + 'm ' + seconds + 's '
+    document.getElementById('countdowntimer').innerHTML = hours + 'h ' + minutes + 'm ' + seconds + 's '
   
   if (hours > 5) {
     clearInterval(x)
@@ -94,7 +91,7 @@ function TeamCenter() {
                   <img className="largeFixtureLogo" src= {club.logo} />
                 </div>
               })}
-          <div id="teamcentercontainer" className="uk-background-cover uk-height-medium uk-panel uk-flex uk-flex-column uk-flex-middle uk-text-center">
+          <div id="teamcentercontainer" className="uk-background-cover uk-panel uk-flex uk-flex-column uk-flex-middle uk-text-center">
             {profile.team &&
               profile.team.map(team => {
                 return <div key={team.id}>
@@ -105,7 +102,8 @@ function TeamCenter() {
               <div>
               <div>
             <br></br>
-            <p>Please submit the below result(s) before the deadline.</p>
+            <p>Please submit the below result(s) before:</p>
+            <p className="loginhelp" id="countdowntimer"></p>
             {fixtures && profile && filterLiveResults().map(liveFixture => {
               return <div className="column" key={liveFixture.id} id="column">
                 <div className="uk-column-1-7">
@@ -114,9 +112,9 @@ function TeamCenter() {
                   <p><a href={`/fixtures/${liveFixture.id}`}>{liveFixture.homeTotalScore} - {liveFixture.awayTotalScore}</a></p>
                   <p>{liveFixture.awayTeam[0].name}</p>
                   <img className='smallFixtureLogo' src={liveFixture.awayTeam[0].logo}></img>
-                  <p className="loginhelp" id="countdowntimer"></p>
+                  <p>{liveFixture.results.length}/12 Shots Submitted</p>
                   <a href={`/fixtures/${liveFixture.id}`}>
-                    <button class='uk-button uk-button-primary' href={`/fixtures/${liveFixture.id}`}>Submit Result</button>
+                    <button class='uk-button uk-button-primary' href={`/fixtures/${liveFixture.id}`}>Submit Scores</button>
                   </a>
                 </div>
               </div>

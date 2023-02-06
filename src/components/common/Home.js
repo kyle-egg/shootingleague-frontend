@@ -8,7 +8,7 @@ function Home() {
       </div>
       <div id="homeabout" className="uk-child-width-1-1@s" uk-grid>
         <div className="homecontainer">
-          <div id="elevate" className="uk-background-cover uk-height-medium uk-panel uk-flex uk-flex-column uk-flex-center uk-flex-middle uk-text-center">
+          <div id="elevate" className="uk-background-cover uk-height-full uk-panel uk-flex uk-flex-column uk-flex-center uk-flex-middle uk-text-center">
             <img className="logohome" src= {Image}></img>
             <h3 id="abouttitle"className="uk-text-lead">WELCOME TO THE JSSA</h3>
             <br></br>
