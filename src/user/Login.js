@@ -1,7 +1,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { setToken } from '../lib/auth'
-import axios from 'axios'
+import { loginUser } from '../lib/api'
 
 // import { FadeInDiv } from '../gins/Gins'
 // import { baseUrl } from '../../config'
@@ -24,7 +24,7 @@ function Login() {
   const handleSubmit = async (event) => {
     event.preventDefault()
     try {
-      const { data } = await axios.post('/api/auth/login/', formData)
+      const { data } = await loginUser()
       setToken(data.token)
       navigate('/teamcenter')
     } catch (err) {

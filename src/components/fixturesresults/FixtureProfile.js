@@ -2,7 +2,8 @@ import React from 'react'
 import axios from 'axios'
 import { getUserId } from '../../lib/auth'
 import { useParams, useLocation, useNavigate } from 'react-router-dom'
-import { userProfile, headers, createResult, editTotal } from '../../lib/api'
+import { userProfile, headers, createResult, editTotal, getAllPlayers, getAFixture } from '../../lib/api'
+import { baseUrl } from '../config.js'
 
 const initialState = {
   'playerName': '',
@@ -35,7 +36,7 @@ function FixtureProfile() {
   React.useEffect(() => {
     const getData = async () => {
       try {
-        const res = await axios.get(`/api/fixtures/${fixtureId}`)
+        const res = await getAFixture(fixtureId)
         setFixture(res.data)
       } catch (err) {
         console.log(err)
@@ -48,7 +49,7 @@ function FixtureProfile() {
   React.useEffect(() => {
     const getData = async () => {
       try {
-        const res = await axios.get('/api/players/')
+        const res = await getAllPlayers()
         setPlayers(res.data)
       } catch (err) {
         console.log(err)
@@ -302,7 +303,7 @@ function FixtureProfile() {
   const deleteResult = async e => {
     e.preventDefault()
     postTotalResult()
-    await axios.delete(`/api/fixtures/${fixtureId}/results/${e.target.id}`, headers())
+    await axios.delete(`${baseUrl}/api/fixtures/${fixtureId}/results/${e.target.id}/`, headers())
     setTimeout(function(){
       window.location.reload()
     }, 1000)
@@ -311,7 +312,7 @@ function FixtureProfile() {
   const editScoreOne = async e => {
     e.preventDefault()
     postTotalResult()
-    await axios.put(`/api/fixtures/${fixtureId}/results/${e.target.id}/`, shotOneFormData, headers())
+    await axios.put(`${baseUrl}/api/fixtures/${fixtureId}/results/${e.target.id}/`, shotOneFormData, headers())
     setTimeout(function(){
       window.location.reload()
     }, 1000)
@@ -326,7 +327,7 @@ function FixtureProfile() {
   const editScoreTwo = async e => {
     e.preventDefault()
     postTotalResult()
-    await axios.put(`/api/fixtures/${fixtureId}/results/${e.target.id}/`, shotTwoFormData, headers())
+    await axios.put(`${baseUrl}/api/fixtures/${fixtureId}/results/${e.target.id}/`, shotTwoFormData, headers())
     setTimeout(function(){
       window.location.reload()
     }, 1000)

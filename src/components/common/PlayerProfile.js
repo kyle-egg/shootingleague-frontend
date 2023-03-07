@@ -1,9 +1,8 @@
 import React from 'react'
-import axios from 'axios'
 import { useLocation } from 'react-router-dom'
 import { useParams } from 'react-router-dom'
 import profilepic from '../../assets/images/profilepic.png'
-import { getAllResults, getAllSeasons } from '../../lib/api'
+import { getAllResults, getAllSeasons, getAPlayer } from '../../lib/api'
 
 function PlayerProfile() {
   useLocation()
@@ -18,7 +17,7 @@ function PlayerProfile() {
   React.useEffect(() => {
     const getData = async () => {
       try {
-        const res = await axios.get(`/api/players/${playerId}`)
+        const res = await getAPlayer(playerId)
         setPlayer(res.data)
       } catch (err) {
         console.log(err)

@@ -1,6 +1,5 @@
 import React from 'react'
-import axios from 'axios'
-import { getAllFixtures, getAllTeams } from '../../lib/api'
+import { getAllFixtures, getAllSeasons, getAllTeams } from '../../lib/api'
 import { dynamicSeasonValue } from './Tables'
 
 function Fixtures() {
@@ -30,7 +29,7 @@ function Fixtures() {
 
   React.useEffect(() => {
     const getData = async () => {
-      const res = await axios.get('/api/seasons')
+      const res = await getAllSeasons()
       setLeagues(res.data)
     }
     getData()

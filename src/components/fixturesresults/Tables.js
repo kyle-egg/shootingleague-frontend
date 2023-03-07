@@ -1,6 +1,5 @@
-import { getAllSeasons, getAllFixtures, getAllResults } from '../../lib/api'
+import { getAllSeasons, getAllFixtures, getAllResults, getAllLeagues } from '../../lib/api'
 import React from 'react'
-import axios from 'axios'
 
 export var today = new Date()
 export var date = String(today.getDate()).padStart(2, '0')
@@ -61,7 +60,7 @@ function Tables() {
 
   React.useEffect(() => {
     const getData = async () => {
-      const res = await axios.get('/api/seasons/leagues')
+      const res = await getAllLeagues()
       setLeagues(res.data)
     }
     getData()
