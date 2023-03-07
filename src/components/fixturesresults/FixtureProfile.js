@@ -3,7 +3,7 @@ import axios from 'axios'
 import { getUserId } from '../../lib/auth'
 import { useParams, useLocation, useNavigate } from 'react-router-dom'
 import { userProfile, headers, createResult, editTotal, getAllPlayers, getAFixture } from '../../lib/api'
-import { baseUrl } from '../config.js'
+import { baseUrl } from '../../config.js'
 
 const initialState = {
   'playerName': '',
