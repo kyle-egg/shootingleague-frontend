@@ -432,7 +432,7 @@ function FixtureProfile() {
                     <p className='resultColumn'>No Home Results Submitted</p>}
                 </div>
                 <div className="resultColumn" id="awayResultColumn">
-                {filterAwayResults().length > 0 ?
+                  {filterAwayResults().length > 0 ?
                     <><div>
                       {filterAwayResults().map(result => {
                         return <div key={result.id} id="homeResultDetail" className="uk-column-1-5">

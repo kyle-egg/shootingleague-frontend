@@ -212,27 +212,27 @@ function Tables() {
 
   const filterPlayersLeague = () => {
     if (playerSeasonValue) {
-    if (month <= '07' && results || playerSearchValue) {
-      return results.filter(result => {
-        return result.createdAt.split('-').join('').slice(0,6) >= (playerSeasonValue - 1) + '07' &&
+      if (month <= '07' && results || playerSearchValue) {
+        return results.filter(result => {
+          return result.createdAt.split('-').join('').slice(0,6) >= (playerSeasonValue - 1) + '07' &&
         result.createdAt.split('-').join('').slice(0,6) <= playerSeasonValue + '07' &&
         result.playerName.slice(result.playerName.indexOf('#') + 1).toLowerCase().includes(playerSearchValue.toLowerCase())
-      })
-    } if (month > '07' && results || playerSearchValue) {
-      return results.filter(result => {
-        return result.createdAt.split('-').join('').slice(0,6) >= playerSeasonValue + '07' &&
-        result.createdAt.split('-').join('').slice(0,6) <= (playerSeasonValue + 1) + '07' &&
-        result.playerName.slice(result.playerName.indexOf('#') + 1).toLowerCase().includes(playerSearchValue.toLowerCase())
-      })
-    } 
-  } else {
-    if (results || playerSearchValue) {
-      return results.filter(result => {
-        return result.playerName.slice(result.playerName.indexOf('#') + 1).toLowerCase().includes(playerSearchValue.toLowerCase())
-      })
-    } 
+        })
+      } if (month > '07' && results || playerSearchValue) {
+        return results.filter(result => {
+          return result.createdAt.split('-').join('').slice(0,6) >= playerSeasonValue + '07' &&
+          result.createdAt.split('-').join('').slice(0,6) <= (playerSeasonValue + 1) + '07' &&
+          result.playerName.slice(result.playerName.indexOf('#') + 1).toLowerCase().includes(playerSearchValue.toLowerCase())
+        })
+      } 
+    } else {
+      if (results || playerSearchValue) {
+        return results.filter(result => {
+          return result.playerName.slice(result.playerName.indexOf('#') + 1).toLowerCase().includes(playerSearchValue.toLowerCase())
+        })
+      } 
+    }
   }
-}
 
   const washedPlayerData = filterPlayersLeague()
 

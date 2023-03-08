@@ -68,46 +68,46 @@ function PlayerProfile() {
 
   const filterPlayerAverages = () => {
     if (playerSeasonValue && player) {
-    if (month <= '07' && results && player) {
-      return results.filter(result => {
-        return result.createdAt.split('-').join('').slice(0,6) >= (playerSeasonValue - 1) + '07' &&
-        result.createdAt.split('-').join('').slice(0,6) <= playerSeasonValue + '07' &&
-        player.name.includes(result.playerName.slice(result.playerName.indexOf('#') + 1))
-      })
-    } if (month > '07' && results && player) {
-      return results.filter(result => {
-        return result.createdAt.split('-').join('').slice(0,6) >= playerSeasonValue + '07' &&
-        result.createdAt.split('-').join('').slice(0,6) <= (playerSeasonValue + 1) + '07' &&
-        player.name.includes(result.playerName.slice(result.playerName.indexOf('#') + 1))
-      })
-    } 
-  } else if (player) {
+      if (month <= '07' && results && player) {
+        return results.filter(result => {
+          return result.createdAt.split('-').join('').slice(0,6) >= (playerSeasonValue - 1) + '07' &&
+          result.createdAt.split('-').join('').slice(0,6) <= playerSeasonValue + '07' &&
+          player.name.includes(result.playerName.slice(result.playerName.indexOf('#') + 1))
+        })
+      } if (month > '07' && results && player) {
+        return results.filter(result => {
+          return result.createdAt.split('-').join('').slice(0,6) >= playerSeasonValue + '07' &&
+          result.createdAt.split('-').join('').slice(0,6) <= (playerSeasonValue + 1) + '07' &&
+          player.name.includes(result.playerName.slice(result.playerName.indexOf('#') + 1))
+        })
+      } 
+    } else if (player) {
       return results.filter(result => {
         return player.name.includes(result.playerName.slice(result.playerName.indexOf('#') + 1))
       })
     } 
-}
+  }
 
   const washedPlayerData = filterPlayerAverages()
   const playerScores = {}
 
-  if(washedPlayerData) {
-  washedPlayerData.forEach(result => {
-    if (playerScores[result.playerName]) {
-      playerScores[result.playerName].shotOne += result.shotOne
-      playerScores[result.playerName].shotTwo += result.shotTwo
-      playerScores[result.playerName].matchesPlayed += 1
-      playerScores[result.playerName].averageScore = (playerScores[result.playerName].shotOne + playerScores[result.playerName].shotTwo) / (2 * playerScores[result.playerName].matchesPlayed)
-    } else {
-      playerScores[result.playerName] = {
-        playerName: result.playerName,
-        shotOne: result.shotOne,
-        shotTwo: result.shotTwo,
-        matchesPlayed: 1,
-        averageScore: (result.shotOne + result.shotTwo) / 2,
+  if (washedPlayerData) {
+    washedPlayerData.forEach(result => {
+      if (playerScores[result.playerName]) {
+        playerScores[result.playerName].shotOne += result.shotOne
+        playerScores[result.playerName].shotTwo += result.shotTwo
+        playerScores[result.playerName].matchesPlayed += 1
+        playerScores[result.playerName].averageScore = (playerScores[result.playerName].shotOne + playerScores[result.playerName].shotTwo) / (2 * playerScores[result.playerName].matchesPlayed)
+      } else {
+        playerScores[result.playerName] = {
+          playerName: result.playerName,
+          shotOne: result.shotOne,
+          shotTwo: result.shotTwo,
+          matchesPlayed: 1,
+          averageScore: (result.shotOne + result.shotTwo) / 2,
+        }
       }
-    }
-  })
+    })
   }
 
   const sortedPlayers = Object.values(playerScores).sort((a, b) => {
@@ -127,38 +127,38 @@ function PlayerProfile() {
               :
               <img src={profilepic}/>
             }
-            </div>
-              <div>
-                <div className="uk-card-body">
-                  <h3 className="uk-card-title">{player.name}</h3>
-                  <h6 className="clubinfo"><a href={`/clubs/${player.clubPlayers[0].id}`}>{player.clubPlayers[0].name}</a></h6>
-                  <h6 className="clubinfo">{player.title}</h6>
-                  <h6 className="clubinfo"><a href={`/teams/${player.teamPlayers[0].id}`}>{player.teamPlayers[0].name}</a></h6>
-                  <h6 className="clubinfo">{player.honours}</h6>
-                  <p className="clubinfo">{player.bio}</p>
-                  <br></br>
-                  <div className='playerAverages'>
-                  <h5 id='playerlefttext'>In</h5>
-                      <select
-                        id='playerProfileSeasonSelector'
-                        className='uk-select seasonSelector'
-                        onChange={handlePlayerSeason}>
-                        {seasons && seasons.map(season => {
-                          return <option key={season.id} value={season.name}>{season.name}</option>
-                        })}
-                        <option value=''>All</option>
-                      </select>
-                  {sortedPlayers.map((player) => (
-                    <div>
-                      <h5 id='playerrighttext' key={player.id}>Season(s) I have played {player.matchesPlayed} matches, with an average of {((player.shotOne + player.shotTwo) / 2).toFixed(2)}</h5>
-                      </div>
-                  ))}
+          </div>
+          <div>
+            <div className="uk-card-body">
+              <h3 className="uk-card-title">{player.name}</h3>
+              <h6 className="clubinfo"><a href={`/clubs/${player.clubPlayers[0].id}`}>{player.clubPlayers[0].name}</a></h6>
+              <h6 className="clubinfo">{player.title}</h6>
+              <h6 className="clubinfo"><a href={`/teams/${player.teamPlayers[0].id}`}>{player.teamPlayers[0].name}</a></h6>
+              <h6 className="clubinfo">{player.honours}</h6>
+              <p className="clubinfo">{player.bio}</p>
+              <br></br>
+              <div className='playerAverages'>
+                <h5 id='playerlefttext'>In</h5>
+                <select
+                  id='playerProfileSeasonSelector'
+                  className='uk-select seasonSelector'
+                  onChange={handlePlayerSeason}>
+                  {seasons && seasons.map(season => {
+                    return <option key={season.id} value={season.name}>{season.name}</option>
+                  })}
+                  <option value=''>All</option>
+                </select>
+                {sortedPlayers.map((player) => (
+                  <div key={player.id}>
+                    <h5 id='playerrighttext'>Season(s) I have played {player.matchesPlayed} matches, with an average of {((player.shotOne + player.shotTwo) / 2).toFixed(2)}</h5>
                   </div>
-                  {playerSeasonValue ?
-                  <h4 id="clubtitle" className="uk-card-title">{playerSeasonValue} Season Matches</h4>
-                  :
-                  <h4 id="clubtitle" className="uk-card-title">All Matches</h4>
-                  }
+                ))}
+              </div>
+              {playerSeasonValue ?
+                <h4 id="clubtitle" className="uk-card-title">{playerSeasonValue} Season Matches</h4>
+                :
+                <h4 id="clubtitle" className="uk-card-title">All Matches</h4>
+              }
               <table className="uk-table uk-table-hover uk-table-divider">
                 <thead>
                   <tr>
@@ -179,8 +179,8 @@ function PlayerProfile() {
                   ))}
                 </tbody>
               </table>
-                </div>
-              </div></>
+            </div>
+          </div></>
           }
         </div>
       </div>

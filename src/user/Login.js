@@ -35,24 +35,24 @@ function Login() {
   return (
     // <FadeInDiv>
     <section>
-      <div id="loginhero" className="uk-background-cover uk-height-large uk-panel uk-flex uk-flex-center uk-flex-middle">      
+      <div id="loginhero" classNameName="uk-background-cover uk-height-large uk-panel uk-flex uk-flex-center uk-flex-middle">      
       </div>
-      <div id="homeabout" className="uk-child-width-1-1@s" uk-grid>
-        <div className="homecontainer">
-          <div id="elevate" className="uk-background-cover uk-height-medium uk-panel uk-flex uk-flex-column uk-flex-center uk-flex-middle uk-text-center">
-            <h3 id="abouttitle"className="uk-text-lead">LOGIN</h3>
+      <div id="homeabout" classNameName="uk-child-width-1-1@s" uk-grid>
+        <div classNameName="homecontainer">
+          <div id="elevate" classNameName="uk-background-cover uk-height-medium uk-panel uk-flex uk-flex-column uk-flex-center uk-flex-middle uk-text-center">
+            <h3 id="abouttitle"classNameName="uk-text-lead">LOGIN</h3>
             <br></br>  
-            <div className="section">
+            <div classNameName="section">
               <form
-                className="column"
+                classNameName="column"
                 onSubmit={handleSubmit}
               >
 
-<div class="uk-margin">
-        <div class="uk-inline">
-        <span class="uk-form-icon" uk-icon="icon: user"></span>
+                <div className="uk-margin">
+                  <div className="uk-inline">
+                    <span className="uk-form-icon" uk-icon="icon: user"></span>
                     <input
-                      className="uk-input logininput"
+                      classNameName="uk-input logininput"
                       placeholder="USERNAME"
                       name="username"
                       onChange={handleChange}
@@ -61,12 +61,12 @@ function Login() {
                   </div>
                 </div>
                 <br></br>
-                <div class="uk-margin">
-        <div class="uk-inline">
-        <span class="uk-form-icon" uk-icon="icon: lock"></span>
+                <div className="uk-margin">
+                  <div className="uk-inline">
+                    <span className="uk-form-icon" uk-icon="icon: lock"></span>
                     <input
                       type="password"
-                      className="uk-input logininput"
+                      classNameName="uk-input logininput"
                       placeholder="PASSWORD"
                       name="password"
                       onChange={handleChange}
@@ -76,15 +76,15 @@ function Login() {
                 </div>
                 {isError && (
                   <>
-                    <p className="loginhelp">
+                    <p classNameName="loginhelp">
               Your Username And/Or Password Are Incorrect<br></br>
               Please Try Again Or Contact Admin
                     </p>
                   </>
                 )}
                 <br></br>
-                <div className="field">
-                  <button type="submit" className="buttons uk-button uk-button-primary">
+                <div classNameName="field">
+                  <button type="submit" classNameName="buttons uk-button uk-button-primary">
                   Log In!
                   </button>
                 </div>

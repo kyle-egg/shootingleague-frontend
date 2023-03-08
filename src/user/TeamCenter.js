@@ -56,10 +56,10 @@ function TeamCenter() {
     // Output the result in an element with id="demo"
     document.getElementById('countdowntimer').innerHTML = hours + 'h ' + minutes + 'm ' + seconds + 's '
   
-  if (hours > 5) {
-    clearInterval(x)
-    document.getElementById('countdowntimer').innerHTML = 'DEADLINE PASSED'
-  }
+    if (hours > 5) {
+      clearInterval(x)
+      document.getElementById('countdowntimer').innerHTML = 'DEADLINE PASSED'
+    }
   }, 1000)
 
 
@@ -76,7 +76,7 @@ function TeamCenter() {
     } 
   }
 
-  const liveResults = filterLiveResults()
+  // const liveResults = filterLiveResults()
 
   return (
     // <FadeInDiv>
@@ -99,27 +99,27 @@ function TeamCenter() {
                 MATCH CENTER</h3>
                 </div>
               })}
+            <div>
               <div>
-              <div>
-            <br></br>
-            <p>Please submit the below result(s) before:</p>
-            <p className="loginhelp" id="countdowntimer"></p>
-            {fixtures && profile && filterLiveResults().map(liveFixture => {
-              return <div className="column" key={liveFixture.id} id="column">
-                <div className="uk-column-1-7">
-                  <img className='smallFixtureLogo' src={liveFixture.homeTeam[0].logo}></img>
-                  <p>{liveFixture.homeTeam[0].name}</p>
-                  <p><a href={`/fixtures/${liveFixture.id}`}>{liveFixture.homeTotalScore} - {liveFixture.awayTotalScore}</a></p>
-                  <p>{liveFixture.awayTeam[0].name}</p>
-                  <img className='smallFixtureLogo' src={liveFixture.awayTeam[0].logo}></img>
-                  <p>{liveFixture.results.length}/12 Shots Submitted</p>
-                  <a href={`/fixtures/${liveFixture.id}`}>
-                    <button class='uk-button uk-button-primary' href={`/fixtures/${liveFixture.id}`}>Submit Scores</button>
-                  </a>
-                </div>
+                <br></br>
+                <p>Please submit the below result(s) before:</p>
+                <p className="loginhelp" id="countdowntimer"></p>
+                {fixtures && profile && filterLiveResults().map(liveFixture => {
+                  return <div className="column" key={liveFixture.id} id="column">
+                    <div className="uk-column-1-7">
+                      <img className='smallFixtureLogo' src={liveFixture.homeTeam[0].logo}></img>
+                      <p>{liveFixture.homeTeam[0].name}</p>
+                      <p><a href={`/fixtures/${liveFixture.id}`}>{liveFixture.homeTotalScore} - {liveFixture.awayTotalScore}</a></p>
+                      <p>{liveFixture.awayTeam[0].name}</p>
+                      <img className='smallFixtureLogo' src={liveFixture.awayTeam[0].logo}></img>
+                      <p>{liveFixture.results.length}/12 Shots Submitted</p>
+                      <a href={`/fixtures/${liveFixture.id}`}>
+                        <button className='uk-button uk-button-primary' href={`/fixtures/${liveFixture.id}`}>Submit Scores</button>
+                      </a>
+                    </div>
+                  </div>
+                })}
               </div>
-            })}
-            </div>
             </div>
           </div>
         </div>     

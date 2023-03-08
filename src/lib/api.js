@@ -59,7 +59,7 @@ export function userProfile(userId) {
 }
 
 export function loginUser(formData) {
-return axios.post(`${baseUrl}/api/auth/login/`, formData)
+  return axios.post(`${baseUrl}/api/auth/login/`, formData)
 }
 
 //* Players REQ
