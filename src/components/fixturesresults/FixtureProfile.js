@@ -303,7 +303,7 @@ function FixtureProfile() {
   const deleteResult = async e => {
     e.preventDefault()
     postTotalResult()
-    await axios.delete(`${baseUrl}/api/fixtures/${fixtureId}/results/${e.target.id}/`, headers())
+    await axios.delete(`${baseUrl}/fixtures/${fixtureId}/results/${e.target.id}/`, headers())
     setTimeout(function(){
       window.location.reload()
     }, 1000)
@@ -312,7 +312,7 @@ function FixtureProfile() {
   const editScoreOne = async e => {
     e.preventDefault()
     postTotalResult()
-    await axios.put(`${baseUrl}/api/fixtures/${fixtureId}/results/${e.target.id}/`, shotOneFormData, headers())
+    await axios.put(`${baseUrl}/fixtures/${fixtureId}/results/${e.target.id}/`, shotOneFormData, headers())
     setTimeout(function(){
       window.location.reload()
     }, 1000)
@@ -327,7 +327,7 @@ function FixtureProfile() {
   const editScoreTwo = async e => {
     e.preventDefault()
     postTotalResult()
-    await axios.put(`${baseUrl}/api/fixtures/${fixtureId}/results/${e.target.id}/`, shotTwoFormData, headers())
+    await axios.put(`${baseUrl}/fixtures/${fixtureId}/results/${e.target.id}/`, shotTwoFormData, headers())
     setTimeout(function(){
       window.location.reload()
     }, 1000)
