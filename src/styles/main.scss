@@ -1,0 +1,1014 @@
+// 1. Your custom variables and variable overwrites.
+$global-link-color: #cd6148;
+
+
+// 2. Import default variables and available mixins.
+@import "uikit/src/scss/variables-theme.scss";
+@import "uikit/src/scss/mixins-theme.scss";
+
+// 3. Your custom mixin overwrites.
+@mixin hook-card() { color: #000; }
+
+// 4. Import UIkit.
+@import "uikit/src/scss/uikit-theme.scss";
+
+#my-id {
+  background-color: #000;
+}
+
+
+.centerContent {
+	text-align: center;
+	padding: 0px;
+  display: flex;
+  justify-content: center;
+}
+
+.invisible {
+  visibility: hidden;
+  }
+
+.indent {
+  text-indent: -5em;
+}
+
+.uk-card{
+  text-align: center;
+}
+
+.center{
+  text-align: center;
+  color: $global-link-color;
+}
+
+.logo {
+  height: 85px;
+  width: auto;
+}
+
+#navbar {
+  color: #030f26;
+  background-color: #030f26;
+}
+
+#uk-nav-header {
+  font-weight: 500;
+  color: $global-link-color;
+  text-decoration: underline;
+  padding: 10px 0px;
+}
+
+.navtext {
+  color: $global-link-color;
+  font-stretch: semi-expanded;
+  font-weight: 100;
+}
+
+#navtext {
+  color: $global-link-color;
+    font-stretch: semi-expanded;
+  font-weight: 100;
+}
+
+#navabout {
+  color: $global-link-color;
+    font-stretch: semi-expanded;
+  font-weight: 100;
+}
+
+#navpolicies {
+  color: $global-link-color;
+  font-stretch: semi-expanded;
+  font-weight: 100;
+}
+
+.homecontainer {
+  background-color: rgb(225, 225, 225);
+  height: auto;
+  padding-bottom: 50px;
+}
+
+#abouthero {
+  background-image: url(../assets/images/historyimage.png);
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 550px;
+  margin-top: -20px;
+}
+
+.aboutcontainer {
+  background-color: #030f26;
+  height: 450px;
+}
+
+#homehero {
+  background-image: url(../assets/images/homeshooting.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 550px;
+  margin-top: -20px;
+}
+
+#contactushero {
+  background-image: url(../assets/images/contactus.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 550px;
+  margin-top: -20px;
+}
+
+
+.homemiddle {
+  // background: rgb(170,177,191);
+  // background: -moz-linear-gradient(0deg, rgba(170,177,191,1) 32%, rgba(255,255,255,0) 80%);
+  // background: -webkit-linear-gradient(0deg, rgba(170,177,191,1) 32%, rgba(255,255,255,0) 80%);
+  // background: linear-gradient(0deg, rgba(170,177,191,1) 32%, rgba(255,255,255,0) 80%);
+  // filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#aab1bf",endColorstr="#ffffff",GradientType=1); 
+  height: 425px;
+  margin-top: -700px;
+}
+
+.hometext {
+  text-align: center;
+  // background: rgb(170,177,191);
+  padding: 0px 50px 50px 50px;
+  color: white;
+}
+
+.paratext {
+  color: #000;
+  font-weight: 100;
+}
+
+.aboutparatext {
+  color: rgb(255, 255, 255);
+  font-weight: 100;
+  padding: 0px 10px;
+}
+
+
+#abouttitle {
+  font-weight: 100;
+  font-stretch: expanded;
+}
+
+#abouttext {
+  font-weight: 100;
+  font-stretch: expanded;
+  color: white;
+
+}
+
+#counciltitle {
+  font-weight: 100;
+  font-stretch: expanded;
+  margin-top: 50px;
+}
+
+.councilcontainer {
+  background-color: rgb(225, 225, 225);
+  height: 750px;
+}
+
+.logohome {
+  align-items: center;
+  height: 200px;
+  margin-top: 50px;
+}
+
+.member {
+  background-image: url(../assets/images/members.png);
+  background-size: cover;
+  width: 175px;
+  height: 175px;
+  color: $global-link-color;
+  font-weight: 100;
+  margin: 10px;
+  padding: 0px;
+}
+
+.membertitle {
+  margin-top: 100px;
+  background: rgb(0,0,0);
+  background: -moz-radial-gradient(circle, rgba(0,0,0,1) 67%, rgba(0,0,0,0) 80%);
+  background: -webkit-radial-gradient(circle, rgba(0,0,0,1) 67%, rgba(0,0,0,0) 80%);
+  background: radial-gradient(circle, rgba(0,0,0,1) 67%, rgba(0,0,0,0) 80%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000",endColorstr="#000000",GradientType=1); 
+}
+
+
+.smallFixtureLogo {
+  height: 44px;
+}
+
+.mediumFixtureLogo {
+  height: 100px;
+}
+
+.largeFixtureLogo {
+  height: 200px;
+}
+
+#fixtureshero {
+  background-image: url(../assets/images/shooting-target.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 550px;
+  margin-top: -20px;
+}
+
+#fixturetitle {
+  font-weight: 100;
+  font-stretch: expanded;
+  margin-top: 20px;
+}
+
+
+.fixtureFilters {
+padding: 0px 0px 20px 0px;
+font-weight: 100;
+font-stretch: expanded;
+}
+
+#fixtureprofiletitle {
+  font-weight: 100;
+  font-stretch: expanded;
+  margin-top: 50px;
+}
+
+#fixtureprofile {
+  margin-top: 20px;
+}
+
+.playerName {
+	display: ruby;
+  margin-left: -45px;
+}
+
+.scoresOne {
+  width: 30px;
+  padding: 0px 30px;
+}
+
+.scoresTwo {
+  width: 30px;
+  padding: 0px 30px;
+  margin-left: -45px;
+}
+
+.scoresTotal {
+  width: 30px;
+  padding: 0px 30px;
+  margin-left: -45px;
+}
+
+.fixturesprofilecontainer {
+  background-color: rgb(225, 225, 225);
+  min-height: 500px;
+  height: auto;
+  padding-bottom: 50px;
+  margin-top: -20px;
+}
+
+.fixturescontainer {
+  background-color: rgb(225, 225, 225);
+  height: auto;
+  padding: 25px;
+}
+
+.fixturesgrid {
+  height: 669px;
+  width: 606px;
+  background-color: rgb(225, 225, 225);
+}
+
+
+.resultsgrid {
+  height: 669px;
+  width: 650px;
+  background-color: rgb(225, 225, 225);
+}
+
+.uk-divider {
+  background-color: #030f26;
+  height: 5px;
+  width: 100%;
+  margin: 50px 0px;
+}
+
+.uk-column-1-7 {
+	column-count: 7;
+  column-gap: 0px;
+}
+
+.tablescontainer {
+  background-color: rgb(225, 225, 225);
+  height: auto;
+}
+
+.tablesgrid {
+  height: 1000px;
+  width: 893px;
+  background-color: rgb(225, 225, 225);
+}
+
+.averagesgrid {
+  height: 500px;
+  width: 700px;
+  background-color: rgb(225, 225, 225);
+}
+
+#awayResultDetail {
+  column-gap: 0px;
+}
+
+#homeResultDetail {
+  padding: 5px 0px;
+}
+
+.playerName {
+	display: inline-block;
+	vertical-align: text-bottom;
+	width: 185px;
+	margin-top: 7px;
+	margin-bottom: 0px;
+	text-align: left;
+}
+
+#tabletitle {
+  font-weight: 100;
+  font-stretch: expanded;
+  margin-top: 1000px;
+}
+
+#tableshero {
+  background-image: url(../assets/images/shottarget.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 550px;
+  margin-top: -20px;
+}
+
+.leftColumn {
+  text-align: left;
+}
+
+.centerColumn {
+  text-align: center !important;
+}
+
+#resultsshero {
+  background-image: url(../assets/images/ResultsShooter.png);
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 550px;
+  margin-top: -20px;
+}
+
+#codeconduct {
+  background-color: rgb(225, 225, 225);
+  margin-top: -20px;
+}
+
+#loginhero {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: rgb(225, 225, 225);
+  height: 50px;
+  margin-top: -20px;
+}
+
+.liveSection {
+margin-bottom: 200px;
+}
+
+.loginhelp {
+  color: $global-link-color;
+}
+
+.logininput {
+  background-color: rgb(225, 225, 225);
+  color: #000;
+  border-top: none !important;
+  border-left: none !important;
+  border-bottom: #000;
+  border-bottom: 1px;
+  border-style: solid;
+}
+
+#tctitle {
+  font-weight: 100;
+  font-stretch: expanded;
+}
+
+
+.footer {
+  background-color: #030f26;
+  height: 100px;
+  padding: 20px;
+}
+
+#created {
+  text-align: center;
+  background-color: black;
+  color: $global-link-color;
+  font-stretch: semi-expanded;
+  font-weight: 100;
+  background-color: #030f26;
+  height: 25px;
+}
+
+.createdwrap {
+  background-color: #030f26;
+  height: 50px;
+}
+
+.footerlogo {
+  height: 150px;
+}
+
+.footertext {
+  color: $global-link-color;
+  font-stretch: semi-expanded;
+  font-weight: 100;
+}
+
+a:hover {
+  color: $global-link-color;
+}
+
+#averagestitle {
+  font-weight: 100;
+  font-stretch: expanded;
+  margin-top: 2100px;
+  padding: 20px;
+}
+
+// TEAMS
+
+.teamsbackground {
+  background-color: rgb(225, 225, 225);
+  margin-top: -20px;
+}
+
+// CLUBS
+
+#clubsgrid {
+  padding:100px;
+  justify-content: space-around;
+}
+
+#club {
+  justify-content: center;
+}
+
+.clubinfo {
+  margin: 0px;
+  font-weight: 100;
+  color: $global-link-color;
+}
+
+.clubofficers {
+  font-weight: 100;
+}
+
+.clubblurb {
+  padding: 25px 50px;
+  color: #000;
+  font-weight: 100;
+}
+
+#clubcrest {
+  padding: 50px;
+}
+
+.clubcard {
+  height: 200px;
+  width: 200px;
+  box-shadow: none;
+  background-color: rgb(225, 225, 225);
+  
+}
+
+#clubtitle {
+  padding: 30px 0px 0px 0px ;
+}
+
+.clubinfocard {
+  padding: 10px 20px;
+}
+
+.clubcontainer {
+  background-color: rgb(225, 225, 225);
+  border: #000;
+  border-style: solid;
+}
+
+.teamcontainer {
+  background-color: #000;
+  border: rgb(225, 225, 225);
+  border-style: solid;
+}
+
+#teamcentercontainer {
+  height: auto;
+}
+
+.clubbackground {
+  background-image: url(../assets/images/wood-background.jpg);
+  margin-top: -20px;
+}
+
+.teambackground {
+  background-image: url(../assets/images/color-background.jpg);
+  margin-top: -20px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.nextFiveLastFive {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+}
+
+#fiveFixtures {
+  margin-top: 0px;
+}
+
+.uk-card-title {
+  font-weight: 100;
+}
+
+#teamtitle {
+  font-stretch: semi-expanded;
+  font-weight: 100;
+  margin-top: 175px;
+}
+
+.team-profile {
+  color: whitesmoke !important;
+}
+
+#eastern {
+  background-image: url(../assets/images/Eastern.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  text-align: center;
+  margin: 30px;
+}
+
+#western {
+  background-image: url(../assets/images/Western_MRC_Logo-removebg-preview.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  text-align: center;
+  margin: 30px;
+}
+
+#leoville {
+  background-image: url(../assets/images/Leoville.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  text-align: center;
+  margin: 30px;
+}
+
+#stlawrence {
+  background-image: url(../assets/images/StLawrence.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  text-align: center;
+  margin: 30px;
+}
+
+#sthelier {
+  background-image: url(../assets/images/hmrc-logo.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  text-align: center;
+  margin: 30px;
+}
+
+#stbrelade {
+  background-image: url(../assets/images/StBrelade.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  text-align: center;
+  margin: 30px;
+}
+
+#stjohn {
+  background-image: url(../assets/images/StJohnLogo.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  text-align: center;
+  margin: 30px;
+}
+
+#jorc {
+  background-image: url(../assets/images/jersey-logo.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  text-align: center;
+  margin: 30px;
+}
+
+
+#vinchelez {
+  background-image: url(../assets/images/vin-logo.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  text-align: center;
+  margin: 30px;
+}
+
+#logoplaceholder {
+  background-image: url(../assets/images/logoplaceholder.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  text-align: center;
+  margin: 30px;
+}
+
+#resultScores {
+  width: 100%;
+}
+
+.resultColumn {
+  width: 50%;
+  min-width: 715px;
+}
+
+// #awayscoretwobutton {
+// 	margin-left: -100px;
+// }
+
+#awayResultColumn {
+  margin-left: -80px;
+}
+
+.uk-button.uk-button-small.uk-button-default.home-columns {
+	padding: 0px 20px;
+	width: 70px;
+}
+
+.inputresultscontainer {
+	background-color: #072603;
+	margin-top: 10px !important;
+}
+
+#fixtureprofilesecondtitle {
+	font-weight: 100;
+	font-stretch: expanded;
+  color: whitesmoke;
+}
+
+.finishedcheckbox {
+  color: whitesmoke;
+}
+
+// .editButton {
+//   margin-left: -75px;
+// }
+
+// .scoresOne {
+//   width: 50px;
+// }
+
+// .scoresTwo {
+//   width: 50px;
+//   margin-left: -50px;
+// }
+
+// .scoresTotal {
+//   width: 50px;
+//   margin-left: -50px;
+// }
+
+// .playerName {
+//   width: 200px;
+//   text-align: left;
+//   margin-left: -50px;
+// }
+
+#playerTableSearch {
+	height: 38px;
+	margin-top: 1px;
+}
+
+#playerProfileSeasonSelector {
+    width: auto;
+    background-color: #e1e1e1;
+    border-style: solid;
+    border-width: thin;
+    border-color: black;
+}
+
+.playerAverages {
+	display: block ruby;
+	justify-content: inherit;
+}
+
+#playerlefttext {
+  padding-right: 10px;
+}
+
+#playerrighttext {
+  padding-left: 10px;
+}
+
+#contactus {
+  background-color: rgb(225, 225, 225);
+}
+
+#contacttitle {
+  font-weight: 100;
+  font-stretch: expanded;
+  margin-top: 100px;
+}
+
+.contactuscontainer {
+  background-color: rgb(225, 225, 225);
+  height: 500px;
+}
+
+
+.uk-textarea {
+  background-color: rgb(225, 225, 225);
+  border: #000;
+  border-style: solid;
+  border-width: thin;
+}
+
+#nav {
+    background-size: cover;
+  }
+  
+  
+.uk-offcanvas-bar {
+    background-color: #030f26;
+  }
+
+
+  #hamburger {
+    filter: invert(70%) sepia(33%) saturate(6129%) hue-rotate(325deg) brightness(82%) contrast(95%);
+  }
+  
+  
+  #ighidden {
+    color: #cd6148;
+    padding: 0px;
+  }
+  
+  .sidenavlogo {
+    height: 150px;
+    width: 170px;
+    padding: 20px;
+  }
+  
+  #closebutton {
+    outline: none;
+    border: none;
+    background-color: transparent;
+    color: #cd6148;
+    font-size: 20pt;
+  }
+  
+  #mobilemenu {
+  background-color: black;
+  }
+
+  .uk-column-1-2\@s.uk-column-divider {
+    margin-top: 75px;
+  }
+  
+  @media only screen and (max-width: 1250px) {
+    #teamtitle {
+      margin-top: 125px;
+    }
+  }
+
+  @media only screen and (max-width: 1000px) {
+    
+    .footerlogo {
+      width: 100px;
+      height: 100px;
+    }
+    
+    .footertext {
+      font-size: 12px;
+    }
+
+  }
+
+  @media only screen and (max-width: 750px) {
+
+    .footer {
+      padding: 5px;
+    }
+    
+    .footerlogo {
+      width: 50px;
+      height: 50px;
+      padding: 0px;
+    }
+    
+    .footertext {
+      font-size: 10px;
+    }
+
+  }
+
+  @media only screen and (max-width: 810px) {
+
+.homecontainer {
+  background-color: rgb(225, 225, 225);
+  height: 500px;
+}
+
+#abouthero {
+  background-attachment: scroll;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 350px;
+}
+
+.aboutcontainer {
+  background-color: #030f26;
+  height: 550px;
+}
+
+#homehero {
+  background-attachment: scroll;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+
+.logohome {
+  margin-top: 100px;
+}
+
+.paratext {
+width: 600px;
+}
+
+.member {
+  width: 100px;
+  height: 125px;
+  margin: 10px 0px;
+  padding: 0px;
+}
+
+.membertitle {
+  margin-top: 75px;
+  font-size: 10px;
+}
+
+#contactushero {
+  background-attachment: scroll;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#fixtureshero {
+  background-attachment: scroll;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#resultsshero {
+  background-attachment: scroll;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#tableshero {
+  background-attachment: scroll;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+@media only screen and (max-width: 450px) {
+
+  .homecontainer {
+    height: 500px;
+  }
+  
+  #abouthero {
+    background-attachment: scroll;
+    background-size: cover;
+    height: 200px;
+  }
+  
+  .aboutcontainer {
+    background-color: #030f26;
+    height: 1000px;
+  }
+
+  .councilcontainer {
+    height: 1100px;
+  }
+  
+  #homehero {
+    background-attachment: scroll;
+    background-size: cover;
+    height: 300px;
+  }
+  
+  .uk-column-1-2\@s.uk-column-divider {
+    margin-top: 600px;
+  }
+  
+  
+  .logohome {
+    margin-top: 150px;
+  }
+  
+  .paratext {
+  width: 400px;
+  padding: 10px;
+  }
+  
+  .member {
+    width: 100px;
+    height: 125px;
+    margin: 10px 0px;
+    padding: 0px;
+  }
+  
+  .membertitle {
+    margin-top: 75px;
+    font-size: 10px;
+  }
+  
+  #contactushero {
+    background-attachment: scroll;
+    background-size: cover;
+    height: 300px;
+  }
+  
+  #fixtureshero {
+    background-attachment: scroll;
+    background-size: cover;
+    height: 300px;
+  }
+  
+  #resultsshero {
+    background-attachment: scroll;
+    background-size: cover;
+    height: 300px;
+  }
+  
+  #tableshero {
+    background-attachment: scroll;
+    background-size: cover;
+    height: 300px;
+  }
+
+  .footer {
+    padding: 5px;
+  }
+  
+  .footerlogo {
+    display: none;
+  }
+  
+  .privacy {
+    display: none;
+  }
+
+  .footertext {
+    font-size: 10px;
+    text-align: center;
+    margin-right: 20px;
+  }
+
+  #created {
+    margin-left: 20px;
+  }
+
+  .fixturesgrid {
+    height: 669px;
+    width: 400px;
+    background-color: rgb(225, 225, 225);
+  }
+
+}
+
+  
+  }
